@@ -1,0 +1,15 @@
+{"time":"2025-06-10T06:12:39.109458366Z","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-06-10T06:12:39.109534426Z","level":"INFO","msg":"created symlink","path":"/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250610_061239-mhd5ignn/logs/debug-core.log"}
+{"time":"2025-06-10T06:12:39.320341303Z","level":"INFO","msg":"created new stream","id":"mhd5ignn"}
+{"time":"2025-06-10T06:12:39.320378913Z","level":"INFO","msg":"stream: started","id":"mhd5ignn"}
+{"time":"2025-06-10T06:12:39.320436513Z","level":"INFO","msg":"writer: Do: started","stream_id":"mhd5ignn"}
+{"time":"2025-06-10T06:12:39.320440343Z","level":"INFO","msg":"sender: started","stream_id":"mhd5ignn"}
+{"time":"2025-06-10T06:12:39.320497062Z","level":"INFO","msg":"handler: started","stream_id":"mhd5ignn"}
+{"time":"2025-06-10T06:12:39.324803116Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T06:12:41.281735337Z","level":"INFO","msg":"stream: closing","id":"mhd5ignn"}
+{"time":"2025-06-10T06:12:41.281839076Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T06:12:41.282563124Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T06:12:41.282894052Z","level":"INFO","msg":"handler: closed","stream_id":"mhd5ignn"}
+{"time":"2025-06-10T06:12:41.282914142Z","level":"INFO","msg":"writer: Close: closed","stream_id":"mhd5ignn"}
+{"time":"2025-06-10T06:12:41.282917022Z","level":"INFO","msg":"sender: closed","stream_id":"mhd5ignn"}
+{"time":"2025-06-10T06:12:41.283056202Z","level":"INFO","msg":"stream: closed","id":"mhd5ignn"}

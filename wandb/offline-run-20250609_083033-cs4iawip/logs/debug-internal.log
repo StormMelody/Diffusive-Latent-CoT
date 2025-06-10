@@ -1,0 +1,15 @@
+{"time":"2025-06-09T08:30:33.930429299Z","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-06-09T08:30:33.930453258Z","level":"INFO","msg":"created symlink","path":"/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250609_083033-cs4iawip/logs/debug-core.log"}
+{"time":"2025-06-09T08:30:34.140983723Z","level":"INFO","msg":"created new stream","id":"cs4iawip"}
+{"time":"2025-06-09T08:30:34.141032793Z","level":"INFO","msg":"stream: started","id":"cs4iawip"}
+{"time":"2025-06-09T08:30:34.141095023Z","level":"INFO","msg":"writer: Do: started","stream_id":"cs4iawip"}
+{"time":"2025-06-09T08:30:34.141138832Z","level":"INFO","msg":"handler: started","stream_id":"cs4iawip"}
+{"time":"2025-06-09T08:30:34.141202772Z","level":"INFO","msg":"sender: started","stream_id":"cs4iawip"}
+{"time":"2025-06-09T08:30:34.145607091Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-09T08:30:36.30149146Z","level":"INFO","msg":"stream: closing","id":"cs4iawip"}
+{"time":"2025-06-09T08:30:36.30155589Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-09T08:30:36.302520565Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-09T08:30:36.302715654Z","level":"INFO","msg":"handler: closed","stream_id":"cs4iawip"}
+{"time":"2025-06-09T08:30:36.302725494Z","level":"INFO","msg":"writer: Close: closed","stream_id":"cs4iawip"}
+{"time":"2025-06-09T08:30:36.302764154Z","level":"INFO","msg":"sender: closed","stream_id":"cs4iawip"}
+{"time":"2025-06-09T08:30:36.302851363Z","level":"INFO","msg":"stream: closed","id":"cs4iawip"}

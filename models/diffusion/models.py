@@ -277,7 +277,25 @@ class GaussianDiffusion:
 
         B, C = x.shape[:2]
         assert t.shape == (B,)
-        model_output = model(x, t, past_key_values=past_key_values, **model_kwargs)
+        # model_output = model(x, t, past_key_values=past_key_values, **model_kwargs)
+        # import pdb; pdb.set_trace()
+        # model_output, kv_cache = model(th.cat([model_kwargs['z'], x, t], dim=1))
+        # 将t扩展为与x相同的维度
+        t_expanded = t.view(B, 1, 1).expand(B, 1, x.shape[2])
+        # 这个到底要怎么传过去
+        # import pdb; pdb.set_trace()
+        # model_output, kv_cache = model(th.cat([model_kwargs['z'], x], dim=1), t)
+        model_kwargs_copy = model_kwargs.copy()
+        if 'z' in model_kwargs_copy:
+            del model_kwargs_copy['z']
+        
+        # model_output, kv_cache, hidden_states = model(x, ts=t, **model_kwargs_copy) #odict_keys(['last_hidden_state', 'past_key_values', 'hidden_states'])
+        model_output = model(x, ts=t, **model_kwargs_copy)['last_hidden_state']
+        kv_cache = model(x, ts=t, **model_kwargs_copy)['past_key_values']
+        hidden_states = model(x, ts=t, **model_kwargs_copy)['hidden_states']
+        
+        model_output = self._predict_eps_from_xstart(x, t, model_output)
+        
         if isinstance(model_output, tuple):
             extra, model_output = model_output
         else:
@@ -338,7 +356,7 @@ class GaussianDiffusion:
             "log_variance": model_log_variance,
             "pred_xstart": pred_xstart,
             "extra": extra,
-        }
+        }, kv_cache
 
     def _predict_xstart_from_eps(self, x_t, t, eps):
         assert x_t.shape == eps.shape
@@ -408,7 +426,7 @@ class GaussianDiffusion:
                  - 'sample': a random sample from the model.
                  - 'pred_xstart': a prediction of x_0.
         """
-        out = self.p_mean_variance(
+        out, kv_cache = self.p_mean_variance(
             model,
             x,
             t,
@@ -423,7 +441,7 @@ class GaussianDiffusion:
         if cond_fn is not None:
             out["mean"] = self.condition_mean(cond_fn, out, x, t, model_kwargs=model_kwargs)
         sample = out["mean"] + nonzero_mask * th.exp(0.5 * out["log_variance"]) * noise
-        return {"sample": sample, "pred_xstart": out["pred_xstart"]}
+        return {"sample": sample, "pred_xstart": out["pred_xstart"], "kv_cache": kv_cache}
 
     def p_sample_loop(
         self,
@@ -468,7 +486,7 @@ class GaussianDiffusion:
             progress=progress,
         ):
             final = sample
-        return final["sample"]
+        return final
 
     def p_sample_loop_progressive(
         self,
@@ -535,6 +553,7 @@ class GaussianDiffusion:
         Sample x_{t-1} from the model using DDIM.
         Same usage as p_sample().
         """
+        import pdb; pdb.set_trace()
         out = self.p_mean_variance(
             model,
             x,

@@ -1,0 +1,15 @@
+{"time":"2025-06-08T08:08:56.53672501Z","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-06-08T08:08:56.53677134Z","level":"INFO","msg":"created symlink","path":"/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250608_080856-zxgbrj4k/logs/debug-core.log"}
+{"time":"2025-06-08T08:08:56.746617365Z","level":"INFO","msg":"created new stream","id":"zxgbrj4k"}
+{"time":"2025-06-08T08:08:56.746674425Z","level":"INFO","msg":"stream: started","id":"zxgbrj4k"}
+{"time":"2025-06-08T08:08:56.746701495Z","level":"INFO","msg":"handler: started","stream_id":"zxgbrj4k"}
+{"time":"2025-06-08T08:08:56.746756985Z","level":"INFO","msg":"writer: Do: started","stream_id":"zxgbrj4k"}
+{"time":"2025-06-08T08:08:56.746745315Z","level":"INFO","msg":"sender: started","stream_id":"zxgbrj4k"}
+{"time":"2025-06-08T08:08:56.750399108Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-08T08:08:57.987151924Z","level":"INFO","msg":"stream: closing","id":"zxgbrj4k"}
+{"time":"2025-06-08T08:08:57.987193664Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-08T08:08:57.987793961Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-08T08:08:57.98793094Z","level":"INFO","msg":"handler: closed","stream_id":"zxgbrj4k"}
+{"time":"2025-06-08T08:08:57.98793916Z","level":"INFO","msg":"writer: Close: closed","stream_id":"zxgbrj4k"}
+{"time":"2025-06-08T08:08:57.98797551Z","level":"INFO","msg":"sender: closed","stream_id":"zxgbrj4k"}
+{"time":"2025-06-08T08:08:57.98800366Z","level":"INFO","msg":"stream: closed","id":"zxgbrj4k"}

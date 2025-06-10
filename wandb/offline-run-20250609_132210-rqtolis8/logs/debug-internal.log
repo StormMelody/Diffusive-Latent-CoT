@@ -1,0 +1,15 @@
+{"time":"2025-06-09T13:22:10.879222806Z","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-06-09T13:22:10.879290876Z","level":"INFO","msg":"created symlink","path":"/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250609_132210-rqtolis8/logs/debug-core.log"}
+{"time":"2025-06-09T13:22:11.090341315Z","level":"INFO","msg":"created new stream","id":"rqtolis8"}
+{"time":"2025-06-09T13:22:11.090380675Z","level":"INFO","msg":"stream: started","id":"rqtolis8"}
+{"time":"2025-06-09T13:22:11.090451015Z","level":"INFO","msg":"writer: Do: started","stream_id":"rqtolis8"}
+{"time":"2025-06-09T13:22:11.090492345Z","level":"INFO","msg":"sender: started","stream_id":"rqtolis8"}
+{"time":"2025-06-09T13:22:11.090554564Z","level":"INFO","msg":"handler: started","stream_id":"rqtolis8"}
+{"time":"2025-06-09T13:22:11.094599987Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-09T13:22:32.805129669Z","level":"INFO","msg":"stream: closing","id":"rqtolis8"}
+{"time":"2025-06-09T13:22:32.805189519Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-09T13:22:32.805876466Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-09T13:22:32.806172115Z","level":"INFO","msg":"handler: closed","stream_id":"rqtolis8"}
+{"time":"2025-06-09T13:22:32.806189665Z","level":"INFO","msg":"writer: Close: closed","stream_id":"rqtolis8"}
+{"time":"2025-06-09T13:22:32.806239795Z","level":"INFO","msg":"sender: closed","stream_id":"rqtolis8"}
+{"time":"2025-06-09T13:22:32.806304814Z","level":"INFO","msg":"stream: closed","id":"rqtolis8"}

@@ -1,0 +1,15 @@
+{"time":"2025-06-10T12:53:06.099941853Z","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-06-10T12:53:06.099964972Z","level":"INFO","msg":"created symlink","path":"/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250610_125306-sfxjx1v1/logs/debug-core.log"}
+{"time":"2025-06-10T12:53:06.411323692Z","level":"INFO","msg":"created new stream","id":"sfxjx1v1"}
+{"time":"2025-06-10T12:53:06.411387382Z","level":"INFO","msg":"stream: started","id":"sfxjx1v1"}
+{"time":"2025-06-10T12:53:06.411454552Z","level":"INFO","msg":"writer: Do: started","stream_id":"sfxjx1v1"}
+{"time":"2025-06-10T12:53:06.41179043Z","level":"INFO","msg":"handler: started","stream_id":"sfxjx1v1"}
+{"time":"2025-06-10T12:53:06.41180911Z","level":"INFO","msg":"sender: started","stream_id":"sfxjx1v1"}
+{"time":"2025-06-10T12:53:06.43293151Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T12:58:42.467859013Z","level":"INFO","msg":"stream: closing","id":"sfxjx1v1"}
+{"time":"2025-06-10T12:58:42.467899283Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T12:58:42.46875584Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T12:58:42.46889556Z","level":"INFO","msg":"handler: closed","stream_id":"sfxjx1v1"}
+{"time":"2025-06-10T12:58:42.46890303Z","level":"INFO","msg":"writer: Close: closed","stream_id":"sfxjx1v1"}
+{"time":"2025-06-10T12:58:42.468914109Z","level":"INFO","msg":"sender: closed","stream_id":"sfxjx1v1"}
+{"time":"2025-06-10T12:58:42.468989299Z","level":"INFO","msg":"stream: closed","id":"sfxjx1v1"}

@@ -1,0 +1,15 @@
+{"time":"2025-06-09T12:30:09.266042838Z","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-06-09T12:30:09.266090808Z","level":"INFO","msg":"created symlink","path":"/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250609_123009-d5gvk644/logs/debug-core.log"}
+{"time":"2025-06-09T12:30:09.476631294Z","level":"INFO","msg":"created new stream","id":"d5gvk644"}
+{"time":"2025-06-09T12:30:09.476671544Z","level":"INFO","msg":"stream: started","id":"d5gvk644"}
+{"time":"2025-06-09T12:30:09.476707944Z","level":"INFO","msg":"writer: Do: started","stream_id":"d5gvk644"}
+{"time":"2025-06-09T12:30:09.476750803Z","level":"INFO","msg":"handler: started","stream_id":"d5gvk644"}
+{"time":"2025-06-09T12:30:09.476792943Z","level":"INFO","msg":"sender: started","stream_id":"d5gvk644"}
+{"time":"2025-06-09T12:30:09.480828109Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-09T12:30:10.709957216Z","level":"INFO","msg":"stream: closing","id":"d5gvk644"}
+{"time":"2025-06-09T12:30:10.710007046Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-09T12:30:10.710655934Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-09T12:30:10.710884793Z","level":"INFO","msg":"handler: closed","stream_id":"d5gvk644"}
+{"time":"2025-06-09T12:30:10.710897803Z","level":"INFO","msg":"writer: Close: closed","stream_id":"d5gvk644"}
+{"time":"2025-06-09T12:30:10.710905923Z","level":"INFO","msg":"sender: closed","stream_id":"d5gvk644"}
+{"time":"2025-06-09T12:30:10.711104692Z","level":"INFO","msg":"stream: closed","id":"d5gvk644"}

@@ -1,0 +1,15 @@
+{"time":"2025-06-08T08:12:01.840513329Z","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-06-08T08:12:01.840541829Z","level":"INFO","msg":"created symlink","path":"/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250608_081201-w9p8bk9w/logs/debug-core.log"}
+{"time":"2025-06-08T08:12:02.051918727Z","level":"INFO","msg":"created new stream","id":"w9p8bk9w"}
+{"time":"2025-06-08T08:12:02.051970017Z","level":"INFO","msg":"stream: started","id":"w9p8bk9w"}
+{"time":"2025-06-08T08:12:02.052020167Z","level":"INFO","msg":"writer: Do: started","stream_id":"w9p8bk9w"}
+{"time":"2025-06-08T08:12:02.052032397Z","level":"INFO","msg":"handler: started","stream_id":"w9p8bk9w"}
+{"time":"2025-06-08T08:12:02.052067787Z","level":"INFO","msg":"sender: started","stream_id":"w9p8bk9w"}
+{"time":"2025-06-08T08:12:02.056205048Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-08T08:12:03.12494767Z","level":"INFO","msg":"stream: closing","id":"w9p8bk9w"}
+{"time":"2025-06-08T08:12:03.125027479Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-08T08:12:03.125683637Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-08T08:12:03.125869016Z","level":"INFO","msg":"handler: closed","stream_id":"w9p8bk9w"}
+{"time":"2025-06-08T08:12:03.125878836Z","level":"INFO","msg":"writer: Close: closed","stream_id":"w9p8bk9w"}
+{"time":"2025-06-08T08:12:03.125882736Z","level":"INFO","msg":"sender: closed","stream_id":"w9p8bk9w"}
+{"time":"2025-06-08T08:12:03.125952455Z","level":"INFO","msg":"stream: closed","id":"w9p8bk9w"}

@@ -125,4 +125,6 @@ class _WrappedModel:
     def __call__(self, x, ts, **kwargs):
         map_tensor = th.tensor(self.timestep_map, device=ts.device, dtype=ts.dtype)
         new_ts = map_tensor[ts]
-        return self.model(x, new_ts, **kwargs)
+        # import pdb; pdb.set_trace()
+        # return self.model(inputs_embeds=x, ts=new_ts, **kwargs)
+        return self.model(inputs_embeds=x, output_hidden_states=True, **kwargs)
