@@ -1,0 +1,8 @@
+{"time":"2025-06-11T08:38:32.979979901Z","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-06-11T08:38:32.980029371Z","level":"INFO","msg":"created symlink","path":"/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250611_083832-8mr4n6cq/logs/debug-core.log"}
+{"time":"2025-06-11T08:38:33.190863995Z","level":"INFO","msg":"created new stream","id":"8mr4n6cq"}
+{"time":"2025-06-11T08:38:33.190906524Z","level":"INFO","msg":"stream: started","id":"8mr4n6cq"}
+{"time":"2025-06-11T08:38:33.190970944Z","level":"INFO","msg":"writer: Do: started","stream_id":"8mr4n6cq"}
+{"time":"2025-06-11T08:38:33.191024743Z","level":"INFO","msg":"handler: started","stream_id":"8mr4n6cq"}
+{"time":"2025-06-11T08:38:33.191049013Z","level":"INFO","msg":"sender: started","stream_id":"8mr4n6cq"}
+{"time":"2025-06-11T08:38:33.195356573Z","level":"INFO","msg":"Starting system monitor"}

@@ -41,6 +41,7 @@ class DiffusiveCoT(nn.Module):
         question,   # [batch_size, 1, 768]
         steps,      # [batch_size, 7, 768]
         answer,     # [batch_size, 1, 768]
+        answer_label,
         output_hidden_states: bool = False,
         use_ddim: bool = False,
         num_ddim_steps: int = 10,
@@ -49,7 +50,11 @@ class DiffusiveCoT(nn.Module):
         sample_fn = self.base_causallm.forward
         cot_pred = []
         B, S, D = steps.shape
-
+        if isinstance(self.base_causallm, GPT2LMHeadModel):
+            # embedding为词嵌入层，能够通过token_id获取对应的embedding
+            self.embedding = self.base_causallm.transformer.get_input_embeddings()
+        answer_inputs_embeds = self.embedding(answer)   # 通过answer的token_id获取embedding
+        # import pdb; pdb.set_trace()
         # 每次循环处理一个step，S为step的步数
         for i in range(S-1):
             timestep = torch.randint(
@@ -61,7 +66,7 @@ class DiffusiveCoT(nn.Module):
             noise = torch.randn_like(steps[:, i+1:i+2])  # [B, T, C]
             x = self.diffusion.q_sample(steps[:, i+1:i+2], timestep, noise)
             model_kwargs = dict(z=question)
-            # 将steps和x拼接起来，再通过mlp降维，作为输入
+            # 将上一步的step和当前的噪声x拼接起来，再通过mlp降维，作为输入，预测下一步step
             input_embedding = self.adaptor(torch.cat([steps[:, i:i+1], x], dim=2))
             # DDPM Sampling
             samples = self.diffusion.p_sample_loop(sample_fn, 
@@ -83,13 +88,19 @@ class DiffusiveCoT(nn.Module):
             # import pdb;pdb.set_trace()
             answer_pred = self.base_causallm(
                 # inputs_embeds=torch.cat([answer,steps,answer[:,:i]], dim=1),
-                inputs_embeds = answer[:, i-1:i] if i>0 else steps[:,-1:],
+                inputs_embeds = answer_inputs_embeds[:, i-1:i] if i>0 else steps[:,-1:],
                 past_key_values=past_key_values,
-                output_hidden_states=False,
+                output_hidden_states=True,
             )
             
-            import pdb; pdb.set_trace()
-            answer_loss += self.CEloss(answer_pred['last_hidden_state'][:,i], answer[:,i])
+            # import pdb; pdb.set_trace()
+            #TODO:answer和cot的loss需要用logits而不是embedding计算。
+            # answer_loss += self.CEloss(answer_pred['last_hidden_state'][:,i], answer[:,i])
+            # answer_loss += self.CEloss(answer_pred['hidden_states'][-1][:,i], answer[:,i])
+            answer_loss += self.CEloss(
+                answer_pred['logits'].view(-1, answer_pred['logits'].size(-1)),
+                answer_label[:,i].view(-1)
+                )
             past_key_values = answer_pred['past_key_values']
 
         return cot_loss + answer_loss

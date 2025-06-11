@@ -1,0 +1,15 @@
+{"time":"2025-06-11T06:43:33.209205654Z","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-06-11T06:43:33.209248834Z","level":"INFO","msg":"created symlink","path":"/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250611_064333-jaxj3its/logs/debug-core.log"}
+{"time":"2025-06-11T06:43:33.319243358Z","level":"INFO","msg":"created new stream","id":"jaxj3its"}
+{"time":"2025-06-11T06:43:33.319308617Z","level":"INFO","msg":"stream: started","id":"jaxj3its"}
+{"time":"2025-06-11T06:43:33.319400607Z","level":"INFO","msg":"sender: started","stream_id":"jaxj3its"}
+{"time":"2025-06-11T06:43:33.319406057Z","level":"INFO","msg":"writer: Do: started","stream_id":"jaxj3its"}
+{"time":"2025-06-11T06:43:33.319437127Z","level":"INFO","msg":"handler: started","stream_id":"jaxj3its"}
+{"time":"2025-06-11T06:43:33.325622891Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-11T06:48:23.565652801Z","level":"INFO","msg":"stream: closing","id":"jaxj3its"}
+{"time":"2025-06-11T06:48:23.565719051Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-11T06:48:23.566804146Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-11T06:48:23.567157535Z","level":"INFO","msg":"handler: closed","stream_id":"jaxj3its"}
+{"time":"2025-06-11T06:48:23.567190075Z","level":"INFO","msg":"writer: Close: closed","stream_id":"jaxj3its"}
+{"time":"2025-06-11T06:48:23.567218975Z","level":"INFO","msg":"sender: closed","stream_id":"jaxj3its"}
+{"time":"2025-06-11T06:48:23.567270714Z","level":"INFO","msg":"stream: closed","id":"jaxj3its"}

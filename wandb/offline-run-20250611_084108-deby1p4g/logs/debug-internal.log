@@ -1,0 +1,8 @@
+{"time":"2025-06-11T08:41:08.32385953Z","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-06-11T08:41:08.323940829Z","level":"INFO","msg":"created symlink","path":"/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250611_084108-deby1p4g/logs/debug-core.log"}
+{"time":"2025-06-11T08:41:08.534200435Z","level":"INFO","msg":"created new stream","id":"deby1p4g"}
+{"time":"2025-06-11T08:41:08.534227674Z","level":"INFO","msg":"stream: started","id":"deby1p4g"}
+{"time":"2025-06-11T08:41:08.534295254Z","level":"INFO","msg":"writer: Do: started","stream_id":"deby1p4g"}
+{"time":"2025-06-11T08:41:08.534321214Z","level":"INFO","msg":"sender: started","stream_id":"deby1p4g"}
+{"time":"2025-06-11T08:41:08.534406203Z","level":"INFO","msg":"handler: started","stream_id":"deby1p4g"}
+{"time":"2025-06-11T08:41:08.5384701Z","level":"INFO","msg":"Starting system monitor"}

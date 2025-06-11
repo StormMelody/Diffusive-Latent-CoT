@@ -1,0 +1,15 @@
+{"time":"2025-06-11T05:57:22.684468357Z","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-06-11T05:57:22.684518986Z","level":"INFO","msg":"created symlink","path":"/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250611_055722-ehus7azy/logs/debug-core.log"}
+{"time":"2025-06-11T05:57:22.794459277Z","level":"INFO","msg":"created new stream","id":"ehus7azy"}
+{"time":"2025-06-11T05:57:22.794504217Z","level":"INFO","msg":"stream: started","id":"ehus7azy"}
+{"time":"2025-06-11T05:57:22.794532357Z","level":"INFO","msg":"writer: Do: started","stream_id":"ehus7azy"}
+{"time":"2025-06-11T05:57:22.794568537Z","level":"INFO","msg":"sender: started","stream_id":"ehus7azy"}
+{"time":"2025-06-11T05:57:22.794609857Z","level":"INFO","msg":"handler: started","stream_id":"ehus7azy"}
+{"time":"2025-06-11T05:57:22.798475894Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-11T05:58:06.621766573Z","level":"INFO","msg":"stream: closing","id":"ehus7azy"}
+{"time":"2025-06-11T05:58:06.621833283Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-11T05:58:06.6226481Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-11T05:58:06.622904379Z","level":"INFO","msg":"handler: closed","stream_id":"ehus7azy"}
+{"time":"2025-06-11T05:58:06.622920549Z","level":"INFO","msg":"writer: Close: closed","stream_id":"ehus7azy"}
+{"time":"2025-06-11T05:58:06.622971299Z","level":"INFO","msg":"sender: closed","stream_id":"ehus7azy"}
+{"time":"2025-06-11T05:58:06.623011099Z","level":"INFO","msg":"stream: closed","id":"ehus7azy"}

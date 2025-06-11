@@ -290,7 +290,9 @@ class GaussianDiffusion:
             del model_kwargs_copy['z']
         
         # model_output, kv_cache, hidden_states = model(x, ts=t, **model_kwargs_copy) #odict_keys(['last_hidden_state', 'past_key_values', 'hidden_states'])
-        model_output = model(x, ts=t, **model_kwargs_copy)['last_hidden_state']
+        # import pdb; pdb.set_trace()
+        # model_output = model(x, ts=t, **model_kwargs_copy)['last_hidden_state']
+        model_output = model(x, ts=t, **model_kwargs_copy)['hidden_states'][-1]
         kv_cache = model(x, ts=t, **model_kwargs_copy)['past_key_values']
         hidden_states = model(x, ts=t, **model_kwargs_copy)['hidden_states']
         
