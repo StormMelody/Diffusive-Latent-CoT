@@ -1,0 +1,20 @@
+2025-06-12 02:32:26,934 INFO    MainThread:2241967 [internal.py:wandb_internal():90] W&B internal server running at pid: 2241967, started at: 2025-06-12 02:32:26.933864
+2025-06-12 02:32:26,936 INFO    WriterThread:2241967 [datastore.py:open_for_write():75] open: /data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250612_023226-zdb08dm2/run-zdb08dm2.wandb
+2025-06-12 02:32:26,936 DEBUG   HandlerThread:2241967 [handler.py:handle_request():141] handle_request: run_start
+2025-06-12 02:32:26,951 DEBUG   HandlerThread:2241967 [meta.py:__init__():35] meta init
+2025-06-12 02:32:26,951 DEBUG   HandlerThread:2241967 [meta.py:__init__():49] meta init done
+2025-06-12 02:32:26,951 DEBUG   HandlerThread:2241967 [meta.py:probe():209] probe
+2025-06-12 02:32:26,960 DEBUG   HandlerThread:2241967 [meta.py:_setup_git():199] setup git
+2025-06-12 02:32:26,970 DEBUG   HandlerThread:2241967 [meta.py:_setup_git():206] setup git done
+2025-06-12 02:32:26,970 DEBUG   HandlerThread:2241967 [meta.py:_save_pip():53] save pip
+2025-06-12 02:32:26,971 DEBUG   HandlerThread:2241967 [meta.py:_save_pip():67] save pip done
+2025-06-12 02:32:26,971 DEBUG   HandlerThread:2241967 [meta.py:_save_conda():74] save conda
+2025-06-12 02:32:29,965 DEBUG   HandlerThread:2241967 [meta.py:_save_conda():84] save conda done
+2025-06-12 02:32:29,965 DEBUG   HandlerThread:2241967 [meta.py:probe():247] probe done
+2025-06-12 02:33:21,475 WARNING MainThread:2241967 [internal.py:wandb_internal():153] Internal process interrupt: 1
+2025-06-12 02:33:23,144 WARNING MainThread:2241967 [internal.py:wandb_internal():153] Internal process interrupt: 2
+2025-06-12 02:33:23,144 ERROR   MainThread:2241967 [internal.py:wandb_internal():156] Internal process interrupted.
+2025-06-12 02:33:23,948 INFO    SenderThread:2241967 [sender.py:finish():1111] shutting down sender
+2025-06-12 02:33:24,064 INFO    WriterThread:2241967 [datastore.py:close():279] close: /data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250612_023226-zdb08dm2/run-zdb08dm2.wandb
+2025-06-12 02:33:24,090 INFO    HandlerThread:2241967 [handler.py:finish():806] shutting down handler
+2025-06-12 02:33:24,092 INFO    MainThread:2241967 [internal.py:handle_exit():80] Internal process exited

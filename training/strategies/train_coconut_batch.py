@@ -20,27 +20,17 @@ from typing import Optional
 import torch.nn.utils.rnn as rnn_utils
 from transformers.models.gpt2 import GPT2LMHeadModel
 
-def custom_collate_fn(batch):
-    questions, answers, steps_list = zip(*batch)
-    
-    # Stack questions and answers (these should have consistent shapes)
-    questions = torch.stack(questions, dim=0)
-    answers = [tensor.squeeze(0) for tensor in answers]
-    answers_padded = rnn_utils.pad_sequence(answers, batch_first=True, padding_value=50256)
-    ansers_label_padded = rnn_utils.pad_sequence(answers, batch_first=True, padding_value=-100)
-    # Handle variable-length steps using padding
-    # Pad steps to the same length
-    steps_padded = rnn_utils.pad_sequence(steps_list, batch_first=True, padding_value=0)
-    
-    return questions, answers_padded, steps_padded, ansers_label_padded
 class GSM8KDataset(Dataset):
 
-    def __init__(self, data, tokenizer=None, max_length=512, embedding_model=None,debug=False, debug_samples=4):
+    def __init__(self, data, tokenizer=None, max_length=512, embedding_model=None, debug=False, debug_samples=4):
         """
         初始化数据集
         :param data: 可以是包含样本的列表，或JSON文件的路径
         :param tokenizer: 用于文本编码的tokenizer（如Hugging Face的tokenizer）
         :param max_length: 输入序列的最大长度
+        :param embedding_model: 用于生成嵌入的模型
+        :param debug: 是否使用调试模式（只使用少量样本）
+        :param debug_samples: 调试模式下使用的样本数量
         """
         if isinstance(data, str):
             # 如果输入是文件路径，则加载JSON文件
@@ -54,83 +44,129 @@ class GSM8KDataset(Dataset):
         self.tokenizer = tokenizer
         self.max_length = max_length
         self.embedding_model = embedding_model
+        self.device = next(embedding_model.parameters()).device if embedding_model is not None else 'cpu'
+        
+        # 预处理和过滤数据，移除空steps的样本
+        self._preprocess_data()
+        
+        # 缓存，用于存储已计算的嵌入
+        self.embedding_cache = {}
+
+    def _preprocess_data(self):
+        """
+        预处理数据，移除无效样本
+        """
+        valid_data = []
+        for idx, sample in enumerate(self.data):
+            if len(sample.get('steps', [])) > 0:
+                valid_data.append(sample)
+            else:
+                print(f"Warning: Removing sample with empty steps at index {idx}")
+                print(f"Question: {sample.get('question', 'N/A')}")
+                print(f"Answer: {sample.get('answer', 'N/A')}")
+        
+        self.data = valid_data
+        print(f"Preprocessed dataset contains {len(self.data)} valid samples")
 
     def __len__(self):
         """返回数据集中的样本数量"""
         return len(self.data)
 
+    def _get_embedding(self, text, is_step=False):
+        """
+        获取文本的嵌入向量，使用缓存避免重复计算
+        """
+        cache_key = f"{text}_{is_step}"
+        if cache_key in self.embedding_cache:
+            return self.embedding_cache[cache_key]
+        
+        try:
+            # 将数据移动到模型所在的设备
+            inputs = self.tokenizer(text, padding=True, truncation=True, return_tensors='pt').to(self.device)
+            with torch.no_grad():  # 不需要梯度计算
+                outputs = self.embedding_model(**inputs, output_hidden_states=True)
+                embedding = outputs.hidden_states[-1]  # 使用最后一层的hidden_states
+                
+                if is_step:
+                    # 对于step，我们需要squeeze并取平均
+                    embedding = embedding.squeeze(0).mean(dim=0)  # [768]
+                else:
+                    # 对于question，我们需要取平均
+                    embedding = embedding.mean(dim=1)  # [1, 768]
+            
+            # 存入缓存
+            self.embedding_cache[cache_key] = embedding
+            return embedding
+        except Exception as e:
+            print(f"Error generating embedding for text: {e}")
+            print(f"Text content: '{text}'")
+            return None
+
     def __getitem__(self, idx):
+        """
+        获取数据集中的一个样本
+        """
+        # 如果索引超出范围，返回第一个样本
+        if idx >= len(self.data):
+            idx = 0
+            
         sample = self.data[idx]
         
         # 提取原始文本字段
-        '''
-        sample = {'question': 'Out of 600 employees in a company, 30% got promoted while 10% received bonus. How many employees did not get either a promotion or a bonus?', 'steps': ['<<600*30/100=180>>', '<<600*10/100=60>>', '<<180+60=240>>', '<<600-240=360>>'], 'answer': '360'}
-        question = 'Out of 600 employees in a company, 30% got promoted while 10% received bonus. How many employees did not get either a promotion or a bonus?'
-        '''
         question = sample['question']
         answer = sample['answer']
-        original_steps = []
-        original_steps.append('<BOD>')
-        original_steps.extend(sample['steps'])  # 保存原始steps数据
-        original_steps.append('<EOD>')
-        # 检查steps是否为空
-        if len(sample['steps']) == 0:
-            print(f"Warning: Empty steps found for item {idx}")
-            print(f"Question: {question}")
-            print(f"Answer: {answer}")
-            # 递归调用下一个索引，直到找到有效的样本或达到数据集末尾
-            if idx + 1 < len(self.data):
-                return self.__getitem__(idx + 1)
-            else:
-                # 如果已经是最后一个样本，返回一个默认值或第一个样本
-                return self.__getitem__(0)
-                
-        # 获取embedding_model的设备
-        device = next(self.embedding_model.parameters()).device
-        # self.tokenizer(question, padding=True, truncation=True, return_tensors='pt') 方法会返回一个字典，包含了分词后的各种信息（如 input_ids 、 attention_mask 等）。
-        # ** 则会将这个字典解包，并作为关键字参数传递给 embedding_model 方法，以获取对应的嵌入向量。
-        # 最后进行池化，就变成了[1, 1, 768]
-        # question = self.embedding_model(**self.tokenizer(question, padding=True, truncation=True, return_tensors='pt').to(device))['last_hidden_state'].mean(dim=1)
-        # answer = self.embedding_model(**self.tokenizer(answer, padding=True, truncation=True, return_tensors='pt').to(device))['last_hidden_state'].mean(dim=1)
-        # 使用output_hidden_states=True获取隐藏状态
-        question_output = self.embedding_model(**self.tokenizer(question, padding=True, truncation=True, return_tensors='pt').to(device), output_hidden_states=True)
-        question = question_output.hidden_states[-1].mean(dim=1)  # 使用最后一层的hidden_states
-        # answer_output = self.embedding_model(**self.tokenizer(answer, padding=True, truncation=True, return_tensors='pt').to(device), output_hidden_states=True)
-        # answer = answer_output.hidden_states[-1].mean(dim=1)  # 使用最后一层的hidden_states
-        tokenizer_output = tokenizer(answer + tokenizer.eos_token, padding=True, truncation=True, return_tensors='pt')
+        
+        # 处理steps
+        original_steps = ['<BOD>'] + sample['steps'] + ['<EOD>']
+        
+        # 获取question的嵌入
+        question_embedding = self._get_embedding(question)
+        if question_embedding is None:
+            # 如果获取嵌入失败，尝试下一个样本
+            return self.__getitem__((idx + 1) % len(self.data))
+        
+        # 处理answer的token ids
+        tokenizer_output = self.tokenizer(answer + self.tokenizer.eos_token, padding=True, truncation=True, return_tensors='pt')
         answer_token_ids = tokenizer_output.input_ids
-        steps = []  # 用于存储处理后的steps
-        for i in range(len(original_steps)):  # 使用original_steps的长度
-            # 检查步骤是否为空字符串，如果是则跳过
-            if not original_steps[i]:
-                print(f"Warning: Empty step found at position {i} for item {idx}")
+        
+        # 处理steps的嵌入
+        steps_embeddings = []
+        for step in original_steps:
+            if not step:
                 continue
                 
-            try:
-                # 去掉.mean(dim=1)，直接使用.squeeze()来移除多余维度
-                # step_embedding = self.embedding_model(**self.tokenizer(original_steps[i], padding=True, truncation=True, return_tensors='pt').to(device))['last_hidden_state']
-                step_output = self.embedding_model(**self.tokenizer(original_steps[i], padding=True, truncation=True, return_tensors='pt').to(device), output_hidden_states=True)
-                step_embedding = step_output.hidden_states[-1]  # 使用最后一层的hidden_states
-                # 取第一个token的embedding或者mean pooling，但保持2维
-                # 取第一个token的embedding或者mean pooling，但保持2维
-                steps.append(step_embedding.squeeze(0).mean(dim=0))  # [768]
-            except Exception as e:
-                print(f"Error processing step {i} for item {idx}: {e}")
-                print(f"Step content: '{original_steps[i]}'")
-                # 如果处理步骤时出错，跳过该步骤
-                continue
-                
-        # 确保至少有一个步骤，否则递归调用下一个样本
-        if len(steps) == 0:
+            step_embedding = self._get_embedding(step, is_step=True)
+            if step_embedding is not None:
+                steps_embeddings.append(step_embedding)
+        
+        # 确保至少有一个步骤
+        if len(steps_embeddings) == 0:
             print(f"Warning: No valid steps found for item {idx}")
-            if idx + 1 < len(self.data):
-                return self.__getitem__(idx + 1)
-            else:
-                return self.__getitem__(0)
-                
-        steps = torch.stack(steps, dim=0)  # [num_steps, 768]
-        # 返回tokenized后的结果
-        return question, answer_token_ids, steps
+            return self.__getitem__((idx + 1) % len(self.data))
+        
+        steps_tensor = torch.stack(steps_embeddings, dim=0)  # [num_steps, 768]
+        
+        # 返回处理后的结果
+        return question_embedding, answer_token_ids, steps_tensor
+
+    def collate_fn(batch):
+        """
+        自定义的collate函数，用于DataLoader
+        """
+        questions, answers, steps_list = zip(*batch)
+        
+        # Stack questions (these should have consistent shapes)
+        questions = torch.cat(questions, dim=0)
+        
+        # Process answers
+        answers = [tensor.squeeze(0) for tensor in answers]
+        answers_padded = rnn_utils.pad_sequence(answers, batch_first=True, padding_value=50256)
+        answers_label_padded = rnn_utils.pad_sequence(answers, batch_first=True, padding_value=-100)
+        
+        # Handle variable-length steps using padding
+        steps_padded = rnn_utils.pad_sequence(steps_list, batch_first=True, padding_value=0)
+        
+        return questions, answers_padded, steps_padded, answers_label_padded
 
 # Initialize Overwatch =>> Wraps `logging.Logger`
 overwatch = None # Will be initialized in main() with distributed parameters
@@ -160,7 +196,8 @@ def main(
     max_steps: Optional[int] = None,
     enable_mixed_precision_training: bool = True,
     mixed_precision_dtype: torch.dtype = torch.bfloat16,
-    world_size: int = 1 # Added for DDP
+    world_size: int = 1, # Added for DDP
+    resume_from: Optional[str] = None # 添加恢复训练的参数
     ) -> None:
 
     if world_size > 1:
@@ -174,7 +211,7 @@ def main(
         dataset,
         batch_size=batch_size,
         sampler=sampler,
-        collate_fn=custom_collate_fn,
+        collate_fn=GSM8KDataset.collate_fn,
         shuffle=False if sampler else True, # Shuffle is handled by DistributedSampler
         num_workers=4, # Adjust as needed
         pin_memory=True # Recommended for DDP
@@ -188,11 +225,20 @@ def main(
     CoTModel = CoTModel.to(device)
     if world_size > 1:
         CoTModel = DDP(CoTModel, device_ids=[local_rank], find_unused_parameters=True)
-    optimizer = AdamW(CoTModel.parameters(), lr=1e-4)
+    optimizer = AdamW(CoTModel.parameters(), lr=learning_rate)
+    lr_scheduler = torch.optim.lr_scheduler.StepLR(
+        optimizer,
+        step_size=1000,
+        gamma=0.99
+    )
     print(f"Learning rate in optimizer: {optimizer.param_groups[0]['lr']}")
+    
+    # 初始化全局步数和起始epoch
+    global_step = 0
+    start_epoch = 0
+    
     # 计算训练步数
     num_training_steps = (len(dataset) * epochs) // (batch_size * grad_accumulation_steps)
-    # lr_scheduler = CosineAnnealingLR(optimizer, T_max=num_training_steps)
     # 设置warmup步数，通常为总训练步数的10%
     num_warmup_steps = int(0.1 * num_training_steps)
     
@@ -202,6 +248,40 @@ def main(
         num_warmup_steps=num_warmup_steps,
         num_training_steps=num_training_steps
     )
+    
+    # 加载检查点进行续训（如果指定）
+    if resume_from is not None:
+        if os.path.isfile(resume_from):
+            if overwatch.is_rank_zero():
+                overwatch.info(f"Loading checkpoint from {resume_from}")
+            
+            # 加载检查点
+            checkpoint = torch.load(resume_from, map_location=device)
+            
+            # 恢复模型权重
+            if isinstance(CoTModel, DDP):
+                CoTModel.module.load_state_dict(checkpoint["model"])
+            else:
+                CoTModel.load_state_dict(checkpoint["model"])
+            
+            # 恢复全局步数和epoch
+            global_step = checkpoint.get("global_step", 0)
+            start_epoch = checkpoint.get("epoch", 0)
+            
+            # 恢复优化器状态（如果有）
+            if "optimizer" in checkpoint and optimizer is not None:
+                optimizer.load_state_dict(checkpoint["optimizer"])
+                
+            # 恢复学习率调度器状态（如果有）
+            if "scheduler" in checkpoint and lr_scheduler is not None:
+                lr_scheduler.load_state_dict(checkpoint["scheduler"])
+                
+            if overwatch.is_rank_zero():
+                overwatch.info(f"Resumed training from step {global_step}, epoch {start_epoch}")
+        else:
+            if overwatch.is_rank_zero():
+                overwatch.warning(f"Checkpoint file {resume_from} not found. Starting training from scratch.")
+    
     # 初始化wandb
     if overwatch.is_rank_zero():  # 只在主进程初始化wandb
         wandb.init(
@@ -212,27 +292,16 @@ def main(
                 "batch_size": batch_size,
                 "grad_accumulation_steps": grad_accumulation_steps,
                 "epochs": epochs,
-                "learning_rate": learning_rate
+                "learning_rate": learning_rate,
+                "resumed_from": resume_from if resume_from else "None"
             }
         )
     # === Train ===
     status = "Training DiffusiveCoT"
-    global_step = 0
     sequence_length = 1024
-    # Adjust num_training_steps and target_steps for DDP
-    # Each process sees a fraction of the data, but grad_accumulation_steps applies per process
-    # Total effective batch size = batch_size * world_size * grad_accumulation_steps
-    # num_training_steps_per_epoch = len(dataset) // (batch_size * world_size * grad_accumulation_steps)
-    # num_training_steps = num_training_steps_per_epoch * epochs
-    # However, len(dataloader) already considers the sharding by DistributedSampler if used.
-    # So, len(dataloader) is len(dataset) / world_size for DDP.
-    # The original calculation for num_training_steps seems correct if len(dataloader) is used.
-    # Let's re-verify target_steps calculation for tqdm
+    
+    # 计算目标步数
     if world_size > 1:
-        # For DDP, len(dataloader) is len(full_dataset) / world_size
-        # So, total batches processed by all gpus in one epoch is len(dataloader) * world_size
-        # Number of optimizer steps per epoch = (len(dataloader) * world_size) / (world_size * grad_accumulation_steps)
-        # = len(dataloader) / grad_accumulation_steps
         target_steps_per_epoch = math.ceil(len(dataloader) / grad_accumulation_steps)
     else:
         target_steps_per_epoch = math.ceil(len(dataloader) / grad_accumulation_steps)
@@ -242,22 +311,29 @@ def main(
     num_training_steps = target_steps # This seems more direct
 
     # Re-initialize lr_scheduler with the potentially updated num_training_steps
-    num_warmup_steps = int(0.1 * num_training_steps)
-    lr_scheduler = get_cosine_schedule_with_warmup(
-        optimizer,
-        num_warmup_steps=num_warmup_steps,
-        num_training_steps=num_training_steps
-    )
+    # 如果没有从检查点恢复学习率调度器，则重新初始化
+    if resume_from is None or "scheduler" not in checkpoint:
+        num_warmup_steps = int(0.1 * num_training_steps)
+        lr_scheduler = get_cosine_schedule_with_warmup(
+            optimizer,
+            num_warmup_steps=num_warmup_steps,
+            num_training_steps=num_training_steps
+        )
 
+    # 计算剩余步数用于tqdm进度条
+    remaining_steps = target_steps - global_step
+    
     with tqdm(
-        total=(epochs * math.ceil((len(dataloader) / overwatch.world_size() / grad_accumulation_steps))) if max_steps is None else max_steps,
+        total=remaining_steps,
         desc=status,
         leave=False,
         disable=not overwatch.is_rank_zero(),
     ) as progress:
         CoTModel.train()
         optimizer.zero_grad()
-        for epoch_idx in range(epochs):
+        
+        # 从指定的epoch开始训练
+        for epoch_idx in range(start_epoch, epochs):
             if overwatch.is_rank_zero():
                 overwatch.info(f"Starting Epoch {epoch_idx + 1}/{epochs}")
             
@@ -385,7 +461,7 @@ cot_model = DiffusiveCoT(model, use_diff=True)
 num_added_toks = tokenizer.add_special_tokens({'additional_special_tokens': new_special_tokens})
 
 model.resize_token_embeddings(len(tokenizer))
-dataset = GSM8KDataset("/data2/xxw_data/projects/LLM/coconut/data/gsm_train.json", tokenizer, 512, model, debug=True)
+dataset = GSM8KDataset("/data2/xxw_data/projects/LLM/coconut/data/gsm_train.json", tokenizer, 512, model, debug=False)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Diffusive CoT Training')
@@ -396,6 +472,7 @@ if __name__ == "__main__":
     parser.add_argument('--grad_accumulation_steps', type=int, default=1, help='Gradient accumulation steps')
     parser.add_argument('--debug', action='store_true', help='Enable debug mode with smaller dataset')
     parser.add_argument('--data_path', type=str, default="/data2/xxw_data/projects/LLM/coconut/data/gsm_train.json", help='Path to training data JSON file')
+    parser.add_argument('--resume_from', type=str, default=None, help='Path to checkpoint file for resuming training')
 
     args = parser.parse_args()
 
@@ -443,6 +520,7 @@ if __name__ == "__main__":
         batch_size=args.batch_size,
         learning_rate=args.learning_rate,
         grad_accumulation_steps=args.grad_accumulation_steps,
-        world_size=world_size
+        world_size=world_size,
+        resume_from=args.resume_from
     )
 

@@ -27,22 +27,29 @@ def collate_fn(batch):
     return list(texts), list(indices)
 
 def preprocess_embeddings_optimized(data_path, output_path, model_name="openai-community/gpt2", 
-                                   device="cuda", batch_size=32, num_workers=4, use_fp16=False):
+                                   device="cuda", batch_size=32, num_workers=4, use_fp16=False, data_input=None):
     """
     优化版本的预处理函数，使用批处理和并行处理加速
     
     Args:
-        data_path: 输入数据路径
+        data_path: 输入数据路径 (如果提供了data_input，则此项可选)
         output_path: 输出路径
         model_name: 模型名称
         device: 设备
         batch_size: 批处理大小
         num_workers: 数据加载器工作进程数
         use_fp16: 是否使用半精度
+        data_input: 预加载的数据 (可选)
     """
-    print(f"Loading data from {data_path}...")
-    with open(data_path, 'r') as f:
-        data = json.load(f)
+    if data_input is not None:
+        data = data_input
+        print(f"Using preloaded data with {len(data)} samples...")
+    elif data_path is not None:
+        print(f"Loading data from {data_path}...")
+        with open(data_path, 'r') as f:
+            data = json.load(f)
+    else:
+        raise ValueError("Either data_path or data_input must be provided.")
     
     print(f"Loading model {model_name}...")
     tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -231,13 +238,14 @@ def preprocess_embeddings_chunked(data_path, output_path, model_name="openai-com
         
         # 处理当前chunk
         chunk_processed = preprocess_embeddings_optimized(
-            data_path=None,  # 直接传入数据
+            data_path=None,  # data_path is not used when data_input is provided
             output_path=temp_output,
             model_name=model_name,
             device=device,
             batch_size=batch_size,
             num_workers=num_workers,
-            use_fp16=use_fp16
+            use_fp16=use_fp16,
+            data_input=chunk_data  # 直接传入数据
         )
         
         # 加载处理后的数据

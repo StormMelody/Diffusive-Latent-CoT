@@ -1,0 +1,35 @@
+2025-06-12 02:21:32,570 INFO    MainThread:2192192 [wandb_setup.py:_flush():76] Loading settings from /home/xxw/.config/wandb/settings
+2025-06-12 02:21:32,570 INFO    MainThread:2192192 [wandb_setup.py:_flush():76] Loading settings from /data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/settings
+2025-06-12 02:21:32,570 INFO    MainThread:2192192 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2025-06-12 02:21:32,570 INFO    MainThread:2192192 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'training/strategies/train_coconut_with_preprocessed_embeddings.py', 'program': '/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py'}
+2025-06-12 02:21:32,570 INFO    MainThread:2192192 [wandb_init.py:_log_setup():428] Logging user logs to /data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250612_022132-3g1qku2w/logs/debug.log
+2025-06-12 02:21:32,570 INFO    MainThread:2192192 [wandb_init.py:_log_setup():429] Logging internal logs to /data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250612_022132-3g1qku2w/logs/debug-internal.log
+2025-06-12 02:21:32,570 INFO    MainThread:2192192 [wandb_init.py:init():462] calling init triggers
+2025-06-12 02:21:32,571 INFO    MainThread:2192192 [wandb_init.py:init():465] wandb.init called with sweep_config: {}
+config: {'batch_size': 512, 'grad_accumulation_steps': 1, 'epochs': 30, 'learning_rate': 0.0008, 'preprocessed_data': True, 'debug': False}
+2025-06-12 02:21:32,571 INFO    MainThread:2192192 [wandb_init.py:init():515] starting backend
+2025-06-12 02:21:32,571 INFO    MainThread:2192192 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-06-12 02:21:32,574 INFO    MainThread:2192192 [backend.py:ensure_launched():217] starting backend process...
+2025-06-12 02:21:32,576 INFO    MainThread:2192192 [backend.py:ensure_launched():222] started backend process with pid: 2193439
+2025-06-12 02:21:32,576 INFO    MainThread:2192192 [wandb_init.py:init():525] backend started and connected
+2025-06-12 02:21:32,578 INFO    MainThread:2192192 [wandb_init.py:init():596] updated telemetry
+2025-06-12 02:21:32,583 INFO    MainThread:2192192 [wandb_init.py:init():662] starting run threads in backend
+2025-06-12 02:21:34,104 WARNING MainThread:2192192 [wandb_init.py:init():1020] interrupted
+Traceback (most recent call last):
+  File "/data2/xxw_data/data/miniconda3/envs/hybridvla/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 999, in init
+    run = wi.init()
+  File "/data2/xxw_data/data/miniconda3/envs/hybridvla/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 673, in init
+    _ = backend.interface.communicate_run_start(run_obj)
+  File "/data2/xxw_data/data/miniconda3/envs/hybridvla/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 234, in communicate_run_start
+    result = self._communicate_run_start(run_start)
+  File "/data2/xxw_data/data/miniconda3/envs/hybridvla/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 440, in _communicate_run_start
+    result = self._communicate(rec)
+  File "/data2/xxw_data/data/miniconda3/envs/hybridvla/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 226, in _communicate
+    return self._communicate_async(rec, local=local).get(timeout=timeout)
+  File "/data2/xxw_data/data/miniconda3/envs/hybridvla/lib/python3.10/site-packages/wandb/sdk/interface/router.py", line 37, in get
+    is_set = self._object_ready.wait(timeout)
+  File "/data2/xxw_data/data/miniconda3/envs/hybridvla/lib/python3.10/threading.py", line 607, in wait
+    signaled = self._cond.wait(timeout)
+  File "/data2/xxw_data/data/miniconda3/envs/hybridvla/lib/python3.10/threading.py", line 324, in wait
+    gotit = waiter.acquire(True, timeout)
+KeyboardInterrupt
