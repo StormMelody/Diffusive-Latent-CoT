@@ -1,0 +1,875 @@
+06/11 [14:16:13] [34mINFO    [39m | ]8;id=332343;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_w…]8;;\
+                          >
+                          >
+                          [1m[
+                          *
+                          [1m]
+                          S
+                          t
+                          a
+                          r
+                          t
+                          i
+                          n
+                          g
+                          E
+                          p
+                          o
+                          c
+                          h
+                          [1m1
+                          /
+                          [1m3
+                          [1m0
+train_idx is: 0
+Step 1/240, Epoch 1/30 (LogEpoch: 0), Loss: 470.5630, LR: 0.000100
+global_step is: 1; target_steps is: 240
+train_idx is: 1
+Step 2/240, Epoch 1/30 (LogEpoch: 0), Loss: 507.4688, LR: 0.000100
+global_step is: 2; target_steps is: 240
+train_idx is: 2
+Step 3/240, Epoch 1/30 (LogEpoch: 0), Loss: 483.6592, LR: 0.000100
+global_step is: 3; target_steps is: 240
+train_idx is: 3
+Step 4/240, Epoch 1/30 (LogEpoch: 0), Loss: 422.8982, LR: 0.000100
+global_step is: 4; target_steps is: 240
+train_idx is: 4
+Step 5/240, Epoch 1/30 (LogEpoch: 0), Loss: 597.6232, LR: 0.000100
+global_step is: 5; target_steps is: 240
+train_idx is: 5
+Step 6/240, Epoch 1/30 (LogEpoch: 0), Loss: 487.4036, LR: 0.000100
+global_step is: 6; target_steps is: 240
+train_idx is: 6
+Step 7/240, Epoch 1/30 (LogEpoch: 0), Loss: 483.8501, LR: 0.000100
+global_step is: 7; target_steps is: 240
+train_idx is: 7
+Step 8/240, Epoch 1/30 (LogEpoch: 1), Loss: 360.2804, LR: 0.000100
+global_step is: 8; target_steps is: 240
+06/11 [14:20:59] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=492564;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=232359;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m0[22m. Current global_step = [1m8[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m2[22m/[1m30[22m     ]8;id=208236;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=33713;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 9/240, Epoch 2/30 (LogEpoch: 1), Loss: 449.6147, LR: 0.000100
+global_step is: 9; target_steps is: 240
+train_idx is: 1
+Step 10/240, Epoch 2/30 (LogEpoch: 1), Loss: 358.6295, LR: 0.000100
+global_step is: 10; target_steps is: 240
+train_idx is: 2
+Step 11/240, Epoch 2/30 (LogEpoch: 1), Loss: 396.7859, LR: 0.000100
+global_step is: 11; target_steps is: 240
+train_idx is: 3
+Step 12/240, Epoch 2/30 (LogEpoch: 1), Loss: 404.3089, LR: 0.000100
+global_step is: 12; target_steps is: 240
+train_idx is: 4
+Step 13/240, Epoch 2/30 (LogEpoch: 1), Loss: 330.7090, LR: 0.000100
+global_step is: 13; target_steps is: 240
+train_idx is: 5
+Step 14/240, Epoch 2/30 (LogEpoch: 1), Loss: 351.7616, LR: 0.000100
+global_step is: 14; target_steps is: 240
+train_idx is: 6
+Step 15/240, Epoch 2/30 (LogEpoch: 1), Loss: 357.2306, LR: 0.000100
+global_step is: 15; target_steps is: 240
+train_idx is: 7
+Step 16/240, Epoch 2/30 (LogEpoch: 2), Loss: 615.8978, LR: 0.000100
+global_step is: 16; target_steps is: 240
+06/11 [14:25:26] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=958048;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=14439;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m1[22m. Current global_step = [1m16[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m3[22m/[1m30[22m     ]8;id=786465;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=448769;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 17/240, Epoch 3/30 (LogEpoch: 2), Loss: 448.0658, LR: 0.000100
+global_step is: 17; target_steps is: 240
+train_idx is: 1
+Step 18/240, Epoch 3/30 (LogEpoch: 2), Loss: 343.2361, LR: 0.000100
+global_step is: 18; target_steps is: 240
+train_idx is: 2
+Step 19/240, Epoch 3/30 (LogEpoch: 2), Loss: 356.7239, LR: 0.000100
+global_step is: 19; target_steps is: 240
+train_idx is: 3
+Step 20/240, Epoch 3/30 (LogEpoch: 2), Loss: 298.2399, LR: 0.000100
+global_step is: 20; target_steps is: 240
+train_idx is: 4
+Step 21/240, Epoch 3/30 (LogEpoch: 2), Loss: 344.5441, LR: 0.000100
+global_step is: 21; target_steps is: 240
+train_idx is: 5
+Step 22/240, Epoch 3/30 (LogEpoch: 2), Loss: 226.6006, LR: 0.000100
+global_step is: 22; target_steps is: 240
+train_idx is: 6
+Step 23/240, Epoch 3/30 (LogEpoch: 2), Loss: 348.4476, LR: 0.000100
+global_step is: 23; target_steps is: 240
+train_idx is: 7
+Step 24/240, Epoch 3/30 (LogEpoch: 3), Loss: 491.5309, LR: 0.000100
+global_step is: 24; target_steps is: 240
+06/11 [14:29:45] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=183759;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=947384;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m2[22m. Current global_step = [1m24[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m4[22m/[1m30[22m     ]8;id=335696;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=953059;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 25/240, Epoch 4/30 (LogEpoch: 3), Loss: 315.1952, LR: 0.000100
+global_step is: 25; target_steps is: 240
+train_idx is: 1
+Step 26/240, Epoch 4/30 (LogEpoch: 3), Loss: 336.7542, LR: 0.000100
+global_step is: 26; target_steps is: 240
+train_idx is: 2
+Step 27/240, Epoch 4/30 (LogEpoch: 3), Loss: 259.5485, LR: 0.000100
+global_step is: 27; target_steps is: 240
+train_idx is: 3
+Step 28/240, Epoch 4/30 (LogEpoch: 3), Loss: 295.6579, LR: 0.000100
+global_step is: 28; target_steps is: 240
+train_idx is: 4
+Step 29/240, Epoch 4/30 (LogEpoch: 3), Loss: 472.5014, LR: 0.000100
+global_step is: 29; target_steps is: 240
+train_idx is: 5
+Step 30/240, Epoch 4/30 (LogEpoch: 3), Loss: 278.2955, LR: 0.000100
+global_step is: 30; target_steps is: 240
+train_idx is: 6
+Step 31/240, Epoch 4/30 (LogEpoch: 3), Loss: 265.7825, LR: 0.000100
+global_step is: 31; target_steps is: 240
+train_idx is: 7
+Step 32/240, Epoch 4/30 (LogEpoch: 4), Loss: 282.0299, LR: 0.000100
+global_step is: 32; target_steps is: 240
+06/11 [14:34:06] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=605340;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=846470;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m3[22m. Current global_step = [1m32[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m5[22m/[1m30[22m     ]8;id=482400;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=395306;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 33/240, Epoch 5/30 (LogEpoch: 4), Loss: 243.4155, LR: 0.000100
+global_step is: 33; target_steps is: 240
+train_idx is: 1
+Step 34/240, Epoch 5/30 (LogEpoch: 4), Loss: 278.9463, LR: 0.000100
+global_step is: 34; target_steps is: 240
+train_idx is: 2
+Step 35/240, Epoch 5/30 (LogEpoch: 4), Loss: 285.1877, LR: 0.000100
+global_step is: 35; target_steps is: 240
+train_idx is: 3
+Step 36/240, Epoch 5/30 (LogEpoch: 4), Loss: 239.3710, LR: 0.000100
+global_step is: 36; target_steps is: 240
+train_idx is: 4
+Step 37/240, Epoch 5/30 (LogEpoch: 4), Loss: 271.4817, LR: 0.000100
+global_step is: 37; target_steps is: 240
+train_idx is: 5
+Step 38/240, Epoch 5/30 (LogEpoch: 4), Loss: 364.7107, LR: 0.000100
+global_step is: 38; target_steps is: 240
+train_idx is: 6
+Step 39/240, Epoch 5/30 (LogEpoch: 4), Loss: 253.8015, LR: 0.000100
+global_step is: 39; target_steps is: 240
+train_idx is: 7
+Step 40/240, Epoch 5/30 (LogEpoch: 5), Loss: 380.9717, LR: 0.000100
+global_step is: 40; target_steps is: 240
+06/11 [14:38:24] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=742738;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=473849;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m4[22m. Current global_step = [1m40[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m6[22m/[1m30[22m     ]8;id=524589;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=709309;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 41/240, Epoch 6/30 (LogEpoch: 5), Loss: 215.3774, LR: 0.000100
+global_step is: 41; target_steps is: 240
+train_idx is: 1
+Step 42/240, Epoch 6/30 (LogEpoch: 5), Loss: 220.0365, LR: 0.000100
+global_step is: 42; target_steps is: 240
+train_idx is: 2
+Step 43/240, Epoch 6/30 (LogEpoch: 5), Loss: 246.1073, LR: 0.000100
+global_step is: 43; target_steps is: 240
+train_idx is: 3
+Step 44/240, Epoch 6/30 (LogEpoch: 5), Loss: 231.9224, LR: 0.000100
+global_step is: 44; target_steps is: 240
+train_idx is: 4
+Step 45/240, Epoch 6/30 (LogEpoch: 5), Loss: 239.1731, LR: 0.000100
+global_step is: 45; target_steps is: 240
+train_idx is: 5
+Step 46/240, Epoch 6/30 (LogEpoch: 5), Loss: 235.7375, LR: 0.000100
+global_step is: 46; target_steps is: 240
+train_idx is: 6
+Step 47/240, Epoch 6/30 (LogEpoch: 5), Loss: 215.3728, LR: 0.000100
+global_step is: 47; target_steps is: 240
+train_idx is: 7
+Step 48/240, Epoch 6/30 (LogEpoch: 6), Loss: 275.3055, LR: 0.000100
+Checkpoint saved: checkpoints_preprocessed/step-000048-epoch-06-loss=275.3055.pt
+global_step is: 48; target_steps is: 240
+06/11 [14:42:50] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=741425;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=531877;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m5[22m. Current global_step = [1m48[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m7[22m/[1m30[22m     ]8;id=173402;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=338051;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 49/240, Epoch 7/30 (LogEpoch: 6), Loss: 209.6591, LR: 0.000100
+global_step is: 49; target_steps is: 240
+train_idx is: 1
+Step 50/240, Epoch 7/30 (LogEpoch: 6), Loss: 196.2116, LR: 0.000100
+global_step is: 50; target_steps is: 240
+train_idx is: 2
+Step 51/240, Epoch 7/30 (LogEpoch: 6), Loss: 212.5122, LR: 0.000100
+global_step is: 51; target_steps is: 240
+train_idx is: 3
+Step 52/240, Epoch 7/30 (LogEpoch: 6), Loss: 221.7557, LR: 0.000100
+global_step is: 52; target_steps is: 240
+train_idx is: 4
+Step 53/240, Epoch 7/30 (LogEpoch: 6), Loss: 198.1695, LR: 0.000100
+global_step is: 53; target_steps is: 240
+train_idx is: 5
+Step 54/240, Epoch 7/30 (LogEpoch: 6), Loss: 206.5259, LR: 0.000100
+global_step is: 54; target_steps is: 240
+train_idx is: 6
+Step 55/240, Epoch 7/30 (LogEpoch: 6), Loss: 195.4147, LR: 0.000100
+global_step is: 55; target_steps is: 240
+train_idx is: 7
+Step 56/240, Epoch 7/30 (LogEpoch: 7), Loss: 261.2459, LR: 0.000100
+global_step is: 56; target_steps is: 240
+06/11 [14:47:04] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=614094;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=969317;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m6[22m. Current global_step = [1m56[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m8[22m/[1m30[22m     ]8;id=460539;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=261604;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 57/240, Epoch 8/30 (LogEpoch: 7), Loss: 180.6583, LR: 0.000100
+global_step is: 57; target_steps is: 240
+train_idx is: 1
+Step 58/240, Epoch 8/30 (LogEpoch: 7), Loss: 207.2523, LR: 0.000100
+global_step is: 58; target_steps is: 240
+train_idx is: 2
+Step 59/240, Epoch 8/30 (LogEpoch: 7), Loss: 198.4727, LR: 0.000100
+global_step is: 59; target_steps is: 240
+train_idx is: 3
+Step 60/240, Epoch 8/30 (LogEpoch: 7), Loss: 172.8807, LR: 0.000100
+global_step is: 60; target_steps is: 240
+train_idx is: 4
+Step 61/240, Epoch 8/30 (LogEpoch: 7), Loss: 212.9069, LR: 0.000100
+global_step is: 61; target_steps is: 240
+train_idx is: 5
+Step 62/240, Epoch 8/30 (LogEpoch: 7), Loss: 163.4011, LR: 0.000100
+global_step is: 62; target_steps is: 240
+train_idx is: 6
+Step 63/240, Epoch 8/30 (LogEpoch: 7), Loss: 170.0441, LR: 0.000100
+global_step is: 63; target_steps is: 240
+train_idx is: 7
+Step 64/240, Epoch 8/30 (LogEpoch: 8), Loss: 171.5273, LR: 0.000100
+global_step is: 64; target_steps is: 240
+06/11 [14:51:22] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=674951;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=490172;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m7[22m. Current global_step = [1m64[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m9[22m/[1m30[22m     ]8;id=451146;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=190206;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 65/240, Epoch 9/30 (LogEpoch: 8), Loss: 172.0927, LR: 0.000100
+global_step is: 65; target_steps is: 240
+train_idx is: 1
+Step 66/240, Epoch 9/30 (LogEpoch: 8), Loss: 160.9785, LR: 0.000100
+global_step is: 66; target_steps is: 240
+train_idx is: 2
+Step 67/240, Epoch 9/30 (LogEpoch: 8), Loss: 212.6971, LR: 0.000100
+global_step is: 67; target_steps is: 240
+train_idx is: 3
+Step 68/240, Epoch 9/30 (LogEpoch: 8), Loss: 160.2125, LR: 0.000100
+global_step is: 68; target_steps is: 240
+train_idx is: 4
+Step 69/240, Epoch 9/30 (LogEpoch: 8), Loss: 208.7829, LR: 0.000100
+global_step is: 69; target_steps is: 240
+train_idx is: 5
+Step 70/240, Epoch 9/30 (LogEpoch: 8), Loss: 156.6979, LR: 0.000100
+global_step is: 70; target_steps is: 240
+train_idx is: 6
+Step 71/240, Epoch 9/30 (LogEpoch: 8), Loss: 181.2928, LR: 0.000100
+global_step is: 71; target_steps is: 240
+train_idx is: 7
+Step 72/240, Epoch 9/30 (LogEpoch: 9), Loss: 163.3537, LR: 0.000100
+global_step is: 72; target_steps is: 240
+06/11 [14:55:44] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=130685;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=46934;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m8[22m. Current global_step = [1m72[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m10[22m/[1m30[22m    ]8;id=848035;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=196800;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 73/240, Epoch 10/30 (LogEpoch: 9), Loss: 130.1754, LR: 0.000100
+global_step is: 73; target_steps is: 240
+train_idx is: 1
+Step 74/240, Epoch 10/30 (LogEpoch: 9), Loss: 161.5863, LR: 0.000100
+global_step is: 74; target_steps is: 240
+train_idx is: 2
+Step 75/240, Epoch 10/30 (LogEpoch: 9), Loss: 141.1492, LR: 0.000100
+global_step is: 75; target_steps is: 240
+train_idx is: 3
+Step 76/240, Epoch 10/30 (LogEpoch: 9), Loss: 169.6423, LR: 0.000100
+global_step is: 76; target_steps is: 240
+train_idx is: 4
+Step 77/240, Epoch 10/30 (LogEpoch: 9), Loss: 147.5150, LR: 0.000100
+global_step is: 77; target_steps is: 240
+train_idx is: 5
+Step 78/240, Epoch 10/30 (LogEpoch: 9), Loss: 197.2681, LR: 0.000100
+global_step is: 78; target_steps is: 240
+train_idx is: 6
+Step 79/240, Epoch 10/30 (LogEpoch: 9), Loss: 140.9977, LR: 0.000100
+global_step is: 79; target_steps is: 240
+train_idx is: 7
+Step 80/240, Epoch 10/30 (LogEpoch: 10), Loss: 148.5006, LR: 0.000100
+global_step is: 80; target_steps is: 240
+06/11 [15:00:04] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=657290;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=448447;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m9[22m. Current global_step = [1m80[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m11[22m/[1m30[22m    ]8;id=971886;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=731654;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 81/240, Epoch 11/30 (LogEpoch: 10), Loss: 133.1212, LR: 0.000100
+global_step is: 81; target_steps is: 240
+train_idx is: 1
+Step 82/240, Epoch 11/30 (LogEpoch: 10), Loss: 127.9058, LR: 0.000100
+global_step is: 82; target_steps is: 240
+train_idx is: 2
+Step 83/240, Epoch 11/30 (LogEpoch: 10), Loss: 178.9098, LR: 0.000100
+global_step is: 83; target_steps is: 240
+train_idx is: 3
+Step 84/240, Epoch 11/30 (LogEpoch: 10), Loss: 148.9911, LR: 0.000100
+global_step is: 84; target_steps is: 240
+train_idx is: 4
+Step 85/240, Epoch 11/30 (LogEpoch: 10), Loss: 136.3232, LR: 0.000100
+global_step is: 85; target_steps is: 240
+train_idx is: 5
+Step 86/240, Epoch 11/30 (LogEpoch: 10), Loss: 150.2450, LR: 0.000100
+global_step is: 86; target_steps is: 240
+train_idx is: 6
+Step 87/240, Epoch 11/30 (LogEpoch: 10), Loss: 133.4540, LR: 0.000100
+global_step is: 87; target_steps is: 240
+train_idx is: 7
+Step 88/240, Epoch 11/30 (LogEpoch: 11), Loss: 182.7563, LR: 0.000100
+global_step is: 88; target_steps is: 240
+06/11 [15:04:25] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=629072;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=971851;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m10[22m. Current global_step = [1m88[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m12[22m/[1m30[22m    ]8;id=233398;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=970069;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 89/240, Epoch 12/30 (LogEpoch: 11), Loss: 143.3949, LR: 0.000100
+global_step is: 89; target_steps is: 240
+train_idx is: 1
+Step 90/240, Epoch 12/30 (LogEpoch: 11), Loss: 180.6678, LR: 0.000100
+global_step is: 90; target_steps is: 240
+train_idx is: 2
+Step 91/240, Epoch 12/30 (LogEpoch: 11), Loss: 129.4647, LR: 0.000100
+global_step is: 91; target_steps is: 240
+train_idx is: 3
+Step 92/240, Epoch 12/30 (LogEpoch: 11), Loss: 135.8974, LR: 0.000100
+global_step is: 92; target_steps is: 240
+train_idx is: 4
+Step 93/240, Epoch 12/30 (LogEpoch: 11), Loss: 142.4407, LR: 0.000100
+global_step is: 93; target_steps is: 240
+train_idx is: 5
+Step 94/240, Epoch 12/30 (LogEpoch: 11), Loss: 129.8548, LR: 0.000100
+global_step is: 94; target_steps is: 240
+train_idx is: 6
+Step 95/240, Epoch 12/30 (LogEpoch: 11), Loss: 140.5814, LR: 0.000100
+global_step is: 95; target_steps is: 240
+train_idx is: 7
+Step 96/240, Epoch 12/30 (LogEpoch: 12), Loss: 120.6679, LR: 0.000100
+Checkpoint saved: checkpoints_preprocessed/step-000096-epoch-12-loss=120.6679.pt
+global_step is: 96; target_steps is: 240
+06/11 [15:08:49] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=545523;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=430062;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m11[22m. Current global_step = [1m96[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m13[22m/[1m30[22m    ]8;id=825570;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=772803;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 97/240, Epoch 13/30 (LogEpoch: 12), Loss: 124.9407, LR: 0.000100
+global_step is: 97; target_steps is: 240
+train_idx is: 1
+Step 98/240, Epoch 13/30 (LogEpoch: 12), Loss: 124.1667, LR: 0.000100
+global_step is: 98; target_steps is: 240
+train_idx is: 2
+Step 99/240, Epoch 13/30 (LogEpoch: 12), Loss: 139.3746, LR: 0.000100
+global_step is: 99; target_steps is: 240
+train_idx is: 3
+Step 100/240, Epoch 13/30 (LogEpoch: 12), Loss: 118.8844, LR: 0.000100
+global_step is: 100; target_steps is: 240
+train_idx is: 4
+Step 101/240, Epoch 13/30 (LogEpoch: 12), Loss: 120.5231, LR: 0.000100
+global_step is: 101; target_steps is: 240
+train_idx is: 5
+Step 102/240, Epoch 13/30 (LogEpoch: 12), Loss: 122.4482, LR: 0.000100
+global_step is: 102; target_steps is: 240
+train_idx is: 6
+Step 103/240, Epoch 13/30 (LogEpoch: 12), Loss: 111.0313, LR: 0.000100
+global_step is: 103; target_steps is: 240
+train_idx is: 7
+Step 104/240, Epoch 13/30 (LogEpoch: 13), Loss: 154.7788, LR: 0.000100
+global_step is: 104; target_steps is: 240
+06/11 [15:13:03] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=149000;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=443437;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m12[22m. Current global_step = [1m104[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m14[22m/[1m30[22m    ]8;id=695014;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=176789;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 105/240, Epoch 14/30 (LogEpoch: 13), Loss: 120.6165, LR: 0.000100
+global_step is: 105; target_steps is: 240
+train_idx is: 1
+Step 106/240, Epoch 14/30 (LogEpoch: 13), Loss: 114.7771, LR: 0.000100
+global_step is: 106; target_steps is: 240
+train_idx is: 2
+Step 107/240, Epoch 14/30 (LogEpoch: 13), Loss: 108.7309, LR: 0.000100
+global_step is: 107; target_steps is: 240
+train_idx is: 3
+Step 108/240, Epoch 14/30 (LogEpoch: 13), Loss: 112.8162, LR: 0.000100
+global_step is: 108; target_steps is: 240
+train_idx is: 4
+Step 109/240, Epoch 14/30 (LogEpoch: 13), Loss: 114.7817, LR: 0.000100
+global_step is: 109; target_steps is: 240
+train_idx is: 5
+Step 110/240, Epoch 14/30 (LogEpoch: 13), Loss: 97.0821, LR: 0.000100
+global_step is: 110; target_steps is: 240
+train_idx is: 6
+Step 111/240, Epoch 14/30 (LogEpoch: 13), Loss: 125.0530, LR: 0.000100
+global_step is: 111; target_steps is: 240
+train_idx is: 7
+Step 112/240, Epoch 14/30 (LogEpoch: 14), Loss: 110.1494, LR: 0.000100
+global_step is: 112; target_steps is: 240
+06/11 [15:17:22] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=503292;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=264720;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m13[22m. Current global_step = [1m112[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m15[22m/[1m30[22m    ]8;id=638184;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=419128;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 113/240, Epoch 15/30 (LogEpoch: 14), Loss: 112.6386, LR: 0.000100
+global_step is: 113; target_steps is: 240
+train_idx is: 1
+Step 114/240, Epoch 15/30 (LogEpoch: 14), Loss: 113.2145, LR: 0.000100
+global_step is: 114; target_steps is: 240
+train_idx is: 2
+Step 115/240, Epoch 15/30 (LogEpoch: 14), Loss: 127.7950, LR: 0.000100
+global_step is: 115; target_steps is: 240
+train_idx is: 3
+Step 116/240, Epoch 15/30 (LogEpoch: 14), Loss: 101.8451, LR: 0.000100
+global_step is: 116; target_steps is: 240
+train_idx is: 4
+Step 117/240, Epoch 15/30 (LogEpoch: 14), Loss: 106.1178, LR: 0.000100
+global_step is: 117; target_steps is: 240
+train_idx is: 5
+Step 118/240, Epoch 15/30 (LogEpoch: 14), Loss: 95.8171, LR: 0.000100
+global_step is: 118; target_steps is: 240
+train_idx is: 6
+Step 119/240, Epoch 15/30 (LogEpoch: 14), Loss: 115.5787, LR: 0.000100
+global_step is: 119; target_steps is: 240
+train_idx is: 7
+Step 120/240, Epoch 15/30 (LogEpoch: 15), Loss: 111.6516, LR: 0.000100
+global_step is: 120; target_steps is: 240
+06/11 [15:21:47] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=397119;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=441866;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m14[22m. Current global_step = [1m120[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m16[22m/[1m30[22m    ]8;id=809957;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=48336;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 121/240, Epoch 16/30 (LogEpoch: 15), Loss: 108.3609, LR: 0.000100
+global_step is: 121; target_steps is: 240
+train_idx is: 1
+Step 122/240, Epoch 16/30 (LogEpoch: 15), Loss: 96.1300, LR: 0.000100
+global_step is: 122; target_steps is: 240
+train_idx is: 2
+Step 123/240, Epoch 16/30 (LogEpoch: 15), Loss: 98.1925, LR: 0.000100
+global_step is: 123; target_steps is: 240
+train_idx is: 3
+Step 124/240, Epoch 16/30 (LogEpoch: 15), Loss: 102.0394, LR: 0.000100
+global_step is: 124; target_steps is: 240
+train_idx is: 4
+Step 125/240, Epoch 16/30 (LogEpoch: 15), Loss: 96.5982, LR: 0.000100
+global_step is: 125; target_steps is: 240
+train_idx is: 5
+Step 126/240, Epoch 16/30 (LogEpoch: 15), Loss: 95.1156, LR: 0.000100
+global_step is: 126; target_steps is: 240
+train_idx is: 6
+Step 127/240, Epoch 16/30 (LogEpoch: 15), Loss: 100.1968, LR: 0.000100
+global_step is: 127; target_steps is: 240
+train_idx is: 7
+Step 128/240, Epoch 16/30 (LogEpoch: 16), Loss: 89.7403, LR: 0.000100
+global_step is: 128; target_steps is: 240
+06/11 [15:26:03] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=594353;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=994549;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m15[22m. Current global_step = [1m128[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m17[22m/[1m30[22m    ]8;id=870400;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=19887;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 129/240, Epoch 17/30 (LogEpoch: 16), Loss: 106.8754, LR: 0.000100
+global_step is: 129; target_steps is: 240
+train_idx is: 1
+Step 130/240, Epoch 17/30 (LogEpoch: 16), Loss: 114.5634, LR: 0.000100
+global_step is: 130; target_steps is: 240
+train_idx is: 2
+Step 131/240, Epoch 17/30 (LogEpoch: 16), Loss: 95.3467, LR: 0.000100
+global_step is: 131; target_steps is: 240
+train_idx is: 3
+Step 132/240, Epoch 17/30 (LogEpoch: 16), Loss: 100.3910, LR: 0.000100
+global_step is: 132; target_steps is: 240
+train_idx is: 4
+Step 133/240, Epoch 17/30 (LogEpoch: 16), Loss: 99.4530, LR: 0.000100
+global_step is: 133; target_steps is: 240
+train_idx is: 5
+Step 134/240, Epoch 17/30 (LogEpoch: 16), Loss: 103.3040, LR: 0.000100
+global_step is: 134; target_steps is: 240
+train_idx is: 6
+Step 135/240, Epoch 17/30 (LogEpoch: 16), Loss: 95.5719, LR: 0.000100
+global_step is: 135; target_steps is: 240
+train_idx is: 7
+Step 136/240, Epoch 17/30 (LogEpoch: 17), Loss: 90.9440, LR: 0.000100
+global_step is: 136; target_steps is: 240
+06/11 [15:30:16] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=976136;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=692263;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m16[22m. Current global_step = [1m136[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m18[22m/[1m30[22m    ]8;id=889066;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=367268;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 137/240, Epoch 18/30 (LogEpoch: 17), Loss: 98.0277, LR: 0.000100
+global_step is: 137; target_steps is: 240
+train_idx is: 1
+Step 138/240, Epoch 18/30 (LogEpoch: 17), Loss: 135.9390, LR: 0.000100
+global_step is: 138; target_steps is: 240
+train_idx is: 2
+Step 139/240, Epoch 18/30 (LogEpoch: 17), Loss: 91.8879, LR: 0.000100
+global_step is: 139; target_steps is: 240
+train_idx is: 3
+Step 140/240, Epoch 18/30 (LogEpoch: 17), Loss: 90.9234, LR: 0.000100
+global_step is: 140; target_steps is: 240
+train_idx is: 4
+Step 141/240, Epoch 18/30 (LogEpoch: 17), Loss: 85.9050, LR: 0.000100
+global_step is: 141; target_steps is: 240
+train_idx is: 5
+Step 142/240, Epoch 18/30 (LogEpoch: 17), Loss: 94.4655, LR: 0.000100
+global_step is: 142; target_steps is: 240
+train_idx is: 6
+Step 143/240, Epoch 18/30 (LogEpoch: 17), Loss: 88.3266, LR: 0.000100
+global_step is: 143; target_steps is: 240
+train_idx is: 7
+Step 144/240, Epoch 18/30 (LogEpoch: 18), Loss: 95.7060, LR: 0.000100
+Checkpoint saved: checkpoints_preprocessed/step-000144-epoch-18-loss=95.7060.pt
+global_step is: 144; target_steps is: 240
+06/11 [15:34:44] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=974754;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=338821;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m17[22m. Current global_step = [1m144[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m19[22m/[1m30[22m    ]8;id=324927;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=145370;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 145/240, Epoch 19/30 (LogEpoch: 18), Loss: 74.1323, LR: 0.000100
+global_step is: 145; target_steps is: 240
+train_idx is: 1
+Step 146/240, Epoch 19/30 (LogEpoch: 18), Loss: 89.1654, LR: 0.000100
+global_step is: 146; target_steps is: 240
+train_idx is: 2
+Step 147/240, Epoch 19/30 (LogEpoch: 18), Loss: 86.8097, LR: 0.000100
+global_step is: 147; target_steps is: 240
+train_idx is: 3
+Step 148/240, Epoch 19/30 (LogEpoch: 18), Loss: 93.7042, LR: 0.000100
+global_step is: 148; target_steps is: 240
+train_idx is: 4
+Step 149/240, Epoch 19/30 (LogEpoch: 18), Loss: 80.7486, LR: 0.000100
+global_step is: 149; target_steps is: 240
+train_idx is: 5
+Step 150/240, Epoch 19/30 (LogEpoch: 18), Loss: 88.9627, LR: 0.000100
+global_step is: 150; target_steps is: 240
+train_idx is: 6
+Step 151/240, Epoch 19/30 (LogEpoch: 18), Loss: 81.8739, LR: 0.000100
+global_step is: 151; target_steps is: 240
+train_idx is: 7
+Step 152/240, Epoch 19/30 (LogEpoch: 19), Loss: 80.8107, LR: 0.000100
+global_step is: 152; target_steps is: 240
+06/11 [15:39:03] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=431690;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=104695;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m18[22m. Current global_step = [1m152[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m20[22m/[1m30[22m    ]8;id=567357;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=349294;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 153/240, Epoch 20/30 (LogEpoch: 19), Loss: 96.9073, LR: 0.000100
+global_step is: 153; target_steps is: 240
+train_idx is: 1
+Step 154/240, Epoch 20/30 (LogEpoch: 19), Loss: 86.3316, LR: 0.000100
+global_step is: 154; target_steps is: 240
+train_idx is: 2
+Step 155/240, Epoch 20/30 (LogEpoch: 19), Loss: 143.8188, LR: 0.000100
+global_step is: 155; target_steps is: 240
+train_idx is: 3
+Step 156/240, Epoch 20/30 (LogEpoch: 19), Loss: 81.1930, LR: 0.000100
+global_step is: 156; target_steps is: 240
+train_idx is: 4
+Step 157/240, Epoch 20/30 (LogEpoch: 19), Loss: 85.8790, LR: 0.000100
+global_step is: 157; target_steps is: 240
+train_idx is: 5
+Step 158/240, Epoch 20/30 (LogEpoch: 19), Loss: 74.9654, LR: 0.000100
+global_step is: 158; target_steps is: 240
+train_idx is: 6
+Step 159/240, Epoch 20/30 (LogEpoch: 19), Loss: 81.9130, LR: 0.000100
+global_step is: 159; target_steps is: 240
+train_idx is: 7
+Step 160/240, Epoch 20/30 (LogEpoch: 20), Loss: 72.0024, LR: 0.000100
+global_step is: 160; target_steps is: 240
+06/11 [15:43:26] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=121535;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=44575;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m19[22m. Current global_step = [1m160[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m21[22m/[1m30[22m    ]8;id=996202;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=983109;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 161/240, Epoch 21/30 (LogEpoch: 20), Loss: 142.7629, LR: 0.000100
+global_step is: 161; target_steps is: 240
+train_idx is: 1
+Step 162/240, Epoch 21/30 (LogEpoch: 20), Loss: 75.6539, LR: 0.000100
+global_step is: 162; target_steps is: 240
+train_idx is: 2
+Step 163/240, Epoch 21/30 (LogEpoch: 20), Loss: 70.8099, LR: 0.000100
+global_step is: 163; target_steps is: 240
+train_idx is: 3
+Step 164/240, Epoch 21/30 (LogEpoch: 20), Loss: 77.2212, LR: 0.000100
+global_step is: 164; target_steps is: 240
+train_idx is: 4
+Step 165/240, Epoch 21/30 (LogEpoch: 20), Loss: 84.7639, LR: 0.000100
+global_step is: 165; target_steps is: 240
+train_idx is: 5
+Step 166/240, Epoch 21/30 (LogEpoch: 20), Loss: 80.6690, LR: 0.000100
+global_step is: 166; target_steps is: 240
+train_idx is: 6
+Step 167/240, Epoch 21/30 (LogEpoch: 20), Loss: 68.7764, LR: 0.000100
+global_step is: 167; target_steps is: 240
+train_idx is: 7
+Step 168/240, Epoch 21/30 (LogEpoch: 21), Loss: 76.7617, LR: 0.000100
+global_step is: 168; target_steps is: 240
+06/11 [15:47:50] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=530255;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=461706;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m20[22m. Current global_step = [1m168[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m22[22m/[1m30[22m    ]8;id=208764;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=913392;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 169/240, Epoch 22/30 (LogEpoch: 21), Loss: 70.5260, LR: 0.000100
+global_step is: 169; target_steps is: 240
+train_idx is: 1
+Step 170/240, Epoch 22/30 (LogEpoch: 21), Loss: 139.4816, LR: 0.000100
+global_step is: 170; target_steps is: 240
+train_idx is: 2
+Step 171/240, Epoch 22/30 (LogEpoch: 21), Loss: 77.2878, LR: 0.000100
+global_step is: 171; target_steps is: 240
+train_idx is: 3
+Step 172/240, Epoch 22/30 (LogEpoch: 21), Loss: 73.8358, LR: 0.000100
+global_step is: 172; target_steps is: 240
+train_idx is: 4
+Step 173/240, Epoch 22/30 (LogEpoch: 21), Loss: 71.6675, LR: 0.000100
+global_step is: 173; target_steps is: 240
+train_idx is: 5
+Step 174/240, Epoch 22/30 (LogEpoch: 21), Loss: 73.9254, LR: 0.000100
+global_step is: 174; target_steps is: 240
+train_idx is: 6
+Step 175/240, Epoch 22/30 (LogEpoch: 21), Loss: 77.3246, LR: 0.000100
+global_step is: 175; target_steps is: 240
+train_idx is: 7
+Step 176/240, Epoch 22/30 (LogEpoch: 22), Loss: 71.2754, LR: 0.000100
+global_step is: 176; target_steps is: 240
+06/11 [15:52:09] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=923895;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=723325;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m21[22m. Current global_step = [1m176[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m23[22m/[1m30[22m    ]8;id=263369;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=963685;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 177/240, Epoch 23/30 (LogEpoch: 22), Loss: 75.6005, LR: 0.000100
+global_step is: 177; target_steps is: 240
+train_idx is: 1
+Step 178/240, Epoch 23/30 (LogEpoch: 22), Loss: 80.6999, LR: 0.000100
+global_step is: 178; target_steps is: 240
+train_idx is: 2
+Step 179/240, Epoch 23/30 (LogEpoch: 22), Loss: 79.3505, LR: 0.000100
+global_step is: 179; target_steps is: 240
+train_idx is: 3
+Step 180/240, Epoch 23/30 (LogEpoch: 22), Loss: 81.1115, LR: 0.000100
+global_step is: 180; target_steps is: 240
+train_idx is: 4
+Step 181/240, Epoch 23/30 (LogEpoch: 22), Loss: 71.8539, LR: 0.000100
+global_step is: 181; target_steps is: 240
+train_idx is: 5
+Step 182/240, Epoch 23/30 (LogEpoch: 22), Loss: 68.2077, LR: 0.000100
+global_step is: 182; target_steps is: 240
+train_idx is: 6
+Step 183/240, Epoch 23/30 (LogEpoch: 22), Loss: 68.0100, LR: 0.000100
+global_step is: 183; target_steps is: 240
+train_idx is: 7
+Step 184/240, Epoch 23/30 (LogEpoch: 23), Loss: 68.3735, LR: 0.000100
+global_step is: 184; target_steps is: 240
+06/11 [15:56:26] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=359894;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=927636;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m22[22m. Current global_step = [1m184[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m24[22m/[1m30[22m    ]8;id=407218;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=259571;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 185/240, Epoch 24/30 (LogEpoch: 23), Loss: 66.9693, LR: 0.000100
+global_step is: 185; target_steps is: 240
+train_idx is: 1
+Step 186/240, Epoch 24/30 (LogEpoch: 23), Loss: 79.5426, LR: 0.000100
+global_step is: 186; target_steps is: 240
+train_idx is: 2
+Step 187/240, Epoch 24/30 (LogEpoch: 23), Loss: 71.0942, LR: 0.000100
+global_step is: 187; target_steps is: 240
+train_idx is: 3
+Step 188/240, Epoch 24/30 (LogEpoch: 23), Loss: 68.1384, LR: 0.000100
+global_step is: 188; target_steps is: 240
+train_idx is: 4
+Step 189/240, Epoch 24/30 (LogEpoch: 23), Loss: 73.4811, LR: 0.000100
+global_step is: 189; target_steps is: 240
+train_idx is: 5
+Step 190/240, Epoch 24/30 (LogEpoch: 23), Loss: 73.9499, LR: 0.000100
+global_step is: 190; target_steps is: 240
+train_idx is: 6
+Step 191/240, Epoch 24/30 (LogEpoch: 23), Loss: 70.3316, LR: 0.000100
+global_step is: 191; target_steps is: 240
+train_idx is: 7
+Step 192/240, Epoch 24/30 (LogEpoch: 24), Loss: 70.0873, LR: 0.000100
+Checkpoint saved: checkpoints_preprocessed/step-000192-epoch-24-loss=70.0873.pt
+global_step is: 192; target_steps is: 240
+06/11 [16:00:47] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=830713;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=276465;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m23[22m. Current global_step = [1m192[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m25[22m/[1m30[22m    ]8;id=487550;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=31804;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 193/240, Epoch 25/30 (LogEpoch: 24), Loss: 66.2567, LR: 0.000100
+global_step is: 193; target_steps is: 240
+train_idx is: 1
+Step 194/240, Epoch 25/30 (LogEpoch: 24), Loss: 72.1466, LR: 0.000100
+global_step is: 194; target_steps is: 240
+train_idx is: 2
+Step 195/240, Epoch 25/30 (LogEpoch: 24), Loss: 75.6166, LR: 0.000100
+global_step is: 195; target_steps is: 240
+train_idx is: 3
+Step 196/240, Epoch 25/30 (LogEpoch: 24), Loss: 105.0133, LR: 0.000100
+global_step is: 196; target_steps is: 240
+train_idx is: 4
+Step 197/240, Epoch 25/30 (LogEpoch: 24), Loss: 75.7105, LR: 0.000100
+global_step is: 197; target_steps is: 240
+train_idx is: 5
+Step 198/240, Epoch 25/30 (LogEpoch: 24), Loss: 60.2220, LR: 0.000100
+global_step is: 198; target_steps is: 240
+train_idx is: 6
+Step 199/240, Epoch 25/30 (LogEpoch: 24), Loss: 69.6607, LR: 0.000100
+global_step is: 199; target_steps is: 240
+train_idx is: 7
+Step 200/240, Epoch 25/30 (LogEpoch: 25), Loss: 72.1424, LR: 0.000100
+global_step is: 200; target_steps is: 240
+06/11 [16:05:01] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=703164;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=855120;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m24[22m. Current global_step = [1m200[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m26[22m/[1m30[22m    ]8;id=206233;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=26440;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 201/240, Epoch 26/30 (LogEpoch: 25), Loss: 73.8773, LR: 0.000100
+global_step is: 201; target_steps is: 240
+train_idx is: 1
+Step 202/240, Epoch 26/30 (LogEpoch: 25), Loss: 66.8885, LR: 0.000100
+global_step is: 202; target_steps is: 240
+train_idx is: 2
+Step 203/240, Epoch 26/30 (LogEpoch: 25), Loss: 71.4616, LR: 0.000100
+global_step is: 203; target_steps is: 240
+train_idx is: 3
+Step 204/240, Epoch 26/30 (LogEpoch: 25), Loss: 63.1725, LR: 0.000100
+global_step is: 204; target_steps is: 240
+train_idx is: 4
+Step 205/240, Epoch 26/30 (LogEpoch: 25), Loss: 70.3149, LR: 0.000100
+global_step is: 205; target_steps is: 240
+train_idx is: 5
+Step 206/240, Epoch 26/30 (LogEpoch: 25), Loss: 76.4473, LR: 0.000100
+global_step is: 206; target_steps is: 240
+train_idx is: 6
+Step 207/240, Epoch 26/30 (LogEpoch: 25), Loss: 77.6759, LR: 0.000100
+global_step is: 207; target_steps is: 240
+train_idx is: 7
+Step 208/240, Epoch 26/30 (LogEpoch: 26), Loss: 63.0019, LR: 0.000100
+global_step is: 208; target_steps is: 240
+06/11 [16:09:16] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=550983;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=314744;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m25[22m. Current global_step = [1m208[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m27[22m/[1m30[22m    ]8;id=99495;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=90617;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 209/240, Epoch 27/30 (LogEpoch: 26), Loss: 80.5216, LR: 0.000100
+global_step is: 209; target_steps is: 240
+train_idx is: 1
+Step 210/240, Epoch 27/30 (LogEpoch: 26), Loss: 59.1350, LR: 0.000100
+global_step is: 210; target_steps is: 240
+train_idx is: 2
+Step 211/240, Epoch 27/30 (LogEpoch: 26), Loss: 69.7908, LR: 0.000100
+global_step is: 211; target_steps is: 240
+train_idx is: 3
+Step 212/240, Epoch 27/30 (LogEpoch: 26), Loss: 65.8295, LR: 0.000100
+global_step is: 212; target_steps is: 240
+train_idx is: 4
+Step 213/240, Epoch 27/30 (LogEpoch: 26), Loss: 66.8070, LR: 0.000100
+global_step is: 213; target_steps is: 240
+train_idx is: 5
+Step 214/240, Epoch 27/30 (LogEpoch: 26), Loss: 63.8045, LR: 0.000100
+global_step is: 214; target_steps is: 240
+train_idx is: 6
+Step 215/240, Epoch 27/30 (LogEpoch: 26), Loss: 73.4393, LR: 0.000100
+global_step is: 215; target_steps is: 240
+train_idx is: 7
+Step 216/240, Epoch 27/30 (LogEpoch: 27), Loss: 69.2054, LR: 0.000100
+global_step is: 216; target_steps is: 240
+06/11 [16:13:34] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=404122;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=176200;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m26[22m. Current global_step = [1m216[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m28[22m/[1m30[22m    ]8;id=973726;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=588001;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 217/240, Epoch 28/30 (LogEpoch: 27), Loss: 108.8125, LR: 0.000100
+global_step is: 217; target_steps is: 240
+train_idx is: 1
+Step 218/240, Epoch 28/30 (LogEpoch: 27), Loss: 63.1809, LR: 0.000100
+global_step is: 218; target_steps is: 240
+train_idx is: 2
+Step 219/240, Epoch 28/30 (LogEpoch: 27), Loss: 59.9519, LR: 0.000100
+global_step is: 219; target_steps is: 240
+train_idx is: 3
+Step 220/240, Epoch 28/30 (LogEpoch: 27), Loss: 65.0586, LR: 0.000100
+global_step is: 220; target_steps is: 240
+train_idx is: 4
+Step 221/240, Epoch 28/30 (LogEpoch: 27), Loss: 68.6828, LR: 0.000100
+global_step is: 221; target_steps is: 240
+train_idx is: 5
+Step 222/240, Epoch 28/30 (LogEpoch: 27), Loss: 65.1739, LR: 0.000100
+global_step is: 222; target_steps is: 240
+train_idx is: 6
+Step 223/240, Epoch 28/30 (LogEpoch: 27), Loss: 64.6881, LR: 0.000100
+global_step is: 223; target_steps is: 240
+train_idx is: 7
+Step 224/240, Epoch 28/30 (LogEpoch: 28), Loss: 65.1543, LR: 0.000100
+global_step is: 224; target_steps is: 240
+06/11 [16:17:54] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=907035;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=302102;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m27[22m. Current global_step = [1m224[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m29[22m/[1m30[22m    ]8;id=742019;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=681002;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 225/240, Epoch 29/30 (LogEpoch: 28), Loss: 60.6777, LR: 0.000100
+global_step is: 225; target_steps is: 240
+train_idx is: 1
+Step 226/240, Epoch 29/30 (LogEpoch: 28), Loss: 64.7294, LR: 0.000100
+global_step is: 226; target_steps is: 240
+train_idx is: 2
+Step 227/240, Epoch 29/30 (LogEpoch: 28), Loss: 73.5278, LR: 0.000100
+global_step is: 227; target_steps is: 240
+train_idx is: 3
+Step 228/240, Epoch 29/30 (LogEpoch: 28), Loss: 63.0216, LR: 0.000100
+global_step is: 228; target_steps is: 240
+train_idx is: 4
+Step 229/240, Epoch 29/30 (LogEpoch: 28), Loss: 67.6090, LR: 0.000100
+global_step is: 229; target_steps is: 240
+train_idx is: 5
+Step 230/240, Epoch 29/30 (LogEpoch: 28), Loss: 62.6132, LR: 0.000100
+global_step is: 230; target_steps is: 240
+train_idx is: 6
+Step 231/240, Epoch 29/30 (LogEpoch: 28), Loss: 61.1842, LR: 0.000100
+global_step is: 231; target_steps is: 240
+train_idx is: 7
+Step 232/240, Epoch 29/30 (LogEpoch: 29), Loss: 67.9144, LR: 0.000100
+global_step is: 232; target_steps is: 240
+06/11 [16:22:11] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=121465;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=429805;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m28[22m. Current global_step = [1m232[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m30[22m/[1m30[22m    ]8;id=485598;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=36477;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#254\254]8;;\
+train_idx is: 0
+Step 233/240, Epoch 30/30 (LogEpoch: 29), Loss: 68.5146, LR: 0.000100
+global_step is: 233; target_steps is: 240
+train_idx is: 1
+Step 234/240, Epoch 30/30 (LogEpoch: 29), Loss: 66.4792, LR: 0.000100
+global_step is: 234; target_steps is: 240
+train_idx is: 2
+Step 235/240, Epoch 30/30 (LogEpoch: 29), Loss: 65.1884, LR: 0.000100
+global_step is: 235; target_steps is: 240
+train_idx is: 3
+Step 236/240, Epoch 30/30 (LogEpoch: 29), Loss: 63.0241, LR: 0.000100
+global_step is: 236; target_steps is: 240
+train_idx is: 4
+Step 237/240, Epoch 30/30 (LogEpoch: 29), Loss: 63.3053, LR: 0.000100
+global_step is: 237; target_steps is: 240
+train_idx is: 5
+Step 238/240, Epoch 30/30 (LogEpoch: 29), Loss: 54.7492, LR: 0.000100
+global_step is: 238; target_steps is: 240
+train_idx is: 6
+Step 239/240, Epoch 30/30 (LogEpoch: 29), Loss: 70.8511, LR: 0.000100
+global_step is: 239; target_steps is: 240
+train_idx is: 7
+Step 240/240, Epoch 30/30 (LogEpoch: 30), Loss: 102.1447, LR: 0.000100
+Checkpoint saved: checkpoints_preprocessed/step-000240-epoch-30-loss=102.1447.pt
+global_step is: 240; target_steps is: 240
+06/11 [16:26:37] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx ]8;id=95912;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=260643;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#368\368]8;;\
+                          [1m29[22m. Current global_step = [1m240[22m,
+                          target_steps = [1m240
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Target steps reached    ]8;id=464294;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=429353;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#372\372]8;;\
+                          after epoch [1m30[22m. Stopping
+                          training based on global_step
+                          [1m(240)[22m >= target_steps [1m(240)[22m.
+Training logs saved to: training_logs/training_log_20250611_162637.json
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Training completed.     ]8;id=375876;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py\train_coconut_with_preprocessed_embeddings.py]8;;\:]8;id=640554;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py#400\400]8;;\
+                          Logs saved to
+                          training_logs/training_log_20250

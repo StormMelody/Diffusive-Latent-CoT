@@ -1,0 +1,35 @@
+{
+    "os": "Linux-5.4.0-216-generic-x86_64-with-glibc2.31",
+    "python": "3.10.16",
+    "heartbeatAt": "2025-06-11T13:42:50.487801",
+    "startedAt": "2025-06-11T13:42:49.925815",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_count": 8,
+    "cpu_count": 96,
+    "cuda": null,
+    "args": [
+        "--preprocessed_data_path",
+        "/data2/xxw_data/projects/LLM/coconut/data/gsm_train_embeddings_optimized_debug.pkl",
+        "--world_size",
+        "2",
+        "--epochs",
+        "30",
+        "--batch_size",
+        "64",
+        "--learning_rate",
+        "1e-4"
+    ],
+    "state": "running",
+    "program": "/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_with_preprocessed_embeddings.py",
+    "codePath": "training/strategies/train_coconut_with_preprocessed_embeddings.py",
+    "git": {
+        "remote": "https://github.com/StormMelody/Diffusive-Latent-CoT.git",
+        "commit": "54ad53ac3561c46026440fcb1bc5fdca7cde8fe2"
+    },
+    "email": "w597744907@gmail.com",
+    "root": "/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT",
+    "host": "ubuntu",
+    "username": "xxw",
+    "executable": "/data2/xxw_data/data/miniconda3/envs/hybridvla/bin/python"
+}

@@ -1,0 +1,32 @@
+2025-06-11 13:50:21,190 INFO    MainThread:585026 [internal.py:wandb_internal():90] W&B internal server running at pid: 585026, started at: 2025-06-11 13:50:21.190608
+2025-06-11 13:50:21,193 DEBUG   HandlerThread:585026 [handler.py:handle_request():141] handle_request: run_start
+2025-06-11 13:50:21,194 INFO    WriterThread:585026 [datastore.py:open_for_write():75] open: /data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250611_135020-ngtrbr0s/run-ngtrbr0s.wandb
+2025-06-11 13:50:21,214 DEBUG   HandlerThread:585026 [meta.py:__init__():35] meta init
+2025-06-11 13:50:21,214 DEBUG   HandlerThread:585026 [meta.py:__init__():49] meta init done
+2025-06-11 13:50:21,214 DEBUG   HandlerThread:585026 [meta.py:probe():209] probe
+2025-06-11 13:50:21,223 DEBUG   HandlerThread:585026 [meta.py:_setup_git():199] setup git
+2025-06-11 13:50:21,232 DEBUG   HandlerThread:585026 [meta.py:_setup_git():206] setup git done
+2025-06-11 13:50:21,232 DEBUG   HandlerThread:585026 [meta.py:_save_pip():53] save pip
+2025-06-11 13:50:21,232 DEBUG   HandlerThread:585026 [meta.py:_save_pip():67] save pip done
+2025-06-11 13:50:21,233 DEBUG   HandlerThread:585026 [meta.py:_save_conda():74] save conda
+2025-06-11 13:50:24,125 DEBUG   HandlerThread:585026 [meta.py:_save_conda():84] save conda done
+2025-06-11 13:50:24,126 DEBUG   HandlerThread:585026 [meta.py:probe():247] probe done
+2025-06-11 13:51:47,730 DEBUG   HandlerThread:585026 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-11 13:52:17,311 DEBUG   HandlerThread:585026 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-11 13:52:43,386 DEBUG   HandlerThread:585026 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-11 13:53:16,530 DEBUG   HandlerThread:585026 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-11 13:53:42,401 DEBUG   HandlerThread:585026 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-11 13:54:08,037 DEBUG   HandlerThread:585026 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-11 13:54:38,115 DEBUG   HandlerThread:585026 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-11 13:55:07,558 DEBUG   HandlerThread:585026 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-11 13:56:28,914 DEBUG   HandlerThread:585026 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-11 13:57:02,109 DEBUG   HandlerThread:585026 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-11 13:57:29,163 DEBUG   HandlerThread:585026 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-11 13:57:55,003 DEBUG   HandlerThread:585026 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-11 13:58:20,872 DEBUG   HandlerThread:585026 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-11 13:58:49,577 WARNING MainThread:585026 [internal.py:wandb_internal():153] Internal process interrupt: 1
+2025-06-11 13:58:49,737 WARNING MainThread:585026 [internal.py:wandb_internal():153] Internal process interrupt: 2
+2025-06-11 13:58:49,737 ERROR   MainThread:585026 [internal.py:wandb_internal():156] Internal process interrupted.
+2025-06-11 13:58:50,266 INFO    SenderThread:585026 [sender.py:finish():1111] shutting down sender
+2025-06-11 13:58:50,357 INFO    WriterThread:585026 [datastore.py:close():279] close: /data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250611_135020-ngtrbr0s/run-ngtrbr0s.wandb
+2025-06-11 13:58:50,357 INFO    MainThread:585026 [internal.py:handle_exit():80] Internal process exited

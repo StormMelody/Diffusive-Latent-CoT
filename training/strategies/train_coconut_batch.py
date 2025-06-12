@@ -1,4 +1,9 @@
 import json
+import os
+import argparse
+import torch.distributed as dist
+from torch.nn.parallel import DistributedDataParallel as DDP
+import torch.multiprocessing as mp
 from pathlib import Path
 from torch.utils.data import Dataset
 import torch
@@ -128,9 +133,22 @@ class GSM8KDataset(Dataset):
         return question, answer_token_ids, steps
 
 # Initialize Overwatch =>> Wraps `logging.Logger`
-overwatch = initialize_overwatch(__name__)
+overwatch = None # Will be initialized in main() with distributed parameters
+
+def setup_distributed(rank, world_size):
+    """Sets up the distributed training environment."""
+    if not dist.is_initialized():
+        os.environ['MASTER_ADDR'] = 'localhost'
+        os.environ['MASTER_PORT'] = '12355'
+        dist.init_process_group("nccl", rank=rank, world_size=world_size)
+    torch.cuda.set_device(rank)
+
+def cleanup_distributed():
+    """Cleans up the distributed training environment."""
+    dist.destroy_process_group()
 
 def main(
+    local_rank: int, # Added for DDP
     CoTModel: DiffusiveCoT,
     dataset: GSM8KDataset,
     save_interval: int = 2500,
@@ -141,22 +159,35 @@ def main(
     batch_size=1,
     max_steps: Optional[int] = None,
     enable_mixed_precision_training: bool = True,
-    mixed_precision_dtype: torch.dtype = torch.bfloat16
+    mixed_precision_dtype: torch.dtype = torch.bfloat16,
+    world_size: int = 1 # Added for DDP
     ) -> None:
 
+    if world_size > 1:
+        setup_distributed(local_rank, world_size)
+
+    global overwatch
+    overwatch = initialize_overwatch("train_coconut_batch")
+
+    sampler = DistributedSampler(dataset, num_replicas=world_size, rank=local_rank, shuffle=True) if world_size > 1 else None
     dataloader = DataLoader(
         dataset,
         batch_size=batch_size,
-        sampler=None,
-        collate_fn=custom_collate_fn
-        # collate_fn=GSM8KDataset.collate_fn
+        sampler=sampler,
+        collate_fn=custom_collate_fn,
+        shuffle=False if sampler else True, # Shuffle is handled by DistributedSampler
+        num_workers=4, # Adjust as needed
+        pin_memory=True # Recommended for DDP
     )
+    # collate_fn=GSM8KDataset.collate_fn
     import math
     from torch.optim import AdamW
     from torch.optim.lr_scheduler import CosineAnnealingLR
     from transformers import get_cosine_schedule_with_warmup  # 添加这一行
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    CoTModel=CoTModel.to(device)
+    device = torch.device(f"cuda:{local_rank}" if torch.cuda.is_available() and world_size > 1 else ("cuda" if torch.cuda.is_available() else "cpu"))
+    CoTModel = CoTModel.to(device)
+    if world_size > 1:
+        CoTModel = DDP(CoTModel, device_ids=[local_rank], find_unused_parameters=True)
     optimizer = AdamW(CoTModel.parameters(), lr=1e-4)
     print(f"Learning rate in optimizer: {optimizer.param_groups[0]['lr']}")
     # 计算训练步数
@@ -188,7 +219,36 @@ def main(
     status = "Training DiffusiveCoT"
     global_step = 0
     sequence_length = 1024
-    target_steps = epochs * math.ceil(len(dataloader) / overwatch.world_size() / grad_accumulation_steps)
+    # Adjust num_training_steps and target_steps for DDP
+    # Each process sees a fraction of the data, but grad_accumulation_steps applies per process
+    # Total effective batch size = batch_size * world_size * grad_accumulation_steps
+    # num_training_steps_per_epoch = len(dataset) // (batch_size * world_size * grad_accumulation_steps)
+    # num_training_steps = num_training_steps_per_epoch * epochs
+    # However, len(dataloader) already considers the sharding by DistributedSampler if used.
+    # So, len(dataloader) is len(dataset) / world_size for DDP.
+    # The original calculation for num_training_steps seems correct if len(dataloader) is used.
+    # Let's re-verify target_steps calculation for tqdm
+    if world_size > 1:
+        # For DDP, len(dataloader) is len(full_dataset) / world_size
+        # So, total batches processed by all gpus in one epoch is len(dataloader) * world_size
+        # Number of optimizer steps per epoch = (len(dataloader) * world_size) / (world_size * grad_accumulation_steps)
+        # = len(dataloader) / grad_accumulation_steps
+        target_steps_per_epoch = math.ceil(len(dataloader) / grad_accumulation_steps)
+    else:
+        target_steps_per_epoch = math.ceil(len(dataloader) / grad_accumulation_steps)
+    target_steps = epochs * target_steps_per_epoch
+
+    # num_training_steps should be calculated based on the total number of optimizer steps
+    num_training_steps = target_steps # This seems more direct
+
+    # Re-initialize lr_scheduler with the potentially updated num_training_steps
+    num_warmup_steps = int(0.1 * num_training_steps)
+    lr_scheduler = get_cosine_schedule_with_warmup(
+        optimizer,
+        num_warmup_steps=num_warmup_steps,
+        num_training_steps=num_training_steps
+    )
+
     with tqdm(
         total=(epochs * math.ceil((len(dataloader) / overwatch.world_size() / grad_accumulation_steps))) if max_steps is None else max_steps,
         desc=status,
@@ -201,9 +261,8 @@ def main(
             if overwatch.is_rank_zero():
                 overwatch.info(f"Starting Epoch {epoch_idx + 1}/{epochs}")
             
-            # If using DistributedSampler, set epoch for dataloader sampler:
-            # if hasattr(dataloader.sampler, "set_epoch") and isinstance(dataloader.sampler, DistributedSampler):
-            #     dataloader.sampler.set_epoch(epoch_idx)
+            if world_size > 1 and hasattr(dataloader.sampler, "set_epoch") and isinstance(dataloader.sampler, DistributedSampler):
+                dataloader.sampler.set_epoch(epoch_idx)
 
             for train_idx, batch in enumerate(dataloader):
                 print("train_idx is: ", train_idx)
@@ -211,11 +270,11 @@ def main(
                 #   => Basically, if we're using mixed precision (or not), autocast()/FSDP will move to device!
                 question, answer, steps, answer_label = batch     # shape: [4, 1, 768] [4, 1, 768] [4, 4, 768]
                 # import pdb; pdb.set_trace()
-                device = next(CoTModel.parameters()).device
-                question = question.to(device)
-                answer = answer.to(device)
-                steps = steps.to(device)
-                answer_label = answer_label.to(device)
+                # device = next(CoTModel.parameters()).device # Device is already set
+                question = question.to(device, non_blocking=True)
+                answer = answer.to(device, non_blocking=True)
+                steps = steps.to(device, non_blocking=True)
+                answer_label = answer_label.to(device, non_blocking=True)
                 with torch.autocast(
                     "cuda", dtype=mixed_precision_dtype, enabled=enable_mixed_precision_training
                 ):
@@ -262,9 +321,13 @@ def main(
                         print(f"Step {global_step}/{target_steps}, Epoch {epoch_idx + 1}/{epochs} (LogEpoch: {epoch_for_logging}), Loss: {loss.item():.4f}, LR: {lr_scheduler.get_last_lr()[0]:.6f}")
                     
                     # 保存checkpoint (using epoch_for_logging for consistency with original naming)
-                    for i in range(1, 6):
-                        if global_step == target_steps * i // 5:
-                            if overwatch.is_rank_zero():
+                    # Save checkpoint logic needs to be rank-aware
+                    # For example, save every N steps or at the end of epochs
+                    # Let's simplify to save at specific global_step milestones, only on rank 0
+                    # The original logic for saving 5 times based on target_steps * i // 5 is fine.
+                    if overwatch.is_rank_zero():
+                        for i in range(1, 6): # Save 5 times during training
+                            if global_step == target_steps * i // 5:
                                 checkpoint_dir = Path("./checkpoints")
                                 checkpoint_dir.mkdir(exist_ok=True)
                                 
@@ -289,9 +352,9 @@ def main(
                                 print(f"Checkpoint saved: {checkpoint_path}")
                                 
                                 wandb.log({"checkpoint/saved_step": global_step}, step=global_step)
-                            
-                            if 'dist' in globals():
-                                dist.barrier()
+                    
+                    if world_size > 1:
+                        dist.barrier() # Ensure all processes sync before next step if checkpoint was saved
                     print(f"global_step is: {global_step}; target_steps is: {target_steps}")
                     if global_step >= target_steps:
                         break # Break from inner (dataloader) loop
@@ -308,6 +371,9 @@ def main(
                 if overwatch.is_rank_zero():
                     overwatch.info(f"Target steps reached after epoch {epoch_idx + 1}. Stopping training based on global_step ({global_step}) >= target_steps ({target_steps}).")
                 break # Break from outer (epoch) loop
+    
+    if world_size > 1:
+        cleanup_distributed()
 
    
 
@@ -321,5 +387,62 @@ num_added_toks = tokenizer.add_special_tokens({'additional_special_tokens': new_
 model.resize_token_embeddings(len(tokenizer))
 dataset = GSM8KDataset("/data2/xxw_data/projects/LLM/coconut/data/gsm_train.json", tokenizer, 512, model, debug=True)
 
-main(cot_model, dataset, save_interval=2500, save_full_model=True, epochs=3)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Diffusive CoT Training')
+    parser.add_argument('--local_rank', type=int, default=-1, help='Local rank for distributed training')
+    parser.add_argument('--epochs', type=int, default=3, help='Number of training epochs')
+    parser.add_argument('--batch_size', type=int, default=1, help='Batch size per GPU') # Changed from default=1 to a more common value, adjust as needed
+    parser.add_argument('--learning_rate', type=float, default=1e-4, help='Learning rate')
+    parser.add_argument('--grad_accumulation_steps', type=int, default=1, help='Gradient accumulation steps')
+    parser.add_argument('--debug', action='store_true', help='Enable debug mode with smaller dataset')
+    parser.add_argument('--data_path', type=str, default="/data2/xxw_data/projects/LLM/coconut/data/gsm_train.json", help='Path to training data JSON file')
+
+    args = parser.parse_args()
+
+    world_size = int(os.environ.get("WORLD_SIZE", 1))
+
+    if world_size > 1 and args.local_rank == -1:
+        # If world_size is set (e.g., by torchrun) but local_rank is not passed via CLI,
+        # try to get it from environment (torchrun sets LOCAL_RANK)
+        args.local_rank = int(os.environ.get("LOCAL_RANK", -1))
+        if args.local_rank == -1:
+            raise ValueError("torchrun is used (WORLD_SIZE > 1) but LOCAL_RANK is not set. Please ensure torchrun is configured correctly or pass --local_rank.")
+
+    # It's crucial to set the start method for multiprocessing with CUDA correctly, especially for DDP.
+    # 'spawn' is generally safer than 'fork' with CUDA.
+    # This should be done once at the beginning of the script if __name__ == "__main__".
+    if world_size > 1:
+        try:
+            mp.set_start_method('spawn', force=True)
+            if world_size == 1 or args.local_rank == 0:
+                print("Multiprocessing start method set to 'spawn'.")
+        except RuntimeError as e:
+            if world_size == 1 or args.local_rank == 0:
+                print(f"Note: Could not set multiprocessing start method to 'spawn' (might be already set or not supported): {e}")
+
+    tokenizer = GPT2Tokenizer.from_pretrained('openai-community/gpt2')
+    tokenizer.pad_token = tokenizer.eos_token
+    # model_for_dataset_init is only used for its tokenizer and device for embedding, not trained directly here.
+    model_for_dataset_init = GPT2LMHeadModel.from_pretrained('openai-community/gpt2') 
+    new_special_tokens = ['<BOD>', '<EOD>']
+    num_added_toks = tokenizer.add_special_tokens({'additional_special_tokens': new_special_tokens})
+    model_for_dataset_init.resize_token_embeddings(len(tokenizer))
+
+    # The actual model to be trained
+    gpt2_model_base = GPT2LMHeadModel.from_pretrained('openai-community/gpt2')
+    gpt2_model_base.resize_token_embeddings(len(tokenizer)) # Ensure this model also has resized embeddings
+    cot_model = DiffusiveCoT(gpt2_model_base, use_diff=True)
+
+    dataset = GSM8KDataset(args.data_path, tokenizer, 512, model_for_dataset_init, debug=args.debug)
+
+    main(
+        local_rank=args.local_rank,
+        CoTModel=cot_model,
+        dataset=dataset,
+        epochs=args.epochs,
+        batch_size=args.batch_size,
+        learning_rate=args.learning_rate,
+        grad_accumulation_steps=args.grad_accumulation_steps,
+        world_size=world_size
+    )
 
