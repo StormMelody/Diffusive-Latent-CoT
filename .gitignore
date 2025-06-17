@@ -10,3 +10,5 @@ README_1.md
 simulation_fintuned/
 checkpoints/
 checkpoints_preprocessed/
+wandb/
+training_logs/
