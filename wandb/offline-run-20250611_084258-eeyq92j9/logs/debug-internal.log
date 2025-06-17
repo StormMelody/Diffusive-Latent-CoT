@@ -1,8 +1,0 @@
-{"time":"2025-06-11T08:42:58.484355701Z","level":"INFO","msg":"using version","core version":"0.19.0"}
-{"time":"2025-06-11T08:42:58.484408641Z","level":"INFO","msg":"created symlink","path":"/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250611_084258-eeyq92j9/logs/debug-core.log"}
-{"time":"2025-06-11T08:42:58.695124156Z","level":"INFO","msg":"created new stream","id":"eeyq92j9"}
-{"time":"2025-06-11T08:42:58.695166706Z","level":"INFO","msg":"stream: started","id":"eeyq92j9"}
-{"time":"2025-06-11T08:42:58.695217556Z","level":"INFO","msg":"writer: Do: started","stream_id":"eeyq92j9"}
-{"time":"2025-06-11T08:42:58.695245896Z","level":"INFO","msg":"sender: started","stream_id":"eeyq92j9"}
-{"time":"2025-06-11T08:42:58.695264015Z","level":"INFO","msg":"handler: started","stream_id":"eeyq92j9"}
-{"time":"2025-06-11T08:42:58.699642862Z","level":"INFO","msg":"Starting system monitor"}

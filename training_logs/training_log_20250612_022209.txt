@@ -1,6 +1,0 @@
-Training started at: 2025-06-12T02:22:09.313143
-Configuration: epochs=100, batch_size=512, lr=0.0008
-Preprocessed data: /data2/xxw_data/projects/LLM/coconut/data/gsm_train_embeddings_optimized_debug.pkl
-================================================================================
-Step	Epoch	Loss		Learning_Rate	Timestamp
---------------------------------------------------------------------------------
