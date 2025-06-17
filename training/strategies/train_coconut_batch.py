@@ -196,8 +196,7 @@ def main(
     max_steps: Optional[int] = None,
     enable_mixed_precision_training: bool = True,
     mixed_precision_dtype: torch.dtype = torch.bfloat16,
-    world_size: int = 1, # Added for DDP
-    resume_from: Optional[str] = None # 添加恢复训练的参数
+    world_size: int = 1 # Added for DDP
     ) -> None:
 
     if world_size > 1:
@@ -226,62 +225,19 @@ def main(
     if world_size > 1:
         CoTModel = DDP(CoTModel, device_ids=[local_rank], find_unused_parameters=True)
     optimizer = AdamW(CoTModel.parameters(), lr=learning_rate)
+    print(f"Learning rate in optimizer: {optimizer.param_groups[0]['lr']}")
+    # 计算训练步数
+    num_training_steps = (len(dataset) * epochs) // (batch_size * grad_accumulation_steps)
+    # lr_scheduler = CosineAnnealingLR(optimizer, T_max=num_training_steps)
+    # 设置warmup步数，通常为总训练步数的10%
+    num_warmup_steps = int(0.1 * num_training_steps)
+    
+    # 使用带有warmup的余弦学习率调度器
     lr_scheduler = torch.optim.lr_scheduler.StepLR(
         optimizer,
         step_size=1000,
         gamma=0.99
     )
-    print(f"Learning rate in optimizer: {optimizer.param_groups[0]['lr']}")
-    
-    # 初始化全局步数和起始epoch
-    global_step = 0
-    start_epoch = 0
-    
-    # 计算训练步数
-    num_training_steps = (len(dataset) * epochs) // (batch_size * grad_accumulation_steps)
-    # 设置warmup步数，通常为总训练步数的10%
-    num_warmup_steps = int(0.1 * num_training_steps)
-    
-    # 使用带有warmup的余弦学习率调度器
-    lr_scheduler = get_cosine_schedule_with_warmup(
-        optimizer,
-        num_warmup_steps=num_warmup_steps,
-        num_training_steps=num_training_steps
-    )
-    
-    # 加载检查点进行续训（如果指定）
-    if resume_from is not None:
-        if os.path.isfile(resume_from):
-            if overwatch.is_rank_zero():
-                overwatch.info(f"Loading checkpoint from {resume_from}")
-            
-            # 加载检查点
-            checkpoint = torch.load(resume_from, map_location=device)
-            
-            # 恢复模型权重
-            if isinstance(CoTModel, DDP):
-                CoTModel.module.load_state_dict(checkpoint["model"])
-            else:
-                CoTModel.load_state_dict(checkpoint["model"])
-            
-            # 恢复全局步数和epoch
-            global_step = checkpoint.get("global_step", 0)
-            start_epoch = checkpoint.get("epoch", 0)
-            
-            # 恢复优化器状态（如果有）
-            if "optimizer" in checkpoint and optimizer is not None:
-                optimizer.load_state_dict(checkpoint["optimizer"])
-                
-            # 恢复学习率调度器状态（如果有）
-            if "scheduler" in checkpoint and lr_scheduler is not None:
-                lr_scheduler.load_state_dict(checkpoint["scheduler"])
-                
-            if overwatch.is_rank_zero():
-                overwatch.info(f"Resumed training from step {global_step}, epoch {start_epoch}")
-        else:
-            if overwatch.is_rank_zero():
-                overwatch.warning(f"Checkpoint file {resume_from} not found. Starting training from scratch.")
-    
     # 初始化wandb
     if overwatch.is_rank_zero():  # 只在主进程初始化wandb
         wandb.init(
@@ -292,16 +248,27 @@ def main(
                 "batch_size": batch_size,
                 "grad_accumulation_steps": grad_accumulation_steps,
                 "epochs": epochs,
-                "learning_rate": learning_rate,
-                "resumed_from": resume_from if resume_from else "None"
+                "learning_rate": learning_rate
             }
         )
     # === Train ===
     status = "Training DiffusiveCoT"
+    global_step = 0
     sequence_length = 1024
-    
-    # 计算目标步数
+    # Adjust num_training_steps and target_steps for DDP
+    # Each process sees a fraction of the data, but grad_accumulation_steps applies per process
+    # Total effective batch size = batch_size * world_size * grad_accumulation_steps
+    # num_training_steps_per_epoch = len(dataset) // (batch_size * world_size * grad_accumulation_steps)
+    # num_training_steps = num_training_steps_per_epoch * epochs
+    # However, len(dataloader) already considers the sharding by DistributedSampler if used.
+    # So, len(dataloader) is len(dataset) / world_size for DDP.
+    # The original calculation for num_training_steps seems correct if len(dataloader) is used.
+    # Let's re-verify target_steps calculation for tqdm
     if world_size > 1:
+        # For DDP, len(dataloader) is len(full_dataset) / world_size
+        # So, total batches processed by all gpus in one epoch is len(dataloader) * world_size
+        # Number of optimizer steps per epoch = (len(dataloader) * world_size) / (world_size * grad_accumulation_steps)
+        # = len(dataloader) / grad_accumulation_steps
         target_steps_per_epoch = math.ceil(len(dataloader) / grad_accumulation_steps)
     else:
         target_steps_per_epoch = math.ceil(len(dataloader) / grad_accumulation_steps)
@@ -311,29 +278,22 @@ def main(
     num_training_steps = target_steps # This seems more direct
 
     # Re-initialize lr_scheduler with the potentially updated num_training_steps
-    # 如果没有从检查点恢复学习率调度器，则重新初始化
-    if resume_from is None or "scheduler" not in checkpoint:
-        num_warmup_steps = int(0.1 * num_training_steps)
-        lr_scheduler = get_cosine_schedule_with_warmup(
-            optimizer,
-            num_warmup_steps=num_warmup_steps,
-            num_training_steps=num_training_steps
-        )
+    num_warmup_steps = int(0.1 * num_training_steps)
+    lr_scheduler = get_cosine_schedule_with_warmup(
+        optimizer,
+        num_warmup_steps=num_warmup_steps,
+        num_training_steps=num_training_steps
+    )
 
-    # 计算剩余步数用于tqdm进度条
-    remaining_steps = target_steps - global_step
-    
     with tqdm(
-        total=remaining_steps,
+        total=(epochs * math.ceil((len(dataloader) / overwatch.world_size() / grad_accumulation_steps))) if max_steps is None else max_steps,
         desc=status,
         leave=False,
         disable=not overwatch.is_rank_zero(),
     ) as progress:
         CoTModel.train()
         optimizer.zero_grad()
-        
-        # 从指定的epoch开始训练
-        for epoch_idx in range(start_epoch, epochs):
+        for epoch_idx in range(epochs):
             if overwatch.is_rank_zero():
                 overwatch.info(f"Starting Epoch {epoch_idx + 1}/{epochs}")
             
@@ -472,7 +432,6 @@ if __name__ == "__main__":
     parser.add_argument('--grad_accumulation_steps', type=int, default=1, help='Gradient accumulation steps')
     parser.add_argument('--debug', action='store_true', help='Enable debug mode with smaller dataset')
     parser.add_argument('--data_path', type=str, default="/data2/xxw_data/projects/LLM/coconut/data/gsm_train.json", help='Path to training data JSON file')
-    parser.add_argument('--resume_from', type=str, default=None, help='Path to checkpoint file for resuming training')
 
     args = parser.parse_args()
 
@@ -520,7 +479,6 @@ if __name__ == "__main__":
         batch_size=args.batch_size,
         learning_rate=args.learning_rate,
         grad_accumulation_steps=args.grad_accumulation_steps,
-        world_size=world_size,
-        resume_from=args.resume_from
+        world_size=world_size
     )
 

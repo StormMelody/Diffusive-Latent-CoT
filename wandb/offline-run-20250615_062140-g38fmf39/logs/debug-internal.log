@@ -1,0 +1,20 @@
+2025-06-15 06:21:41,390 INFO    MainThread:1236182 [internal.py:wandb_internal():90] W&B internal server running at pid: 1236182, started at: 2025-06-15 06:21:41.389869
+2025-06-15 06:21:41,391 DEBUG   HandlerThread:1236182 [handler.py:handle_request():141] handle_request: run_start
+2025-06-15 06:21:41,391 INFO    WriterThread:1236182 [datastore.py:open_for_write():75] open: /data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/wandb/offline-run-20250615_062140-g38fmf39/run-g38fmf39.wandb
+2025-06-15 06:21:41,403 DEBUG   HandlerThread:1236182 [meta.py:__init__():35] meta init
+2025-06-15 06:21:41,403 DEBUG   HandlerThread:1236182 [meta.py:__init__():49] meta init done
+2025-06-15 06:21:41,403 DEBUG   HandlerThread:1236182 [meta.py:probe():209] probe
+2025-06-15 06:21:41,413 DEBUG   HandlerThread:1236182 [meta.py:_setup_git():199] setup git
+2025-06-15 06:21:41,419 DEBUG   HandlerThread:1236182 [meta.py:_setup_git():206] setup git done
+2025-06-15 06:21:41,419 DEBUG   HandlerThread:1236182 [meta.py:_save_pip():53] save pip
+2025-06-15 06:21:41,420 DEBUG   HandlerThread:1236182 [meta.py:_save_pip():67] save pip done
+2025-06-15 06:21:41,420 DEBUG   HandlerThread:1236182 [meta.py:_save_conda():74] save conda
+2025-06-15 06:21:44,207 DEBUG   HandlerThread:1236182 [meta.py:_save_conda():84] save conda done
+2025-06-15 06:21:44,207 DEBUG   HandlerThread:1236182 [meta.py:probe():247] probe done
+2025-06-15 06:22:03,020 DEBUG   HandlerThread:1236182 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-15 06:22:03,568 DEBUG   HandlerThread:1236182 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-15 06:22:06,271 DEBUG   HandlerThread:1236182 [handler.py:handle_request():141] handle_request: partial_history
+2025-06-15 06:22:18,791 WARNING MainThread:1236182 [internal.py:wandb_internal():153] Internal process interrupt: 1
+2025-06-15 06:22:18,921 WARNING MainThread:1236182 [internal.py:wandb_internal():153] Internal process interrupt: 2
+2025-06-15 06:22:18,921 ERROR   MainThread:1236182 [internal.py:wandb_internal():156] Internal process interrupted.
+2025-06-15 06:22:19,184 INFO    MainThread:1236182 [internal.py:handle_exit():80] Internal process exited

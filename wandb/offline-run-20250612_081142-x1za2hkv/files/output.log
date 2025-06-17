@@ -1,0 +1,2312 @@
+06/12 [08:11:46] [34mINFO    [39m | >> [1m[[22m*[1m][22m Starting Epoch [1m1[22m/[1m1[22m                                                         ]8;id=384384;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_batch.py\train_coconut_batch.py]8;;\:]8;id=669415;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_batch.py#338\338]8;;\
+Preprocessed dataset contains 385620 valid samples
+Preprocessed dataset contains 385620 valid samples
+Preprocessed dataset contains 385620 valid samples
+Preprocessed dataset contains 385620 valid samples
+train_idx is:  0
+Step 1/754, Epoch 1/1 (LogEpoch: 0), Loss: 533.2120, LR: 0.000011
+global_step is: 1; target_steps is: 754
+train_idx is:  1
+Step 2/754, Epoch 1/1 (LogEpoch: 0), Loss: 513.8741, LR: 0.000021
+global_step is: 2; target_steps is: 754
+train_idx is:  2
+Step 3/754, Epoch 1/1 (LogEpoch: 0), Loss: 500.3992, LR: 0.000032
+global_step is: 3; target_steps is: 754
+train_idx is:  3
+Step 4/754, Epoch 1/1 (LogEpoch: 0), Loss: 531.4825, LR: 0.000043
+global_step is: 4; target_steps is: 754
+train_idx is:  4
+Step 5/754, Epoch 1/1 (LogEpoch: 0), Loss: 655.7731, LR: 0.000053
+global_step is: 5; target_steps is: 754
+train_idx is:  5
+Step 6/754, Epoch 1/1 (LogEpoch: 0), Loss: 795.9938, LR: 0.000064
+global_step is: 6; target_steps is: 754
+train_idx is:  6
+Step 7/754, Epoch 1/1 (LogEpoch: 0), Loss: 450.6626, LR: 0.000075
+global_step is: 7; target_steps is: 754
+train_idx is:  7
+Step 8/754, Epoch 1/1 (LogEpoch: 0), Loss: 465.8837, LR: 0.000085
+global_step is: 8; target_steps is: 754
+train_idx is:  8
+Step 9/754, Epoch 1/1 (LogEpoch: 0), Loss: 431.4756, LR: 0.000096
+global_step is: 9; target_steps is: 754
+train_idx is:  9
+Step 10/754, Epoch 1/1 (LogEpoch: 0), Loss: 441.1124, LR: 0.000107
+global_step is: 10; target_steps is: 754
+train_idx is:  10
+Step 11/754, Epoch 1/1 (LogEpoch: 0), Loss: 421.9794, LR: 0.000117
+global_step is: 11; target_steps is: 754
+train_idx is:  11
+Step 12/754, Epoch 1/1 (LogEpoch: 0), Loss: 502.0506, LR: 0.000128
+global_step is: 12; target_steps is: 754
+train_idx is:  12
+Step 13/754, Epoch 1/1 (LogEpoch: 0), Loss: 407.6035, LR: 0.000139
+global_step is: 13; target_steps is: 754
+train_idx is:  13
+Step 14/754, Epoch 1/1 (LogEpoch: 0), Loss: 506.7976, LR: 0.000149
+global_step is: 14; target_steps is: 754
+train_idx is:  14
+Step 15/754, Epoch 1/1 (LogEpoch: 0), Loss: 402.7946, LR: 0.000160
+global_step is: 15; target_steps is: 754
+train_idx is:  15
+Step 16/754, Epoch 1/1 (LogEpoch: 0), Loss: 472.5290, LR: 0.000171
+global_step is: 16; target_steps is: 754
+train_idx is:  16
+Step 17/754, Epoch 1/1 (LogEpoch: 0), Loss: 380.0872, LR: 0.000181
+global_step is: 17; target_steps is: 754
+train_idx is:  17
+Step 18/754, Epoch 1/1 (LogEpoch: 0), Loss: 387.6348, LR: 0.000192
+global_step is: 18; target_steps is: 754
+train_idx is:  18
+Step 19/754, Epoch 1/1 (LogEpoch: 0), Loss: 417.9352, LR: 0.000203
+global_step is: 19; target_steps is: 754
+train_idx is:  19
+Step 20/754, Epoch 1/1 (LogEpoch: 0), Loss: 414.1586, LR: 0.000213
+global_step is: 20; target_steps is: 754
+train_idx is:  20
+Step 21/754, Epoch 1/1 (LogEpoch: 0), Loss: 334.0981, LR: 0.000224
+global_step is: 21; target_steps is: 754
+train_idx is:  21
+Step 22/754, Epoch 1/1 (LogEpoch: 0), Loss: 399.5464, LR: 0.000235
+global_step is: 22; target_steps is: 754
+train_idx is:  22
+Step 23/754, Epoch 1/1 (LogEpoch: 0), Loss: 432.8626, LR: 0.000245
+global_step is: 23; target_steps is: 754
+train_idx is:  23
+Step 24/754, Epoch 1/1 (LogEpoch: 0), Loss: 295.2696, LR: 0.000256
+global_step is: 24; target_steps is: 754
+train_idx is:  24
+Step 25/754, Epoch 1/1 (LogEpoch: 0), Loss: 613.4323, LR: 0.000267
+global_step is: 25; target_steps is: 754
+train_idx is:  25
+Step 26/754, Epoch 1/1 (LogEpoch: 0), Loss: 288.8761, LR: 0.000277
+global_step is: 26; target_steps is: 754
+train_idx is:  26
+Step 27/754, Epoch 1/1 (LogEpoch: 0), Loss: 285.6066, LR: 0.000288
+global_step is: 27; target_steps is: 754
+train_idx is:  27
+Step 28/754, Epoch 1/1 (LogEpoch: 0), Loss: 263.5748, LR: 0.000299
+global_step is: 28; target_steps is: 754
+train_idx is:  28
+Step 29/754, Epoch 1/1 (LogEpoch: 0), Loss: 278.8958, LR: 0.000309
+global_step is: 29; target_steps is: 754
+train_idx is:  29
+Step 30/754, Epoch 1/1 (LogEpoch: 0), Loss: 251.1216, LR: 0.000320
+global_step is: 30; target_steps is: 754
+train_idx is:  30
+Step 31/754, Epoch 1/1 (LogEpoch: 0), Loss: 283.5852, LR: 0.000331
+global_step is: 31; target_steps is: 754
+train_idx is:  31
+Step 32/754, Epoch 1/1 (LogEpoch: 0), Loss: 222.5540, LR: 0.000341
+global_step is: 32; target_steps is: 754
+train_idx is:  32
+Step 33/754, Epoch 1/1 (LogEpoch: 0), Loss: 210.7768, LR: 0.000352
+global_step is: 33; target_steps is: 754
+train_idx is:  33
+Step 34/754, Epoch 1/1 (LogEpoch: 0), Loss: 188.2592, LR: 0.000363
+global_step is: 34; target_steps is: 754
+train_idx is:  34
+Step 35/754, Epoch 1/1 (LogEpoch: 0), Loss: 204.1860, LR: 0.000373
+global_step is: 35; target_steps is: 754
+train_idx is:  35
+Step 36/754, Epoch 1/1 (LogEpoch: 0), Loss: 189.0546, LR: 0.000384
+global_step is: 36; target_steps is: 754
+train_idx is:  36
+Step 37/754, Epoch 1/1 (LogEpoch: 0), Loss: 182.8257, LR: 0.000395
+global_step is: 37; target_steps is: 754
+train_idx is:  37
+Step 38/754, Epoch 1/1 (LogEpoch: 0), Loss: 183.2563, LR: 0.000405
+global_step is: 38; target_steps is: 754
+train_idx is:  38
+Step 39/754, Epoch 1/1 (LogEpoch: 0), Loss: 143.7429, LR: 0.000416
+global_step is: 39; target_steps is: 754
+train_idx is:  39
+Step 40/754, Epoch 1/1 (LogEpoch: 0), Loss: 143.4050, LR: 0.000427
+global_step is: 40; target_steps is: 754
+train_idx is:  40
+Step 41/754, Epoch 1/1 (LogEpoch: 0), Loss: 148.8692, LR: 0.000437
+global_step is: 41; target_steps is: 754
+train_idx is:  41
+Step 42/754, Epoch 1/1 (LogEpoch: 0), Loss: 127.5680, LR: 0.000448
+global_step is: 42; target_steps is: 754
+train_idx is:  42
+Step 43/754, Epoch 1/1 (LogEpoch: 0), Loss: 141.1980, LR: 0.000459
+global_step is: 43; target_steps is: 754
+train_idx is:  43
+Step 44/754, Epoch 1/1 (LogEpoch: 0), Loss: 132.1343, LR: 0.000469
+global_step is: 44; target_steps is: 754
+train_idx is:  44
+Step 45/754, Epoch 1/1 (LogEpoch: 0), Loss: 116.8968, LR: 0.000480
+global_step is: 45; target_steps is: 754
+train_idx is:  45
+Step 46/754, Epoch 1/1 (LogEpoch: 0), Loss: 114.3708, LR: 0.000491
+global_step is: 46; target_steps is: 754
+train_idx is:  46
+Step 47/754, Epoch 1/1 (LogEpoch: 0), Loss: 107.4339, LR: 0.000501
+global_step is: 47; target_steps is: 754
+train_idx is:  47
+Step 48/754, Epoch 1/1 (LogEpoch: 0), Loss: 102.9206, LR: 0.000512
+global_step is: 48; target_steps is: 754
+train_idx is:  48
+Step 49/754, Epoch 1/1 (LogEpoch: 0), Loss: 89.5463, LR: 0.000523
+global_step is: 49; target_steps is: 754
+train_idx is:  49
+Step 50/754, Epoch 1/1 (LogEpoch: 0), Loss: 85.4619, LR: 0.000533
+global_step is: 50; target_steps is: 754
+train_idx is:  50
+Step 51/754, Epoch 1/1 (LogEpoch: 0), Loss: 79.4316, LR: 0.000544
+global_step is: 51; target_steps is: 754
+train_idx is:  51
+Step 52/754, Epoch 1/1 (LogEpoch: 0), Loss: 76.9979, LR: 0.000555
+global_step is: 52; target_steps is: 754
+train_idx is:  52
+Step 53/754, Epoch 1/1 (LogEpoch: 0), Loss: 92.8284, LR: 0.000565
+global_step is: 53; target_steps is: 754
+train_idx is:  53
+Step 54/754, Epoch 1/1 (LogEpoch: 0), Loss: 73.6043, LR: 0.000576
+global_step is: 54; target_steps is: 754
+train_idx is:  54
+Step 55/754, Epoch 1/1 (LogEpoch: 0), Loss: 67.2528, LR: 0.000587
+global_step is: 55; target_steps is: 754
+train_idx is:  55
+Step 56/754, Epoch 1/1 (LogEpoch: 0), Loss: 69.5502, LR: 0.000597
+global_step is: 56; target_steps is: 754
+train_idx is:  56
+Step 57/754, Epoch 1/1 (LogEpoch: 0), Loss: 74.1433, LR: 0.000608
+global_step is: 57; target_steps is: 754
+train_idx is:  57
+Step 58/754, Epoch 1/1 (LogEpoch: 0), Loss: 67.6503, LR: 0.000619
+global_step is: 58; target_steps is: 754
+train_idx is:  58
+Step 59/754, Epoch 1/1 (LogEpoch: 0), Loss: 65.0584, LR: 0.000629
+global_step is: 59; target_steps is: 754
+train_idx is:  59
+Step 60/754, Epoch 1/1 (LogEpoch: 0), Loss: 61.7363, LR: 0.000640
+global_step is: 60; target_steps is: 754
+train_idx is:  60
+Step 61/754, Epoch 1/1 (LogEpoch: 0), Loss: 59.0484, LR: 0.000651
+global_step is: 61; target_steps is: 754
+train_idx is:  61
+Step 62/754, Epoch 1/1 (LogEpoch: 0), Loss: 56.1104, LR: 0.000661
+global_step is: 62; target_steps is: 754
+train_idx is:  62
+Step 63/754, Epoch 1/1 (LogEpoch: 0), Loss: 65.4042, LR: 0.000672
+global_step is: 63; target_steps is: 754
+train_idx is:  63
+Step 64/754, Epoch 1/1 (LogEpoch: 0), Loss: 54.8824, LR: 0.000683
+global_step is: 64; target_steps is: 754
+train_idx is:  64
+Step 65/754, Epoch 1/1 (LogEpoch: 0), Loss: 55.0252, LR: 0.000693
+global_step is: 65; target_steps is: 754
+train_idx is:  65
+Step 66/754, Epoch 1/1 (LogEpoch: 0), Loss: 57.2408, LR: 0.000704
+global_step is: 66; target_steps is: 754
+train_idx is:  66
+Step 67/754, Epoch 1/1 (LogEpoch: 0), Loss: 50.9037, LR: 0.000715
+global_step is: 67; target_steps is: 754
+train_idx is:  67
+Step 68/754, Epoch 1/1 (LogEpoch: 0), Loss: 51.4293, LR: 0.000725
+global_step is: 68; target_steps is: 754
+train_idx is:  68
+Step 69/754, Epoch 1/1 (LogEpoch: 0), Loss: 56.1327, LR: 0.000736
+global_step is: 69; target_steps is: 754
+train_idx is:  69
+Step 70/754, Epoch 1/1 (LogEpoch: 0), Loss: 54.0391, LR: 0.000747
+global_step is: 70; target_steps is: 754
+train_idx is:  70
+Step 71/754, Epoch 1/1 (LogEpoch: 0), Loss: 50.5829, LR: 0.000757
+global_step is: 71; target_steps is: 754
+train_idx is:  71
+Step 72/754, Epoch 1/1 (LogEpoch: 0), Loss: 62.1915, LR: 0.000768
+global_step is: 72; target_steps is: 754
+train_idx is:  72
+Step 73/754, Epoch 1/1 (LogEpoch: 0), Loss: 53.2133, LR: 0.000779
+global_step is: 73; target_steps is: 754
+train_idx is:  73
+Step 74/754, Epoch 1/1 (LogEpoch: 0), Loss: 50.6137, LR: 0.000789
+global_step is: 74; target_steps is: 754
+train_idx is:  74
+Step 75/754, Epoch 1/1 (LogEpoch: 0), Loss: 48.3396, LR: 0.000800
+global_step is: 75; target_steps is: 754
+train_idx is:  75
+Step 76/754, Epoch 1/1 (LogEpoch: 0), Loss: 48.8247, LR: 0.000800
+global_step is: 76; target_steps is: 754
+train_idx is:  76
+Step 77/754, Epoch 1/1 (LogEpoch: 0), Loss: 53.5393, LR: 0.000800
+global_step is: 77; target_steps is: 754
+train_idx is:  77
+Step 78/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.4458, LR: 0.000800
+global_step is: 78; target_steps is: 754
+train_idx is:  78
+Step 79/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.8699, LR: 0.000800
+global_step is: 79; target_steps is: 754
+train_idx is:  79
+Step 80/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.3697, LR: 0.000800
+global_step is: 80; target_steps is: 754
+train_idx is:  80
+Step 81/754, Epoch 1/1 (LogEpoch: 0), Loss: 49.2071, LR: 0.000800
+global_step is: 81; target_steps is: 754
+train_idx is:  81
+Step 82/754, Epoch 1/1 (LogEpoch: 0), Loss: 47.8675, LR: 0.000800
+global_step is: 82; target_steps is: 754
+train_idx is:  82
+Step 83/754, Epoch 1/1 (LogEpoch: 0), Loss: 47.9963, LR: 0.000800
+global_step is: 83; target_steps is: 754
+train_idx is:  83
+Step 84/754, Epoch 1/1 (LogEpoch: 0), Loss: 47.1696, LR: 0.000800
+global_step is: 84; target_steps is: 754
+train_idx is:  84
+Step 85/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.5070, LR: 0.000800
+global_step is: 85; target_steps is: 754
+train_idx is:  85
+Step 86/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.2052, LR: 0.000799
+global_step is: 86; target_steps is: 754
+train_idx is:  86
+Step 87/754, Epoch 1/1 (LogEpoch: 0), Loss: 48.7950, LR: 0.000799
+global_step is: 87; target_steps is: 754
+train_idx is:  87
+Step 88/754, Epoch 1/1 (LogEpoch: 0), Loss: 45.0726, LR: 0.000799
+global_step is: 88; target_steps is: 754
+train_idx is:  88
+Step 89/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.0489, LR: 0.000799
+global_step is: 89; target_steps is: 754
+train_idx is:  89
+Step 90/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.8824, LR: 0.000799
+global_step is: 90; target_steps is: 754
+train_idx is:  90
+Step 91/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.2318, LR: 0.000799
+global_step is: 91; target_steps is: 754
+train_idx is:  91
+Step 92/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.5462, LR: 0.000799
+global_step is: 92; target_steps is: 754
+train_idx is:  92
+Step 93/754, Epoch 1/1 (LogEpoch: 0), Loss: 48.4021, LR: 0.000799
+global_step is: 93; target_steps is: 754
+train_idx is:  93
+Step 94/754, Epoch 1/1 (LogEpoch: 0), Loss: 47.0740, LR: 0.000798
+global_step is: 94; target_steps is: 754
+train_idx is:  94
+Step 95/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.6002, LR: 0.000798
+global_step is: 95; target_steps is: 754
+train_idx is:  95
+Step 96/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.5148, LR: 0.000798
+global_step is: 96; target_steps is: 754
+train_idx is:  96
+Step 97/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.8044, LR: 0.000798
+global_step is: 97; target_steps is: 754
+train_idx is:  97
+Step 98/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.2201, LR: 0.000798
+global_step is: 98; target_steps is: 754
+train_idx is:  98
+Step 99/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.4923, LR: 0.000798
+global_step is: 99; target_steps is: 754
+train_idx is:  99
+Step 100/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.4728, LR: 0.000797
+global_step is: 100; target_steps is: 754
+train_idx is:  100
+Step 101/754, Epoch 1/1 (LogEpoch: 0), Loss: 45.1886, LR: 0.000797
+global_step is: 101; target_steps is: 754
+train_idx is:  101
+Step 102/754, Epoch 1/1 (LogEpoch: 0), Loss: 48.1637, LR: 0.000797
+global_step is: 102; target_steps is: 754
+train_idx is:  102
+Step 103/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.3769, LR: 0.000797
+global_step is: 103; target_steps is: 754
+train_idx is:  103
+Step 104/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.6047, LR: 0.000796
+global_step is: 104; target_steps is: 754
+train_idx is:  104
+Step 105/754, Epoch 1/1 (LogEpoch: 0), Loss: 47.1734, LR: 0.000796
+global_step is: 105; target_steps is: 754
+train_idx is:  105
+Step 106/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.0255, LR: 0.000796
+global_step is: 106; target_steps is: 754
+train_idx is:  106
+Step 107/754, Epoch 1/1 (LogEpoch: 0), Loss: 45.0104, LR: 0.000796
+global_step is: 107; target_steps is: 754
+train_idx is:  107
+Step 108/754, Epoch 1/1 (LogEpoch: 0), Loss: 48.0068, LR: 0.000795
+global_step is: 108; target_steps is: 754
+train_idx is:  108
+Step 109/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.0482, LR: 0.000795
+global_step is: 109; target_steps is: 754
+train_idx is:  109
+Step 110/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.7410, LR: 0.000795
+global_step is: 110; target_steps is: 754
+train_idx is:  110
+Step 111/754, Epoch 1/1 (LogEpoch: 0), Loss: 48.2638, LR: 0.000794
+global_step is: 111; target_steps is: 754
+train_idx is:  111
+Step 112/754, Epoch 1/1 (LogEpoch: 0), Loss: 47.2599, LR: 0.000794
+global_step is: 112; target_steps is: 754
+train_idx is:  112
+Step 113/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.6664, LR: 0.000794
+global_step is: 113; target_steps is: 754
+train_idx is:  113
+Step 114/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.4384, LR: 0.000794
+global_step is: 114; target_steps is: 754
+train_idx is:  114
+Step 115/754, Epoch 1/1 (LogEpoch: 0), Loss: 45.1391, LR: 0.000793
+global_step is: 115; target_steps is: 754
+train_idx is:  115
+Step 116/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.4565, LR: 0.000793
+global_step is: 116; target_steps is: 754
+train_idx is:  116
+Step 117/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.4483, LR: 0.000792
+global_step is: 117; target_steps is: 754
+train_idx is:  117
+Step 118/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.0682, LR: 0.000792
+global_step is: 118; target_steps is: 754
+train_idx is:  118
+Step 119/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.4537, LR: 0.000792
+global_step is: 119; target_steps is: 754
+train_idx is:  119
+Step 120/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.1981, LR: 0.000791
+global_step is: 120; target_steps is: 754
+train_idx is:  120
+Step 121/754, Epoch 1/1 (LogEpoch: 0), Loss: 45.7426, LR: 0.000791
+global_step is: 121; target_steps is: 754
+train_idx is:  121
+Step 122/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.8458, LR: 0.000791
+global_step is: 122; target_steps is: 754
+train_idx is:  122
+Step 123/754, Epoch 1/1 (LogEpoch: 0), Loss: 82.4492, LR: 0.000790
+global_step is: 123; target_steps is: 754
+train_idx is:  123
+Step 124/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.4933, LR: 0.000790
+global_step is: 124; target_steps is: 754
+train_idx is:  124
+Step 125/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.0064, LR: 0.000789
+global_step is: 125; target_steps is: 754
+train_idx is:  125
+Step 126/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.1986, LR: 0.000789
+global_step is: 126; target_steps is: 754
+train_idx is:  126
+Step 127/754, Epoch 1/1 (LogEpoch: 0), Loss: 45.8630, LR: 0.000788
+global_step is: 127; target_steps is: 754
+train_idx is:  127
+Step 128/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.8329, LR: 0.000788
+global_step is: 128; target_steps is: 754
+train_idx is:  128
+Step 129/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.9608, LR: 0.000788
+global_step is: 129; target_steps is: 754
+train_idx is:  129
+Step 130/754, Epoch 1/1 (LogEpoch: 0), Loss: 47.1601, LR: 0.000787
+global_step is: 130; target_steps is: 754
+train_idx is:  130
+Step 131/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.0807, LR: 0.000787
+global_step is: 131; target_steps is: 754
+train_idx is:  131
+Step 132/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.5825, LR: 0.000786
+global_step is: 132; target_steps is: 754
+train_idx is:  132
+Step 133/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.3091, LR: 0.000786
+global_step is: 133; target_steps is: 754
+train_idx is:  133
+Step 134/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.5954, LR: 0.000785
+global_step is: 134; target_steps is: 754
+train_idx is:  134
+Step 135/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.9594, LR: 0.000785
+global_step is: 135; target_steps is: 754
+train_idx is:  135
+Step 136/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.5972, LR: 0.000784
+global_step is: 136; target_steps is: 754
+train_idx is:  136
+Step 137/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.9852, LR: 0.000784
+global_step is: 137; target_steps is: 754
+train_idx is:  137
+Step 138/754, Epoch 1/1 (LogEpoch: 0), Loss: 45.7069, LR: 0.000783
+global_step is: 138; target_steps is: 754
+train_idx is:  138
+Step 139/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.7043, LR: 0.000783
+global_step is: 139; target_steps is: 754
+train_idx is:  139
+Step 140/754, Epoch 1/1 (LogEpoch: 0), Loss: 45.8460, LR: 0.000782
+global_step is: 140; target_steps is: 754
+train_idx is:  140
+Step 141/754, Epoch 1/1 (LogEpoch: 0), Loss: 45.0390, LR: 0.000781
+global_step is: 141; target_steps is: 754
+train_idx is:  141
+Step 142/754, Epoch 1/1 (LogEpoch: 0), Loss: 45.7511, LR: 0.000781
+global_step is: 142; target_steps is: 754
+train_idx is:  142
+Step 143/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.9653, LR: 0.000780
+global_step is: 143; target_steps is: 754
+train_idx is:  143
+Step 144/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.1837, LR: 0.000780
+global_step is: 144; target_steps is: 754
+train_idx is:  144
+Step 145/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.6812, LR: 0.000779
+global_step is: 145; target_steps is: 754
+train_idx is:  145
+Step 146/754, Epoch 1/1 (LogEpoch: 0), Loss: 47.5402, LR: 0.000779
+global_step is: 146; target_steps is: 754
+train_idx is:  146
+Step 147/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.3750, LR: 0.000778
+global_step is: 147; target_steps is: 754
+train_idx is:  147
+Step 148/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.1911, LR: 0.000777
+global_step is: 148; target_steps is: 754
+train_idx is:  148
+Step 149/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.9228, LR: 0.000777
+global_step is: 149; target_steps is: 754
+train_idx is:  149
+Step 150/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.0756, LR: 0.000776
+Checkpoint saved: checkpoints/step-000150-epoch-00-loss=42.0756.pt
+global_step is: 150; target_steps is: 754
+train_idx is:  150
+Step 151/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.9141, LR: 0.000776
+global_step is: 151; target_steps is: 754
+train_idx is:  151
+Step 152/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.6392, LR: 0.000775
+global_step is: 152; target_steps is: 754
+train_idx is:  152
+Step 153/754, Epoch 1/1 (LogEpoch: 0), Loss: 47.0179, LR: 0.000774
+global_step is: 153; target_steps is: 754
+train_idx is:  153
+Step 154/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.5039, LR: 0.000774
+global_step is: 154; target_steps is: 754
+train_idx is:  154
+Step 155/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.7954, LR: 0.000773
+global_step is: 155; target_steps is: 754
+train_idx is:  155
+Step 156/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.2803, LR: 0.000772
+global_step is: 156; target_steps is: 754
+train_idx is:  156
+Step 157/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.2861, LR: 0.000772
+global_step is: 157; target_steps is: 754
+train_idx is:  157
+Step 158/754, Epoch 1/1 (LogEpoch: 0), Loss: 50.4037, LR: 0.000771
+global_step is: 158; target_steps is: 754
+train_idx is:  158
+Step 159/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.5209, LR: 0.000770
+global_step is: 159; target_steps is: 754
+train_idx is:  159
+Step 160/754, Epoch 1/1 (LogEpoch: 0), Loss: 47.2468, LR: 0.000769
+global_step is: 160; target_steps is: 754
+train_idx is:  160
+Step 161/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.5900, LR: 0.000769
+global_step is: 161; target_steps is: 754
+train_idx is:  161
+Step 162/754, Epoch 1/1 (LogEpoch: 0), Loss: 47.2193, LR: 0.000768
+global_step is: 162; target_steps is: 754
+train_idx is:  162
+Step 163/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.5349, LR: 0.000767
+global_step is: 163; target_steps is: 754
+train_idx is:  163
+Step 164/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.0375, LR: 0.000767
+global_step is: 164; target_steps is: 754
+train_idx is:  164
+Step 165/754, Epoch 1/1 (LogEpoch: 0), Loss: 90.3727, LR: 0.000766
+global_step is: 165; target_steps is: 754
+train_idx is:  165
+Step 166/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.1729, LR: 0.000765
+global_step is: 166; target_steps is: 754
+train_idx is:  166
+Step 167/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.4726, LR: 0.000764
+global_step is: 167; target_steps is: 754
+train_idx is:  167
+Step 168/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.5964, LR: 0.000764
+global_step is: 168; target_steps is: 754
+train_idx is:  168
+Step 169/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.8874, LR: 0.000763
+global_step is: 169; target_steps is: 754
+train_idx is:  169
+Step 170/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.0137, LR: 0.000762
+global_step is: 170; target_steps is: 754
+train_idx is:  170
+Step 171/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.2799, LR: 0.000761
+global_step is: 171; target_steps is: 754
+train_idx is:  171
+Step 172/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.0643, LR: 0.000760
+global_step is: 172; target_steps is: 754
+train_idx is:  172
+Step 173/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.2129, LR: 0.000760
+global_step is: 173; target_steps is: 754
+train_idx is:  173
+Step 174/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.7723, LR: 0.000759
+global_step is: 174; target_steps is: 754
+train_idx is:  174
+Step 175/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.4758, LR: 0.000758
+global_step is: 175; target_steps is: 754
+train_idx is:  175
+Step 176/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.9964, LR: 0.000757
+global_step is: 176; target_steps is: 754
+train_idx is:  176
+Step 177/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.4012, LR: 0.000756
+global_step is: 177; target_steps is: 754
+train_idx is:  177
+Step 178/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.8089, LR: 0.000755
+global_step is: 178; target_steps is: 754
+train_idx is:  178
+Step 179/754, Epoch 1/1 (LogEpoch: 0), Loss: 45.1353, LR: 0.000755
+global_step is: 179; target_steps is: 754
+train_idx is:  179
+Step 180/754, Epoch 1/1 (LogEpoch: 0), Loss: 71.2496, LR: 0.000754
+global_step is: 180; target_steps is: 754
+train_idx is:  180
+Step 181/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.2470, LR: 0.000753
+global_step is: 181; target_steps is: 754
+train_idx is:  181
+Step 182/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.0796, LR: 0.000752
+global_step is: 182; target_steps is: 754
+train_idx is:  182
+Step 183/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.0361, LR: 0.000751
+global_step is: 183; target_steps is: 754
+train_idx is:  183
+Step 184/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.1564, LR: 0.000750
+global_step is: 184; target_steps is: 754
+train_idx is:  184
+Step 185/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.9864, LR: 0.000749
+global_step is: 185; target_steps is: 754
+train_idx is:  185
+Step 186/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.8166, LR: 0.000748
+global_step is: 186; target_steps is: 754
+train_idx is:  186
+Step 187/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.9036, LR: 0.000747
+global_step is: 187; target_steps is: 754
+train_idx is:  187
+Step 188/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.1333, LR: 0.000747
+global_step is: 188; target_steps is: 754
+train_idx is:  188
+Step 189/754, Epoch 1/1 (LogEpoch: 0), Loss: 47.8573, LR: 0.000746
+global_step is: 189; target_steps is: 754
+train_idx is:  189
+Step 190/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.1623, LR: 0.000745
+global_step is: 190; target_steps is: 754
+train_idx is:  190
+Step 191/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.9104, LR: 0.000744
+global_step is: 191; target_steps is: 754
+train_idx is:  191
+Step 192/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.3382, LR: 0.000743
+global_step is: 192; target_steps is: 754
+train_idx is:  192
+Step 193/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.9473, LR: 0.000742
+global_step is: 193; target_steps is: 754
+train_idx is:  193
+Step 194/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.2711, LR: 0.000741
+global_step is: 194; target_steps is: 754
+train_idx is:  194
+Step 195/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.9794, LR: 0.000740
+global_step is: 195; target_steps is: 754
+train_idx is:  195
+Step 196/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.8555, LR: 0.000739
+global_step is: 196; target_steps is: 754
+train_idx is:  196
+Step 197/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.1878, LR: 0.000738
+global_step is: 197; target_steps is: 754
+train_idx is:  197
+Step 198/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.7306, LR: 0.000737
+global_step is: 198; target_steps is: 754
+train_idx is:  198
+Step 199/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.7559, LR: 0.000736
+global_step is: 199; target_steps is: 754
+train_idx is:  199
+Step 200/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.0333, LR: 0.000735
+global_step is: 200; target_steps is: 754
+train_idx is:  200
+Step 201/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.6233, LR: 0.000734
+global_step is: 201; target_steps is: 754
+train_idx is:  201
+Step 202/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.0649, LR: 0.000733
+global_step is: 202; target_steps is: 754
+train_idx is:  202
+Step 203/754, Epoch 1/1 (LogEpoch: 0), Loss: 118.6728, LR: 0.000732
+global_step is: 203; target_steps is: 754
+train_idx is:  203
+Step 204/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.1191, LR: 0.000731
+global_step is: 204; target_steps is: 754
+train_idx is:  204
+Step 205/754, Epoch 1/1 (LogEpoch: 0), Loss: 49.9702, LR: 0.000730
+global_step is: 205; target_steps is: 754
+train_idx is:  205
+Step 206/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.7171, LR: 0.000729
+global_step is: 206; target_steps is: 754
+train_idx is:  206
+Step 207/754, Epoch 1/1 (LogEpoch: 0), Loss: 45.9113, LR: 0.000728
+global_step is: 207; target_steps is: 754
+train_idx is:  207
+Step 208/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.4138, LR: 0.000727
+global_step is: 208; target_steps is: 754
+train_idx is:  208
+Step 209/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.8136, LR: 0.000726
+global_step is: 209; target_steps is: 754
+train_idx is:  209
+Step 210/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.2392, LR: 0.000724
+global_step is: 210; target_steps is: 754
+train_idx is:  210
+Step 211/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.5319, LR: 0.000723
+global_step is: 211; target_steps is: 754
+train_idx is:  211
+Step 212/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.1674, LR: 0.000722
+global_step is: 212; target_steps is: 754
+train_idx is:  212
+Step 213/754, Epoch 1/1 (LogEpoch: 0), Loss: 47.5223, LR: 0.000721
+global_step is: 213; target_steps is: 754
+train_idx is:  213
+Step 214/754, Epoch 1/1 (LogEpoch: 0), Loss: 45.2190, LR: 0.000720
+global_step is: 214; target_steps is: 754
+train_idx is:  214
+Step 215/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.4042, LR: 0.000719
+global_step is: 215; target_steps is: 754
+train_idx is:  215
+Step 216/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.5956, LR: 0.000718
+global_step is: 216; target_steps is: 754
+train_idx is:  216
+Step 217/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.8605, LR: 0.000717
+global_step is: 217; target_steps is: 754
+train_idx is:  217
+Step 218/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.3165, LR: 0.000716
+global_step is: 218; target_steps is: 754
+train_idx is:  218
+Step 219/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.1900, LR: 0.000714
+global_step is: 219; target_steps is: 754
+train_idx is:  219
+Step 220/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.0925, LR: 0.000713
+global_step is: 220; target_steps is: 754
+train_idx is:  220
+Step 221/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.2187, LR: 0.000712
+global_step is: 221; target_steps is: 754
+train_idx is:  221
+Step 222/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.5308, LR: 0.000711
+global_step is: 222; target_steps is: 754
+train_idx is:  222
+Step 223/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.6261, LR: 0.000710
+global_step is: 223; target_steps is: 754
+train_idx is:  223
+Step 224/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.5451, LR: 0.000709
+global_step is: 224; target_steps is: 754
+train_idx is:  224
+Step 225/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.1373, LR: 0.000707
+global_step is: 225; target_steps is: 754
+train_idx is:  225
+Step 226/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.3445, LR: 0.000706
+global_step is: 226; target_steps is: 754
+train_idx is:  226
+Step 227/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.9919, LR: 0.000705
+global_step is: 227; target_steps is: 754
+train_idx is:  227
+Step 228/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.4600, LR: 0.000704
+global_step is: 228; target_steps is: 754
+train_idx is:  228
+Step 229/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.1844, LR: 0.000703
+global_step is: 229; target_steps is: 754
+train_idx is:  229
+Step 230/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.6791, LR: 0.000701
+global_step is: 230; target_steps is: 754
+train_idx is:  230
+Step 231/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.4942, LR: 0.000700
+global_step is: 231; target_steps is: 754
+train_idx is:  231
+Step 232/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.9522, LR: 0.000699
+global_step is: 232; target_steps is: 754
+train_idx is:  232
+Step 233/754, Epoch 1/1 (LogEpoch: 0), Loss: 45.1931, LR: 0.000698
+global_step is: 233; target_steps is: 754
+train_idx is:  233
+Step 234/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.6136, LR: 0.000697
+global_step is: 234; target_steps is: 754
+train_idx is:  234
+Step 235/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.0715, LR: 0.000695
+global_step is: 235; target_steps is: 754
+train_idx is:  235
+Step 236/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.2800, LR: 0.000694
+global_step is: 236; target_steps is: 754
+train_idx is:  236
+Step 237/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.6567, LR: 0.000693
+global_step is: 237; target_steps is: 754
+train_idx is:  237
+Step 238/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.6145, LR: 0.000692
+global_step is: 238; target_steps is: 754
+train_idx is:  238
+Step 239/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.8584, LR: 0.000690
+global_step is: 239; target_steps is: 754
+train_idx is:  239
+Step 240/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.3250, LR: 0.000689
+global_step is: 240; target_steps is: 754
+train_idx is:  240
+Step 241/754, Epoch 1/1 (LogEpoch: 0), Loss: 64.3367, LR: 0.000688
+global_step is: 241; target_steps is: 754
+train_idx is:  241
+Step 242/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.0387, LR: 0.000686
+global_step is: 242; target_steps is: 754
+train_idx is:  242
+Step 243/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.1019, LR: 0.000685
+global_step is: 243; target_steps is: 754
+train_idx is:  243
+Step 244/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.7688, LR: 0.000684
+global_step is: 244; target_steps is: 754
+train_idx is:  244
+Step 245/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.4429, LR: 0.000683
+global_step is: 245; target_steps is: 754
+train_idx is:  245
+Step 246/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.6225, LR: 0.000681
+global_step is: 246; target_steps is: 754
+train_idx is:  246
+Step 247/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.2522, LR: 0.000680
+global_step is: 247; target_steps is: 754
+train_idx is:  247
+Step 248/754, Epoch 1/1 (LogEpoch: 0), Loss: 48.1036, LR: 0.000679
+global_step is: 248; target_steps is: 754
+train_idx is:  248
+Step 249/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.1331, LR: 0.000677
+global_step is: 249; target_steps is: 754
+train_idx is:  249
+Step 250/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.6964, LR: 0.000676
+global_step is: 250; target_steps is: 754
+train_idx is:  250
+Step 251/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.3373, LR: 0.000675
+global_step is: 251; target_steps is: 754
+train_idx is:  251
+Step 252/754, Epoch 1/1 (LogEpoch: 0), Loss: 68.6730, LR: 0.000673
+global_step is: 252; target_steps is: 754
+train_idx is:  252
+Step 253/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.5496, LR: 0.000672
+global_step is: 253; target_steps is: 754
+train_idx is:  253
+Step 254/754, Epoch 1/1 (LogEpoch: 0), Loss: 52.4677, LR: 0.000670
+global_step is: 254; target_steps is: 754
+train_idx is:  254
+Step 255/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.2348, LR: 0.000669
+global_step is: 255; target_steps is: 754
+train_idx is:  255
+Step 256/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.7450, LR: 0.000668
+global_step is: 256; target_steps is: 754
+train_idx is:  256
+Step 257/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.6290, LR: 0.000666
+global_step is: 257; target_steps is: 754
+train_idx is:  257
+Step 258/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.3358, LR: 0.000665
+global_step is: 258; target_steps is: 754
+train_idx is:  258
+Step 259/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.3016, LR: 0.000664
+global_step is: 259; target_steps is: 754
+train_idx is:  259
+Step 260/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.4873, LR: 0.000662
+global_step is: 260; target_steps is: 754
+train_idx is:  260
+Step 261/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.5642, LR: 0.000661
+global_step is: 261; target_steps is: 754
+train_idx is:  261
+Step 262/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.6984, LR: 0.000659
+global_step is: 262; target_steps is: 754
+train_idx is:  262
+Step 263/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.9109, LR: 0.000658
+global_step is: 263; target_steps is: 754
+train_idx is:  263
+Step 264/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.8632, LR: 0.000657
+global_step is: 264; target_steps is: 754
+train_idx is:  264
+Step 265/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.3914, LR: 0.000655
+global_step is: 265; target_steps is: 754
+train_idx is:  265
+Step 266/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.6889, LR: 0.000654
+global_step is: 266; target_steps is: 754
+train_idx is:  266
+Step 267/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.8646, LR: 0.000652
+global_step is: 267; target_steps is: 754
+train_idx is:  267
+Step 268/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.4200, LR: 0.000651
+global_step is: 268; target_steps is: 754
+train_idx is:  268
+Step 269/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.9556, LR: 0.000649
+global_step is: 269; target_steps is: 754
+train_idx is:  269
+Step 270/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.6415, LR: 0.000648
+global_step is: 270; target_steps is: 754
+train_idx is:  270
+Step 271/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.8742, LR: 0.000646
+global_step is: 271; target_steps is: 754
+train_idx is:  271
+Step 272/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.9142, LR: 0.000645
+global_step is: 272; target_steps is: 754
+train_idx is:  272
+Step 273/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.2067, LR: 0.000644
+global_step is: 273; target_steps is: 754
+train_idx is:  273
+Step 274/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.2997, LR: 0.000642
+global_step is: 274; target_steps is: 754
+train_idx is:  274
+Step 275/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.4582, LR: 0.000641
+global_step is: 275; target_steps is: 754
+train_idx is:  275
+Step 276/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.8622, LR: 0.000639
+global_step is: 276; target_steps is: 754
+train_idx is:  276
+Step 277/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.8201, LR: 0.000638
+global_step is: 277; target_steps is: 754
+train_idx is:  277
+Step 278/754, Epoch 1/1 (LogEpoch: 0), Loss: 55.9202, LR: 0.000636
+global_step is: 278; target_steps is: 754
+train_idx is:  278
+Step 279/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.7565, LR: 0.000635
+global_step is: 279; target_steps is: 754
+train_idx is:  279
+Step 280/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.2467, LR: 0.000633
+global_step is: 280; target_steps is: 754
+train_idx is:  280
+Step 281/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.1100, LR: 0.000632
+global_step is: 281; target_steps is: 754
+train_idx is:  281
+Step 282/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.2892, LR: 0.000630
+global_step is: 282; target_steps is: 754
+train_idx is:  282
+Step 283/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.0436, LR: 0.000629
+global_step is: 283; target_steps is: 754
+train_idx is:  283
+Step 284/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.9007, LR: 0.000627
+global_step is: 284; target_steps is: 754
+train_idx is:  284
+Step 285/754, Epoch 1/1 (LogEpoch: 0), Loss: 50.8062, LR: 0.000626
+global_step is: 285; target_steps is: 754
+train_idx is:  285
+Step 286/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.3641, LR: 0.000624
+global_step is: 286; target_steps is: 754
+train_idx is:  286
+Step 287/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.4108, LR: 0.000623
+global_step is: 287; target_steps is: 754
+train_idx is:  287
+Step 288/754, Epoch 1/1 (LogEpoch: 0), Loss: 54.4453, LR: 0.000621
+global_step is: 288; target_steps is: 754
+train_idx is:  288
+Step 289/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.8500, LR: 0.000619
+global_step is: 289; target_steps is: 754
+train_idx is:  289
+Step 290/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.8112, LR: 0.000618
+global_step is: 290; target_steps is: 754
+train_idx is:  290
+Step 291/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.3228, LR: 0.000616
+global_step is: 291; target_steps is: 754
+train_idx is:  291
+Step 292/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.6147, LR: 0.000615
+global_step is: 292; target_steps is: 754
+train_idx is:  292
+Step 293/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.7175, LR: 0.000613
+global_step is: 293; target_steps is: 754
+train_idx is:  293
+Step 294/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.0862, LR: 0.000612
+global_step is: 294; target_steps is: 754
+train_idx is:  294
+Step 295/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.8075, LR: 0.000610
+global_step is: 295; target_steps is: 754
+train_idx is:  295
+Step 296/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.0964, LR: 0.000608
+global_step is: 296; target_steps is: 754
+train_idx is:  296
+Step 297/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.5798, LR: 0.000607
+global_step is: 297; target_steps is: 754
+train_idx is:  297
+Step 298/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.3600, LR: 0.000605
+global_step is: 298; target_steps is: 754
+train_idx is:  298
+Step 299/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.1288, LR: 0.000604
+global_step is: 299; target_steps is: 754
+train_idx is:  299
+Step 300/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.0652, LR: 0.000602
+global_step is: 300; target_steps is: 754
+train_idx is:  300
+Step 301/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.7379, LR: 0.000601
+Checkpoint saved: checkpoints/step-000301-epoch-00-loss=42.7379.pt
+global_step is: 301; target_steps is: 754
+train_idx is:  301
+Step 302/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.8057, LR: 0.000599
+global_step is: 302; target_steps is: 754
+train_idx is:  302
+Step 303/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.9153, LR: 0.000597
+global_step is: 303; target_steps is: 754
+train_idx is:  303
+Step 304/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.2721, LR: 0.000596
+global_step is: 304; target_steps is: 754
+train_idx is:  304
+Step 305/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.1670, LR: 0.000594
+global_step is: 305; target_steps is: 754
+train_idx is:  305
+Step 306/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.2387, LR: 0.000592
+global_step is: 306; target_steps is: 754
+train_idx is:  306
+Step 307/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.2810, LR: 0.000591
+global_step is: 307; target_steps is: 754
+train_idx is:  307
+Step 308/754, Epoch 1/1 (LogEpoch: 0), Loss: 50.0320, LR: 0.000589
+global_step is: 308; target_steps is: 754
+train_idx is:  308
+Step 309/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.6309, LR: 0.000588
+global_step is: 309; target_steps is: 754
+train_idx is:  309
+Step 310/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.7109, LR: 0.000586
+global_step is: 310; target_steps is: 754
+train_idx is:  310
+Step 311/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.9636, LR: 0.000584
+global_step is: 311; target_steps is: 754
+train_idx is:  311
+Step 312/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.5964, LR: 0.000583
+global_step is: 312; target_steps is: 754
+train_idx is:  312
+Step 313/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.3513, LR: 0.000581
+global_step is: 313; target_steps is: 754
+train_idx is:  313
+Step 314/754, Epoch 1/1 (LogEpoch: 0), Loss: 69.3660, LR: 0.000579
+global_step is: 314; target_steps is: 754
+train_idx is:  314
+Step 315/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.6876, LR: 0.000578
+global_step is: 315; target_steps is: 754
+train_idx is:  315
+Step 316/754, Epoch 1/1 (LogEpoch: 0), Loss: 60.3288, LR: 0.000576
+global_step is: 316; target_steps is: 754
+train_idx is:  316
+Step 317/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.6126, LR: 0.000574
+global_step is: 317; target_steps is: 754
+train_idx is:  317
+Step 318/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.5667, LR: 0.000573
+global_step is: 318; target_steps is: 754
+train_idx is:  318
+Step 319/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.5421, LR: 0.000571
+global_step is: 319; target_steps is: 754
+train_idx is:  319
+Step 320/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.1072, LR: 0.000569
+global_step is: 320; target_steps is: 754
+train_idx is:  320
+Step 321/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.5345, LR: 0.000568
+global_step is: 321; target_steps is: 754
+train_idx is:  321
+Step 322/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.7208, LR: 0.000566
+global_step is: 322; target_steps is: 754
+train_idx is:  322
+Step 323/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.1455, LR: 0.000564
+global_step is: 323; target_steps is: 754
+train_idx is:  323
+Step 324/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.4865, LR: 0.000563
+global_step is: 324; target_steps is: 754
+train_idx is:  324
+Step 325/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.7572, LR: 0.000561
+global_step is: 325; target_steps is: 754
+train_idx is:  325
+Step 326/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.6077, LR: 0.000559
+global_step is: 326; target_steps is: 754
+train_idx is:  326
+Step 327/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.3648, LR: 0.000558
+global_step is: 327; target_steps is: 754
+train_idx is:  327
+Step 328/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.3449, LR: 0.000556
+global_step is: 328; target_steps is: 754
+train_idx is:  328
+Step 329/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.0019, LR: 0.000554
+global_step is: 329; target_steps is: 754
+train_idx is:  329
+Step 330/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.6163, LR: 0.000552
+global_step is: 330; target_steps is: 754
+train_idx is:  330
+Step 331/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.4642, LR: 0.000551
+global_step is: 331; target_steps is: 754
+train_idx is:  331
+Step 332/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.3375, LR: 0.000549
+global_step is: 332; target_steps is: 754
+train_idx is:  332
+Step 333/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.5248, LR: 0.000547
+global_step is: 333; target_steps is: 754
+train_idx is:  333
+Step 334/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.0928, LR: 0.000546
+global_step is: 334; target_steps is: 754
+train_idx is:  334
+Step 335/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.6550, LR: 0.000544
+global_step is: 335; target_steps is: 754
+train_idx is:  335
+Step 336/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.9605, LR: 0.000542
+global_step is: 336; target_steps is: 754
+train_idx is:  336
+Step 337/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.4236, LR: 0.000540
+global_step is: 337; target_steps is: 754
+train_idx is:  337
+Step 338/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.0259, LR: 0.000539
+global_step is: 338; target_steps is: 754
+train_idx is:  338
+Step 339/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.6700, LR: 0.000537
+global_step is: 339; target_steps is: 754
+train_idx is:  339
+Step 340/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.9597, LR: 0.000535
+global_step is: 340; target_steps is: 754
+train_idx is:  340
+Step 341/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.7902, LR: 0.000533
+global_step is: 341; target_steps is: 754
+train_idx is:  341
+Step 342/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.0110, LR: 0.000532
+global_step is: 342; target_steps is: 754
+train_idx is:  342
+Step 343/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.1788, LR: 0.000530
+global_step is: 343; target_steps is: 754
+train_idx is:  343
+Step 344/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.0795, LR: 0.000528
+global_step is: 344; target_steps is: 754
+train_idx is:  344
+Step 345/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.9083, LR: 0.000526
+global_step is: 345; target_steps is: 754
+train_idx is:  345
+Step 346/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.5936, LR: 0.000525
+global_step is: 346; target_steps is: 754
+train_idx is:  346
+Step 347/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.2191, LR: 0.000523
+global_step is: 347; target_steps is: 754
+train_idx is:  347
+Step 348/754, Epoch 1/1 (LogEpoch: 0), Loss: 35.7291, LR: 0.000521
+global_step is: 348; target_steps is: 754
+train_idx is:  348
+Step 349/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.8731, LR: 0.000519
+global_step is: 349; target_steps is: 754
+train_idx is:  349
+Step 350/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.8096, LR: 0.000518
+global_step is: 350; target_steps is: 754
+train_idx is:  350
+Step 351/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.1305, LR: 0.000516
+global_step is: 351; target_steps is: 754
+train_idx is:  351
+Step 352/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.0764, LR: 0.000514
+global_step is: 352; target_steps is: 754
+train_idx is:  352
+Step 353/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.2894, LR: 0.000512
+global_step is: 353; target_steps is: 754
+train_idx is:  353
+Step 354/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.0411, LR: 0.000511
+global_step is: 354; target_steps is: 754
+train_idx is:  354
+Step 355/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.8018, LR: 0.000509
+global_step is: 355; target_steps is: 754
+train_idx is:  355
+Step 356/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.7304, LR: 0.000507
+global_step is: 356; target_steps is: 754
+train_idx is:  356
+Step 357/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.3772, LR: 0.000505
+global_step is: 357; target_steps is: 754
+train_idx is:  357
+Step 358/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.0936, LR: 0.000503
+global_step is: 358; target_steps is: 754
+train_idx is:  358
+Step 359/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.9054, LR: 0.000502
+global_step is: 359; target_steps is: 754
+train_idx is:  359
+Step 360/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.8419, LR: 0.000500
+global_step is: 360; target_steps is: 754
+train_idx is:  360
+Step 361/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.1381, LR: 0.000498
+global_step is: 361; target_steps is: 754
+train_idx is:  361
+Step 362/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.1912, LR: 0.000496
+global_step is: 362; target_steps is: 754
+train_idx is:  362
+Step 363/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.7382, LR: 0.000494
+global_step is: 363; target_steps is: 754
+train_idx is:  363
+Step 364/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.0368, LR: 0.000493
+global_step is: 364; target_steps is: 754
+train_idx is:  364
+Step 365/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.9491, LR: 0.000491
+global_step is: 365; target_steps is: 754
+train_idx is:  365
+Step 366/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.2007, LR: 0.000489
+global_step is: 366; target_steps is: 754
+train_idx is:  366
+Step 367/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.8309, LR: 0.000487
+global_step is: 367; target_steps is: 754
+train_idx is:  367
+Step 368/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.0908, LR: 0.000485
+global_step is: 368; target_steps is: 754
+train_idx is:  368
+Step 369/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.1229, LR: 0.000484
+global_step is: 369; target_steps is: 754
+train_idx is:  369
+Step 370/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.6005, LR: 0.000482
+global_step is: 370; target_steps is: 754
+train_idx is:  370
+Step 371/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.1304, LR: 0.000480
+global_step is: 371; target_steps is: 754
+train_idx is:  371
+Step 372/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.9295, LR: 0.000478
+global_step is: 372; target_steps is: 754
+train_idx is:  372
+Step 373/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.2449, LR: 0.000476
+global_step is: 373; target_steps is: 754
+train_idx is:  373
+Step 374/754, Epoch 1/1 (LogEpoch: 0), Loss: 45.1948, LR: 0.000475
+global_step is: 374; target_steps is: 754
+train_idx is:  374
+Step 375/754, Epoch 1/1 (LogEpoch: 0), Loss: 72.2487, LR: 0.000473
+global_step is: 375; target_steps is: 754
+train_idx is:  375
+Step 376/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.5455, LR: 0.000471
+global_step is: 376; target_steps is: 754
+train_idx is:  376
+Step 377/754, Epoch 1/1 (LogEpoch: 0), Loss: 52.7326, LR: 0.000469
+global_step is: 377; target_steps is: 754
+train_idx is:  377
+Step 378/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.0235, LR: 0.000467
+global_step is: 378; target_steps is: 754
+train_idx is:  378
+Step 379/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.8056, LR: 0.000465
+global_step is: 379; target_steps is: 754
+train_idx is:  379
+Step 380/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.8434, LR: 0.000464
+global_step is: 380; target_steps is: 754
+train_idx is:  380
+Step 381/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.1717, LR: 0.000462
+global_step is: 381; target_steps is: 754
+train_idx is:  381
+Step 382/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.8724, LR: 0.000460
+global_step is: 382; target_steps is: 754
+train_idx is:  382
+Step 383/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.8627, LR: 0.000458
+global_step is: 383; target_steps is: 754
+train_idx is:  383
+Step 384/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.5667, LR: 0.000456
+global_step is: 384; target_steps is: 754
+train_idx is:  384
+Step 385/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.2764, LR: 0.000454
+global_step is: 385; target_steps is: 754
+train_idx is:  385
+Step 386/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.0393, LR: 0.000453
+global_step is: 386; target_steps is: 754
+train_idx is:  386
+Step 387/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.2086, LR: 0.000451
+global_step is: 387; target_steps is: 754
+train_idx is:  387
+Step 388/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.2910, LR: 0.000449
+global_step is: 388; target_steps is: 754
+train_idx is:  388
+Step 389/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.0176, LR: 0.000447
+global_step is: 389; target_steps is: 754
+train_idx is:  389
+Step 390/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.8626, LR: 0.000445
+global_step is: 390; target_steps is: 754
+train_idx is:  390
+Step 391/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.6557, LR: 0.000443
+global_step is: 391; target_steps is: 754
+train_idx is:  391
+Step 392/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.4390, LR: 0.000442
+global_step is: 392; target_steps is: 754
+train_idx is:  392
+Step 393/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.7587, LR: 0.000440
+global_step is: 393; target_steps is: 754
+train_idx is:  393
+Step 394/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.5217, LR: 0.000438
+global_step is: 394; target_steps is: 754
+train_idx is:  394
+Step 395/754, Epoch 1/1 (LogEpoch: 0), Loss: 49.3521, LR: 0.000436
+global_step is: 395; target_steps is: 754
+train_idx is:  395
+Step 396/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.4746, LR: 0.000434
+global_step is: 396; target_steps is: 754
+train_idx is:  396
+Step 397/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.9031, LR: 0.000432
+global_step is: 397; target_steps is: 754
+train_idx is:  397
+Step 398/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.1391, LR: 0.000431
+global_step is: 398; target_steps is: 754
+train_idx is:  398
+Step 399/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.6963, LR: 0.000429
+global_step is: 399; target_steps is: 754
+train_idx is:  399
+Step 400/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.6427, LR: 0.000427
+global_step is: 400; target_steps is: 754
+train_idx is:  400
+Step 401/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.7868, LR: 0.000425
+global_step is: 401; target_steps is: 754
+train_idx is:  401
+Step 402/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.2727, LR: 0.000423
+global_step is: 402; target_steps is: 754
+train_idx is:  402
+Step 403/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.1460, LR: 0.000421
+global_step is: 403; target_steps is: 754
+train_idx is:  403
+Step 404/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.6236, LR: 0.000419
+global_step is: 404; target_steps is: 754
+train_idx is:  404
+Step 405/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.6275, LR: 0.000418
+global_step is: 405; target_steps is: 754
+train_idx is:  405
+Step 406/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.6892, LR: 0.000416
+global_step is: 406; target_steps is: 754
+train_idx is:  406
+Step 407/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.2292, LR: 0.000414
+global_step is: 407; target_steps is: 754
+train_idx is:  407
+Step 408/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.7302, LR: 0.000412
+global_step is: 408; target_steps is: 754
+train_idx is:  408
+Step 409/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.2010, LR: 0.000410
+global_step is: 409; target_steps is: 754
+train_idx is:  409
+Step 410/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.5344, LR: 0.000408
+global_step is: 410; target_steps is: 754
+train_idx is:  410
+Step 411/754, Epoch 1/1 (LogEpoch: 0), Loss: 48.4222, LR: 0.000406
+global_step is: 411; target_steps is: 754
+train_idx is:  411
+Step 412/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.3169, LR: 0.000405
+global_step is: 412; target_steps is: 754
+train_idx is:  412
+Step 413/754, Epoch 1/1 (LogEpoch: 0), Loss: 73.6737, LR: 0.000403
+global_step is: 413; target_steps is: 754
+train_idx is:  413
+Step 414/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.6311, LR: 0.000401
+global_step is: 414; target_steps is: 754
+train_idx is:  414
+Step 415/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.6962, LR: 0.000399
+global_step is: 415; target_steps is: 754
+train_idx is:  415
+Step 416/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.2469, LR: 0.000397
+global_step is: 416; target_steps is: 754
+train_idx is:  416
+Step 417/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.3623, LR: 0.000395
+global_step is: 417; target_steps is: 754
+train_idx is:  417
+Step 418/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.2507, LR: 0.000394
+global_step is: 418; target_steps is: 754
+train_idx is:  418
+Step 419/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.3325, LR: 0.000392
+global_step is: 419; target_steps is: 754
+train_idx is:  419
+Step 420/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.0822, LR: 0.000390
+global_step is: 420; target_steps is: 754
+train_idx is:  420
+Step 421/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.8862, LR: 0.000388
+global_step is: 421; target_steps is: 754
+train_idx is:  421
+Step 422/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.7264, LR: 0.000386
+global_step is: 422; target_steps is: 754
+train_idx is:  422
+Step 423/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.2505, LR: 0.000384
+global_step is: 423; target_steps is: 754
+train_idx is:  423
+Step 424/754, Epoch 1/1 (LogEpoch: 0), Loss: 59.9998, LR: 0.000382
+global_step is: 424; target_steps is: 754
+train_idx is:  424
+Step 425/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.8579, LR: 0.000381
+global_step is: 425; target_steps is: 754
+train_idx is:  425
+Step 426/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.1744, LR: 0.000379
+global_step is: 426; target_steps is: 754
+train_idx is:  426
+Step 427/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.6483, LR: 0.000377
+global_step is: 427; target_steps is: 754
+train_idx is:  427
+Step 428/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.4649, LR: 0.000375
+global_step is: 428; target_steps is: 754
+train_idx is:  428
+Step 429/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.5898, LR: 0.000373
+global_step is: 429; target_steps is: 754
+train_idx is:  429
+Step 430/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.0358, LR: 0.000371
+global_step is: 430; target_steps is: 754
+train_idx is:  430
+Step 431/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.8020, LR: 0.000369
+global_step is: 431; target_steps is: 754
+train_idx is:  431
+Step 432/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.5494, LR: 0.000368
+global_step is: 432; target_steps is: 754
+train_idx is:  432
+Step 433/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.2477, LR: 0.000366
+global_step is: 433; target_steps is: 754
+train_idx is:  433
+Step 434/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.5371, LR: 0.000364
+global_step is: 434; target_steps is: 754
+train_idx is:  434
+Step 435/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.1827, LR: 0.000362
+global_step is: 435; target_steps is: 754
+train_idx is:  435
+Step 436/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.9449, LR: 0.000360
+global_step is: 436; target_steps is: 754
+train_idx is:  436
+Step 437/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.9962, LR: 0.000358
+global_step is: 437; target_steps is: 754
+train_idx is:  437
+Step 438/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.6690, LR: 0.000357
+global_step is: 438; target_steps is: 754
+train_idx is:  438
+Step 439/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.6381, LR: 0.000355
+global_step is: 439; target_steps is: 754
+train_idx is:  439
+Step 440/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.3847, LR: 0.000353
+global_step is: 440; target_steps is: 754
+train_idx is:  440
+Step 441/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.1363, LR: 0.000351
+global_step is: 441; target_steps is: 754
+train_idx is:  441
+Step 442/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.5074, LR: 0.000349
+global_step is: 442; target_steps is: 754
+train_idx is:  442
+Step 443/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.2808, LR: 0.000347
+global_step is: 443; target_steps is: 754
+train_idx is:  443
+Step 444/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.0247, LR: 0.000346
+global_step is: 444; target_steps is: 754
+train_idx is:  444
+Step 445/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.1545, LR: 0.000344
+global_step is: 445; target_steps is: 754
+train_idx is:  445
+Step 446/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.9373, LR: 0.000342
+global_step is: 446; target_steps is: 754
+train_idx is:  446
+Step 447/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.1019, LR: 0.000340
+global_step is: 447; target_steps is: 754
+train_idx is:  447
+Step 448/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.6396, LR: 0.000338
+global_step is: 448; target_steps is: 754
+train_idx is:  448
+Step 449/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.8379, LR: 0.000336
+global_step is: 449; target_steps is: 754
+train_idx is:  449
+Step 450/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.7549, LR: 0.000335
+global_step is: 450; target_steps is: 754
+train_idx is:  450
+Step 451/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.6974, LR: 0.000333
+global_step is: 451; target_steps is: 754
+train_idx is:  451
+Step 452/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.6377, LR: 0.000331
+Checkpoint saved: checkpoints/step-000452-epoch-00-loss=39.6377.pt
+global_step is: 452; target_steps is: 754
+train_idx is:  452
+Step 453/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.0228, LR: 0.000329
+global_step is: 453; target_steps is: 754
+train_idx is:  453
+Step 454/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.8496, LR: 0.000327
+global_step is: 454; target_steps is: 754
+train_idx is:  454
+Step 455/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.8004, LR: 0.000325
+global_step is: 455; target_steps is: 754
+train_idx is:  455
+Step 456/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.0321, LR: 0.000324
+global_step is: 456; target_steps is: 754
+train_idx is:  456
+Step 457/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.9956, LR: 0.000322
+global_step is: 457; target_steps is: 754
+train_idx is:  457
+Step 458/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.0746, LR: 0.000320
+global_step is: 458; target_steps is: 754
+train_idx is:  458
+Step 459/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.0083, LR: 0.000318
+global_step is: 459; target_steps is: 754
+train_idx is:  459
+Step 460/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.0747, LR: 0.000316
+global_step is: 460; target_steps is: 754
+train_idx is:  460
+Step 461/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.2564, LR: 0.000315
+global_step is: 461; target_steps is: 754
+train_idx is:  461
+Step 462/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.4384, LR: 0.000313
+global_step is: 462; target_steps is: 754
+train_idx is:  462
+Step 463/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.5441, LR: 0.000311
+global_step is: 463; target_steps is: 754
+train_idx is:  463
+Step 464/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.9949, LR: 0.000309
+global_step is: 464; target_steps is: 754
+train_idx is:  464
+Step 465/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.0430, LR: 0.000307
+global_step is: 465; target_steps is: 754
+train_idx is:  465
+Step 466/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.4496, LR: 0.000306
+global_step is: 466; target_steps is: 754
+train_idx is:  466
+Step 467/754, Epoch 1/1 (LogEpoch: 0), Loss: 48.2185, LR: 0.000304
+global_step is: 467; target_steps is: 754
+train_idx is:  467
+Step 468/754, Epoch 1/1 (LogEpoch: 0), Loss: 77.5638, LR: 0.000302
+global_step is: 468; target_steps is: 754
+train_idx is:  468
+Step 469/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.7426, LR: 0.000300
+global_step is: 469; target_steps is: 754
+train_idx is:  469
+Step 470/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.4519, LR: 0.000298
+global_step is: 470; target_steps is: 754
+train_idx is:  470
+Step 471/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.8648, LR: 0.000297
+global_step is: 471; target_steps is: 754
+train_idx is:  471
+Step 472/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.8820, LR: 0.000295
+global_step is: 472; target_steps is: 754
+train_idx is:  472
+Step 473/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.2582, LR: 0.000293
+global_step is: 473; target_steps is: 754
+train_idx is:  473
+Step 474/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.2988, LR: 0.000291
+global_step is: 474; target_steps is: 754
+train_idx is:  474
+Step 475/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.7204, LR: 0.000289
+global_step is: 475; target_steps is: 754
+train_idx is:  475
+Step 476/754, Epoch 1/1 (LogEpoch: 0), Loss: 35.4160, LR: 0.000288
+global_step is: 476; target_steps is: 754
+train_idx is:  476
+Step 477/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.3270, LR: 0.000286
+global_step is: 477; target_steps is: 754
+train_idx is:  477
+Step 478/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.4085, LR: 0.000284
+global_step is: 478; target_steps is: 754
+train_idx is:  478
+Step 479/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.1906, LR: 0.000282
+global_step is: 479; target_steps is: 754
+train_idx is:  479
+Step 480/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.9148, LR: 0.000281
+global_step is: 480; target_steps is: 754
+train_idx is:  480
+Step 481/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.9163, LR: 0.000279
+global_step is: 481; target_steps is: 754
+train_idx is:  481
+Step 482/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.0133, LR: 0.000277
+global_step is: 482; target_steps is: 754
+train_idx is:  482
+Step 483/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.6539, LR: 0.000275
+global_step is: 483; target_steps is: 754
+train_idx is:  483
+Step 484/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.6056, LR: 0.000274
+global_step is: 484; target_steps is: 754
+train_idx is:  484
+Step 485/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.2726, LR: 0.000272
+global_step is: 485; target_steps is: 754
+train_idx is:  485
+Step 486/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.3699, LR: 0.000270
+global_step is: 486; target_steps is: 754
+train_idx is:  486
+Step 487/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.0284, LR: 0.000268
+global_step is: 487; target_steps is: 754
+train_idx is:  487
+Step 488/754, Epoch 1/1 (LogEpoch: 0), Loss: 47.0156, LR: 0.000267
+global_step is: 488; target_steps is: 754
+train_idx is:  488
+Step 489/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.5586, LR: 0.000265
+global_step is: 489; target_steps is: 754
+train_idx is:  489
+Step 490/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.8695, LR: 0.000263
+global_step is: 490; target_steps is: 754
+train_idx is:  490
+Step 491/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.9460, LR: 0.000261
+global_step is: 491; target_steps is: 754
+train_idx is:  491
+Step 492/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.6473, LR: 0.000260
+global_step is: 492; target_steps is: 754
+train_idx is:  492
+Step 493/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.7296, LR: 0.000258
+global_step is: 493; target_steps is: 754
+train_idx is:  493
+Step 494/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.7506, LR: 0.000256
+global_step is: 494; target_steps is: 754
+train_idx is:  494
+Step 495/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.1244, LR: 0.000254
+global_step is: 495; target_steps is: 754
+train_idx is:  495
+Step 496/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.5266, LR: 0.000253
+global_step is: 496; target_steps is: 754
+train_idx is:  496
+Step 497/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.2259, LR: 0.000251
+global_step is: 497; target_steps is: 754
+train_idx is:  497
+Step 498/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.4487, LR: 0.000249
+global_step is: 498; target_steps is: 754
+train_idx is:  498
+Step 499/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.8398, LR: 0.000248
+global_step is: 499; target_steps is: 754
+train_idx is:  499
+Step 500/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.4855, LR: 0.000246
+global_step is: 500; target_steps is: 754
+train_idx is:  500
+Step 501/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.1602, LR: 0.000244
+global_step is: 501; target_steps is: 754
+train_idx is:  501
+Step 502/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.5430, LR: 0.000242
+global_step is: 502; target_steps is: 754
+train_idx is:  502
+Step 503/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.4712, LR: 0.000241
+global_step is: 503; target_steps is: 754
+train_idx is:  503
+Step 504/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.6783, LR: 0.000239
+global_step is: 504; target_steps is: 754
+train_idx is:  504
+Step 505/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.9038, LR: 0.000237
+global_step is: 505; target_steps is: 754
+train_idx is:  505
+Step 506/754, Epoch 1/1 (LogEpoch: 0), Loss: 35.7322, LR: 0.000236
+global_step is: 506; target_steps is: 754
+train_idx is:  506
+Step 507/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.2406, LR: 0.000234
+global_step is: 507; target_steps is: 754
+train_idx is:  507
+Step 508/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.0549, LR: 0.000232
+global_step is: 508; target_steps is: 754
+train_idx is:  508
+Step 509/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.0633, LR: 0.000231
+global_step is: 509; target_steps is: 754
+train_idx is:  509
+Step 510/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.6105, LR: 0.000229
+global_step is: 510; target_steps is: 754
+train_idx is:  510
+Step 511/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.8876, LR: 0.000227
+global_step is: 511; target_steps is: 754
+train_idx is:  511
+Step 512/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.5187, LR: 0.000226
+global_step is: 512; target_steps is: 754
+train_idx is:  512
+Step 513/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.8271, LR: 0.000224
+global_step is: 513; target_steps is: 754
+train_idx is:  513
+Step 514/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.0787, LR: 0.000222
+global_step is: 514; target_steps is: 754
+train_idx is:  514
+Step 515/754, Epoch 1/1 (LogEpoch: 0), Loss: 34.7245, LR: 0.000221
+global_step is: 515; target_steps is: 754
+train_idx is:  515
+Step 516/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.3533, LR: 0.000219
+global_step is: 516; target_steps is: 754
+train_idx is:  516
+Step 517/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.5138, LR: 0.000217
+global_step is: 517; target_steps is: 754
+train_idx is:  517
+Step 518/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.3333, LR: 0.000216
+global_step is: 518; target_steps is: 754
+train_idx is:  518
+Step 519/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.6998, LR: 0.000214
+global_step is: 519; target_steps is: 754
+train_idx is:  519
+Step 520/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.8120, LR: 0.000212
+global_step is: 520; target_steps is: 754
+train_idx is:  520
+Step 521/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.5698, LR: 0.000211
+global_step is: 521; target_steps is: 754
+train_idx is:  521
+Step 522/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.0288, LR: 0.000209
+global_step is: 522; target_steps is: 754
+train_idx is:  522
+Step 523/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.7018, LR: 0.000208
+global_step is: 523; target_steps is: 754
+train_idx is:  523
+Step 524/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.5013, LR: 0.000206
+global_step is: 524; target_steps is: 754
+train_idx is:  524
+Step 525/754, Epoch 1/1 (LogEpoch: 0), Loss: 50.3122, LR: 0.000204
+global_step is: 525; target_steps is: 754
+train_idx is:  525
+Step 526/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.9997, LR: 0.000203
+global_step is: 526; target_steps is: 754
+train_idx is:  526
+Step 527/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.0970, LR: 0.000201
+global_step is: 527; target_steps is: 754
+train_idx is:  527
+Step 528/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.5732, LR: 0.000199
+global_step is: 528; target_steps is: 754
+train_idx is:  528
+Step 529/754, Epoch 1/1 (LogEpoch: 0), Loss: 52.9003, LR: 0.000198
+global_step is: 529; target_steps is: 754
+train_idx is:  529
+Step 530/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.5483, LR: 0.000196
+global_step is: 530; target_steps is: 754
+train_idx is:  530
+Step 531/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.4077, LR: 0.000195
+global_step is: 531; target_steps is: 754
+train_idx is:  531
+Step 532/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.3638, LR: 0.000193
+global_step is: 532; target_steps is: 754
+train_idx is:  532
+Step 533/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.1312, LR: 0.000192
+global_step is: 533; target_steps is: 754
+train_idx is:  533
+Step 534/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.4778, LR: 0.000190
+global_step is: 534; target_steps is: 754
+train_idx is:  534
+Step 535/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.4348, LR: 0.000188
+global_step is: 535; target_steps is: 754
+train_idx is:  535
+Step 536/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.5988, LR: 0.000187
+global_step is: 536; target_steps is: 754
+train_idx is:  536
+Step 537/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.7781, LR: 0.000185
+global_step is: 537; target_steps is: 754
+train_idx is:  537
+Step 538/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.7661, LR: 0.000184
+global_step is: 538; target_steps is: 754
+train_idx is:  538
+Step 539/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.9738, LR: 0.000182
+global_step is: 539; target_steps is: 754
+train_idx is:  539
+Step 540/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.6472, LR: 0.000181
+global_step is: 540; target_steps is: 754
+train_idx is:  540
+Step 541/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.0068, LR: 0.000179
+global_step is: 541; target_steps is: 754
+train_idx is:  541
+Step 542/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.7490, LR: 0.000177
+global_step is: 542; target_steps is: 754
+train_idx is:  542
+Step 543/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.9727, LR: 0.000176
+global_step is: 543; target_steps is: 754
+train_idx is:  543
+Step 544/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.0180, LR: 0.000174
+global_step is: 544; target_steps is: 754
+train_idx is:  544
+Step 545/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.5314, LR: 0.000173
+global_step is: 545; target_steps is: 754
+train_idx is:  545
+Step 546/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.6982, LR: 0.000171
+global_step is: 546; target_steps is: 754
+train_idx is:  546
+Step 547/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.0791, LR: 0.000170
+global_step is: 547; target_steps is: 754
+train_idx is:  547
+Step 548/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.1907, LR: 0.000168
+global_step is: 548; target_steps is: 754
+train_idx is:  548
+Step 549/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.4181, LR: 0.000167
+global_step is: 549; target_steps is: 754
+train_idx is:  549
+Step 550/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.7879, LR: 0.000165
+global_step is: 550; target_steps is: 754
+train_idx is:  550
+Step 551/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.9078, LR: 0.000164
+global_step is: 551; target_steps is: 754
+train_idx is:  551
+Step 552/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.2576, LR: 0.000162
+global_step is: 552; target_steps is: 754
+train_idx is:  552
+Step 553/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.8930, LR: 0.000161
+global_step is: 553; target_steps is: 754
+train_idx is:  553
+Step 554/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.9627, LR: 0.000159
+global_step is: 554; target_steps is: 754
+train_idx is:  554
+Step 555/754, Epoch 1/1 (LogEpoch: 0), Loss: 50.0056, LR: 0.000158
+global_step is: 555; target_steps is: 754
+train_idx is:  555
+Step 556/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.5240, LR: 0.000156
+global_step is: 556; target_steps is: 754
+train_idx is:  556
+Step 557/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.4758, LR: 0.000155
+global_step is: 557; target_steps is: 754
+train_idx is:  557
+Step 558/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.8565, LR: 0.000154
+global_step is: 558; target_steps is: 754
+train_idx is:  558
+Step 559/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.3474, LR: 0.000152
+global_step is: 559; target_steps is: 754
+train_idx is:  559
+Step 560/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.0683, LR: 0.000151
+global_step is: 560; target_steps is: 754
+train_idx is:  560
+Step 561/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.5068, LR: 0.000149
+global_step is: 561; target_steps is: 754
+train_idx is:  561
+Step 562/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.0581, LR: 0.000148
+global_step is: 562; target_steps is: 754
+train_idx is:  562
+Step 563/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.8914, LR: 0.000146
+global_step is: 563; target_steps is: 754
+train_idx is:  563
+Step 564/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.0953, LR: 0.000145
+global_step is: 564; target_steps is: 754
+train_idx is:  564
+Step 565/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.3123, LR: 0.000143
+global_step is: 565; target_steps is: 754
+train_idx is:  565
+Step 566/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.4885, LR: 0.000142
+global_step is: 566; target_steps is: 754
+train_idx is:  566
+Step 567/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.1361, LR: 0.000141
+global_step is: 567; target_steps is: 754
+train_idx is:  567
+Step 568/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.4915, LR: 0.000139
+global_step is: 568; target_steps is: 754
+train_idx is:  568
+Step 569/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.8479, LR: 0.000138
+global_step is: 569; target_steps is: 754
+train_idx is:  569
+Step 570/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.5392, LR: 0.000136
+global_step is: 570; target_steps is: 754
+train_idx is:  570
+Step 571/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.0399, LR: 0.000135
+global_step is: 571; target_steps is: 754
+train_idx is:  571
+Step 572/754, Epoch 1/1 (LogEpoch: 0), Loss: 48.2932, LR: 0.000134
+global_step is: 572; target_steps is: 754
+train_idx is:  572
+Step 573/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.4897, LR: 0.000132
+global_step is: 573; target_steps is: 754
+train_idx is:  573
+Step 574/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.8793, LR: 0.000131
+global_step is: 574; target_steps is: 754
+train_idx is:  574
+Step 575/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.2377, LR: 0.000130
+global_step is: 575; target_steps is: 754
+train_idx is:  575
+Step 576/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.6883, LR: 0.000128
+global_step is: 576; target_steps is: 754
+train_idx is:  576
+Step 577/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.4221, LR: 0.000127
+global_step is: 577; target_steps is: 754
+train_idx is:  577
+Step 578/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.1474, LR: 0.000125
+global_step is: 578; target_steps is: 754
+train_idx is:  578
+Step 579/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.3873, LR: 0.000124
+global_step is: 579; target_steps is: 754
+train_idx is:  579
+Step 580/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.3033, LR: 0.000123
+global_step is: 580; target_steps is: 754
+train_idx is:  580
+Step 581/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.9542, LR: 0.000121
+global_step is: 581; target_steps is: 754
+train_idx is:  581
+Step 582/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.7991, LR: 0.000120
+global_step is: 582; target_steps is: 754
+train_idx is:  582
+Step 583/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.8255, LR: 0.000119
+global_step is: 583; target_steps is: 754
+train_idx is:  583
+Step 584/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.7719, LR: 0.000117
+global_step is: 584; target_steps is: 754
+train_idx is:  584
+Step 585/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.1932, LR: 0.000116
+global_step is: 585; target_steps is: 754
+train_idx is:  585
+Step 586/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.8422, LR: 0.000115
+global_step is: 586; target_steps is: 754
+train_idx is:  586
+Step 587/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.4578, LR: 0.000114
+global_step is: 587; target_steps is: 754
+train_idx is:  587
+Step 588/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.5911, LR: 0.000112
+global_step is: 588; target_steps is: 754
+train_idx is:  588
+Step 589/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.6441, LR: 0.000111
+global_step is: 589; target_steps is: 754
+train_idx is:  589
+Step 590/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.0229, LR: 0.000110
+global_step is: 590; target_steps is: 754
+train_idx is:  590
+Step 591/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.0152, LR: 0.000108
+global_step is: 591; target_steps is: 754
+train_idx is:  591
+Step 592/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.0982, LR: 0.000107
+global_step is: 592; target_steps is: 754
+train_idx is:  592
+Step 593/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.9567, LR: 0.000106
+global_step is: 593; target_steps is: 754
+train_idx is:  593
+Step 594/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.4608, LR: 0.000105
+global_step is: 594; target_steps is: 754
+train_idx is:  594
+Step 595/754, Epoch 1/1 (LogEpoch: 0), Loss: 52.3613, LR: 0.000103
+global_step is: 595; target_steps is: 754
+train_idx is:  595
+Step 596/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.8897, LR: 0.000102
+global_step is: 596; target_steps is: 754
+train_idx is:  596
+Step 597/754, Epoch 1/1 (LogEpoch: 0), Loss: 35.4401, LR: 0.000101
+global_step is: 597; target_steps is: 754
+train_idx is:  597
+Step 598/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.2582, LR: 0.000100
+global_step is: 598; target_steps is: 754
+train_idx is:  598
+Step 599/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.2169, LR: 0.000099
+global_step is: 599; target_steps is: 754
+train_idx is:  599
+Step 600/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.5640, LR: 0.000097
+global_step is: 600; target_steps is: 754
+train_idx is:  600
+Step 601/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.0204, LR: 0.000096
+global_step is: 601; target_steps is: 754
+train_idx is:  601
+Step 602/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.8090, LR: 0.000095
+global_step is: 602; target_steps is: 754
+train_idx is:  602
+Step 603/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.6658, LR: 0.000094
+Checkpoint saved: checkpoints/step-000603-epoch-00-loss=42.6658.pt
+global_step is: 603; target_steps is: 754
+train_idx is:  603
+Step 604/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.2914, LR: 0.000093
+global_step is: 604; target_steps is: 754
+train_idx is:  604
+Step 605/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.6891, LR: 0.000091
+global_step is: 605; target_steps is: 754
+train_idx is:  605
+Step 606/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.1295, LR: 0.000090
+global_step is: 606; target_steps is: 754
+train_idx is:  606
+Step 607/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.7161, LR: 0.000089
+global_step is: 607; target_steps is: 754
+train_idx is:  607
+Step 608/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.4839, LR: 0.000088
+global_step is: 608; target_steps is: 754
+train_idx is:  608
+Step 609/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.4764, LR: 0.000087
+global_step is: 609; target_steps is: 754
+train_idx is:  609
+Step 610/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.0005, LR: 0.000086
+global_step is: 610; target_steps is: 754
+train_idx is:  610
+Step 611/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.5888, LR: 0.000084
+global_step is: 611; target_steps is: 754
+train_idx is:  611
+Step 612/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.7608, LR: 0.000083
+global_step is: 612; target_steps is: 754
+train_idx is:  612
+Step 613/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.2061, LR: 0.000082
+global_step is: 613; target_steps is: 754
+train_idx is:  613
+Step 614/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.7701, LR: 0.000081
+global_step is: 614; target_steps is: 754
+train_idx is:  614
+Step 615/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.9825, LR: 0.000080
+global_step is: 615; target_steps is: 754
+train_idx is:  615
+Step 616/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.6738, LR: 0.000079
+global_step is: 616; target_steps is: 754
+train_idx is:  616
+Step 617/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.3878, LR: 0.000078
+global_step is: 617; target_steps is: 754
+train_idx is:  617
+Step 618/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.3494, LR: 0.000077
+global_step is: 618; target_steps is: 754
+train_idx is:  618
+Step 619/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.7905, LR: 0.000076
+global_step is: 619; target_steps is: 754
+train_idx is:  619
+Step 620/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.2040, LR: 0.000074
+global_step is: 620; target_steps is: 754
+train_idx is:  620
+Step 621/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.7599, LR: 0.000073
+global_step is: 621; target_steps is: 754
+train_idx is:  621
+Step 622/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.9762, LR: 0.000072
+global_step is: 622; target_steps is: 754
+train_idx is:  622
+Step 623/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.3387, LR: 0.000071
+global_step is: 623; target_steps is: 754
+train_idx is:  623
+Step 624/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.6939, LR: 0.000070
+global_step is: 624; target_steps is: 754
+train_idx is:  624
+Step 625/754, Epoch 1/1 (LogEpoch: 0), Loss: 35.7936, LR: 0.000069
+global_step is: 625; target_steps is: 754
+train_idx is:  625
+Step 626/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.9279, LR: 0.000068
+global_step is: 626; target_steps is: 754
+train_idx is:  626
+Step 627/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.5808, LR: 0.000067
+global_step is: 627; target_steps is: 754
+train_idx is:  627
+Step 628/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.4712, LR: 0.000066
+global_step is: 628; target_steps is: 754
+train_idx is:  628
+Step 629/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.2282, LR: 0.000065
+global_step is: 629; target_steps is: 754
+train_idx is:  629
+Step 630/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.0217, LR: 0.000064
+global_step is: 630; target_steps is: 754
+train_idx is:  630
+Step 631/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.5159, LR: 0.000063
+global_step is: 631; target_steps is: 754
+train_idx is:  631
+Step 632/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.4116, LR: 0.000062
+global_step is: 632; target_steps is: 754
+train_idx is:  632
+Step 633/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.9662, LR: 0.000061
+global_step is: 633; target_steps is: 754
+train_idx is:  633
+Step 634/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.9657, LR: 0.000060
+global_step is: 634; target_steps is: 754
+train_idx is:  634
+Step 635/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.2815, LR: 0.000059
+global_step is: 635; target_steps is: 754
+train_idx is:  635
+Step 636/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.6937, LR: 0.000058
+global_step is: 636; target_steps is: 754
+train_idx is:  636
+Step 637/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.0074, LR: 0.000057
+global_step is: 637; target_steps is: 754
+train_idx is:  637
+Step 638/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.5882, LR: 0.000056
+global_step is: 638; target_steps is: 754
+train_idx is:  638
+Step 639/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.7784, LR: 0.000055
+global_step is: 639; target_steps is: 754
+train_idx is:  639
+Step 640/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.3773, LR: 0.000054
+global_step is: 640; target_steps is: 754
+train_idx is:  640
+Step 641/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.0889, LR: 0.000053
+global_step is: 641; target_steps is: 754
+train_idx is:  641
+Step 642/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.5630, LR: 0.000053
+global_step is: 642; target_steps is: 754
+train_idx is:  642
+Step 643/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.0452, LR: 0.000052
+global_step is: 643; target_steps is: 754
+train_idx is:  643
+Step 644/754, Epoch 1/1 (LogEpoch: 0), Loss: 34.6668, LR: 0.000051
+global_step is: 644; target_steps is: 754
+train_idx is:  644
+Step 645/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.3278, LR: 0.000050
+global_step is: 645; target_steps is: 754
+train_idx is:  645
+Step 646/754, Epoch 1/1 (LogEpoch: 0), Loss: 42.3101, LR: 0.000049
+global_step is: 646; target_steps is: 754
+train_idx is:  646
+Step 647/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.4943, LR: 0.000048
+global_step is: 647; target_steps is: 754
+train_idx is:  647
+Step 648/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.5995, LR: 0.000047
+global_step is: 648; target_steps is: 754
+train_idx is:  648
+Step 649/754, Epoch 1/1 (LogEpoch: 0), Loss: 35.6221, LR: 0.000046
+global_step is: 649; target_steps is: 754
+train_idx is:  649
+Step 650/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.1608, LR: 0.000045
+global_step is: 650; target_steps is: 754
+train_idx is:  650
+Step 651/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.6608, LR: 0.000045
+global_step is: 651; target_steps is: 754
+train_idx is:  651
+Step 652/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.6533, LR: 0.000044
+global_step is: 652; target_steps is: 754
+train_idx is:  652
+Step 653/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.3642, LR: 0.000043
+global_step is: 653; target_steps is: 754
+train_idx is:  653
+Step 654/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.0281, LR: 0.000042
+global_step is: 654; target_steps is: 754
+train_idx is:  654
+Step 655/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.0349, LR: 0.000041
+global_step is: 655; target_steps is: 754
+train_idx is:  655
+Step 656/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.7603, LR: 0.000040
+global_step is: 656; target_steps is: 754
+train_idx is:  656
+Step 657/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.4058, LR: 0.000040
+global_step is: 657; target_steps is: 754
+train_idx is:  657
+Step 658/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.4546, LR: 0.000039
+global_step is: 658; target_steps is: 754
+train_idx is:  658
+Step 659/754, Epoch 1/1 (LogEpoch: 0), Loss: 33.6165, LR: 0.000038
+global_step is: 659; target_steps is: 754
+train_idx is:  659
+Step 660/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.3939, LR: 0.000037
+global_step is: 660; target_steps is: 754
+train_idx is:  660
+Step 661/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.1078, LR: 0.000036
+global_step is: 661; target_steps is: 754
+train_idx is:  661
+Step 662/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.0659, LR: 0.000036
+global_step is: 662; target_steps is: 754
+train_idx is:  662
+Step 663/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.6393, LR: 0.000035
+global_step is: 663; target_steps is: 754
+train_idx is:  663
+Step 664/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.9813, LR: 0.000034
+global_step is: 664; target_steps is: 754
+train_idx is:  664
+Step 665/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.6394, LR: 0.000033
+global_step is: 665; target_steps is: 754
+train_idx is:  665
+Step 666/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.4689, LR: 0.000033
+global_step is: 666; target_steps is: 754
+train_idx is:  666
+Step 667/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.4355, LR: 0.000032
+global_step is: 667; target_steps is: 754
+train_idx is:  667
+Step 668/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.9519, LR: 0.000031
+global_step is: 668; target_steps is: 754
+train_idx is:  668
+Step 669/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.2863, LR: 0.000031
+global_step is: 669; target_steps is: 754
+train_idx is:  669
+Step 670/754, Epoch 1/1 (LogEpoch: 0), Loss: 35.1169, LR: 0.000030
+global_step is: 670; target_steps is: 754
+train_idx is:  670
+Step 671/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.2435, LR: 0.000029
+global_step is: 671; target_steps is: 754
+train_idx is:  671
+Step 672/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.2778, LR: 0.000028
+global_step is: 672; target_steps is: 754
+train_idx is:  672
+Step 673/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.9245, LR: 0.000028
+global_step is: 673; target_steps is: 754
+train_idx is:  673
+Step 674/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.9741, LR: 0.000027
+global_step is: 674; target_steps is: 754
+train_idx is:  674
+Step 675/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.3910, LR: 0.000026
+global_step is: 675; target_steps is: 754
+train_idx is:  675
+Step 676/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.4840, LR: 0.000026
+global_step is: 676; target_steps is: 754
+train_idx is:  676
+Step 677/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.8687, LR: 0.000025
+global_step is: 677; target_steps is: 754
+train_idx is:  677
+Step 678/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.0354, LR: 0.000024
+global_step is: 678; target_steps is: 754
+train_idx is:  678
+Step 679/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.6399, LR: 0.000024
+global_step is: 679; target_steps is: 754
+train_idx is:  679
+Step 680/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.5096, LR: 0.000023
+global_step is: 680; target_steps is: 754
+train_idx is:  680
+Step 681/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.2020, LR: 0.000023
+global_step is: 681; target_steps is: 754
+train_idx is:  681
+Step 682/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.2875, LR: 0.000022
+global_step is: 682; target_steps is: 754
+train_idx is:  682
+Step 683/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.4122, LR: 0.000021
+global_step is: 683; target_steps is: 754
+train_idx is:  683
+Step 684/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.6868, LR: 0.000021
+global_step is: 684; target_steps is: 754
+train_idx is:  684
+Step 685/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.2793, LR: 0.000020
+global_step is: 685; target_steps is: 754
+train_idx is:  685
+Step 686/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.8950, LR: 0.000020
+global_step is: 686; target_steps is: 754
+train_idx is:  686
+Step 687/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.4689, LR: 0.000019
+global_step is: 687; target_steps is: 754
+train_idx is:  687
+Step 688/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.6980, LR: 0.000019
+global_step is: 688; target_steps is: 754
+train_idx is:  688
+Step 689/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.9514, LR: 0.000018
+global_step is: 689; target_steps is: 754
+train_idx is:  689
+Step 690/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.6948, LR: 0.000017
+global_step is: 690; target_steps is: 754
+train_idx is:  690
+Step 691/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.8791, LR: 0.000017
+global_step is: 691; target_steps is: 754
+train_idx is:  691
+Step 692/754, Epoch 1/1 (LogEpoch: 0), Loss: 63.7812, LR: 0.000016
+global_step is: 692; target_steps is: 754
+train_idx is:  692
+Step 693/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.4732, LR: 0.000016
+global_step is: 693; target_steps is: 754
+train_idx is:  693
+Step 694/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.9408, LR: 0.000015
+global_step is: 694; target_steps is: 754
+train_idx is:  694
+Step 695/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.7512, LR: 0.000015
+global_step is: 695; target_steps is: 754
+train_idx is:  695
+Step 696/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.3015, LR: 0.000014
+global_step is: 696; target_steps is: 754
+train_idx is:  696
+Step 697/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.7662, LR: 0.000014
+global_step is: 697; target_steps is: 754
+train_idx is:  697
+Step 698/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.2391, LR: 0.000013
+global_step is: 698; target_steps is: 754
+train_idx is:  698
+Step 699/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.1777, LR: 0.000013
+global_step is: 699; target_steps is: 754
+train_idx is:  699
+Step 700/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.5650, LR: 0.000012
+global_step is: 700; target_steps is: 754
+train_idx is:  700
+Step 701/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.1810, LR: 0.000012
+global_step is: 701; target_steps is: 754
+train_idx is:  701
+Step 702/754, Epoch 1/1 (LogEpoch: 0), Loss: 44.8561, LR: 0.000012
+global_step is: 702; target_steps is: 754
+train_idx is:  702
+Step 703/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.5894, LR: 0.000011
+global_step is: 703; target_steps is: 754
+train_idx is:  703
+Step 704/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.1673, LR: 0.000011
+global_step is: 704; target_steps is: 754
+train_idx is:  704
+Step 705/754, Epoch 1/1 (LogEpoch: 0), Loss: 34.5340, LR: 0.000010
+global_step is: 705; target_steps is: 754
+train_idx is:  705
+Step 706/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.1323, LR: 0.000010
+global_step is: 706; target_steps is: 754
+train_idx is:  706
+Step 707/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.5773, LR: 0.000009
+global_step is: 707; target_steps is: 754
+train_idx is:  707
+Step 708/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.7640, LR: 0.000009
+global_step is: 708; target_steps is: 754
+train_idx is:  708
+Step 709/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.8899, LR: 0.000009
+global_step is: 709; target_steps is: 754
+train_idx is:  709
+Step 710/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.1841, LR: 0.000008
+global_step is: 710; target_steps is: 754
+train_idx is:  710
+Step 711/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.0615, LR: 0.000008
+global_step is: 711; target_steps is: 754
+train_idx is:  711
+Step 712/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.6687, LR: 0.000008
+global_step is: 712; target_steps is: 754
+train_idx is:  712
+Step 713/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.3987, LR: 0.000007
+global_step is: 713; target_steps is: 754
+train_idx is:  713
+Step 714/754, Epoch 1/1 (LogEpoch: 0), Loss: 46.8588, LR: 0.000007
+global_step is: 714; target_steps is: 754
+train_idx is:  714
+Step 715/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.3151, LR: 0.000006
+global_step is: 715; target_steps is: 754
+train_idx is:  715
+Step 716/754, Epoch 1/1 (LogEpoch: 0), Loss: 43.5377, LR: 0.000006
+global_step is: 716; target_steps is: 754
+train_idx is:  716
+Step 717/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.5197, LR: 0.000006
+global_step is: 717; target_steps is: 754
+train_idx is:  717
+Step 718/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.4159, LR: 0.000006
+global_step is: 718; target_steps is: 754
+train_idx is:  718
+Step 719/754, Epoch 1/1 (LogEpoch: 0), Loss: 35.7133, LR: 0.000005
+global_step is: 719; target_steps is: 754
+train_idx is:  719
+Step 720/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.8040, LR: 0.000005
+global_step is: 720; target_steps is: 754
+train_idx is:  720
+Step 721/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.7356, LR: 0.000005
+global_step is: 721; target_steps is: 754
+train_idx is:  721
+Step 722/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.1715, LR: 0.000004
+global_step is: 722; target_steps is: 754
+train_idx is:  722
+Step 723/754, Epoch 1/1 (LogEpoch: 0), Loss: 57.8303, LR: 0.000004
+global_step is: 723; target_steps is: 754
+train_idx is:  723
+Step 724/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.2394, LR: 0.000004
+global_step is: 724; target_steps is: 754
+train_idx is:  724
+Step 725/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.5324, LR: 0.000004
+global_step is: 725; target_steps is: 754
+train_idx is:  725
+Step 726/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.6848, LR: 0.000003
+global_step is: 726; target_steps is: 754
+train_idx is:  726
+Step 727/754, Epoch 1/1 (LogEpoch: 0), Loss: 35.7655, LR: 0.000003
+global_step is: 727; target_steps is: 754
+train_idx is:  727
+Step 728/754, Epoch 1/1 (LogEpoch: 0), Loss: 35.7841, LR: 0.000003
+global_step is: 728; target_steps is: 754
+train_idx is:  728
+Step 729/754, Epoch 1/1 (LogEpoch: 0), Loss: 35.3640, LR: 0.000003
+global_step is: 729; target_steps is: 754
+train_idx is:  729
+Step 730/754, Epoch 1/1 (LogEpoch: 0), Loss: 48.2838, LR: 0.000002
+global_step is: 730; target_steps is: 754
+train_idx is:  730
+Step 731/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.2958, LR: 0.000002
+global_step is: 731; target_steps is: 754
+train_idx is:  731
+Step 732/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.4507, LR: 0.000002
+global_step is: 732; target_steps is: 754
+train_idx is:  732
+Step 733/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.2363, LR: 0.000002
+global_step is: 733; target_steps is: 754
+train_idx is:  733
+Step 734/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.5299, LR: 0.000002
+global_step is: 734; target_steps is: 754
+train_idx is:  734
+Step 735/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.5553, LR: 0.000002
+global_step is: 735; target_steps is: 754
+train_idx is:  735
+Step 736/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.7082, LR: 0.000001
+global_step is: 736; target_steps is: 754
+train_idx is:  736
+Step 737/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.1133, LR: 0.000001
+global_step is: 737; target_steps is: 754
+train_idx is:  737
+Step 738/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.7724, LR: 0.000001
+global_step is: 738; target_steps is: 754
+train_idx is:  738
+Step 739/754, Epoch 1/1 (LogEpoch: 0), Loss: 41.4238, LR: 0.000001
+global_step is: 739; target_steps is: 754
+train_idx is:  739
+Step 740/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.0857, LR: 0.000001
+global_step is: 740; target_steps is: 754
+train_idx is:  740
+Step 741/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.3055, LR: 0.000001
+global_step is: 741; target_steps is: 754
+train_idx is:  741
+Step 742/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.3228, LR: 0.000001
+global_step is: 742; target_steps is: 754
+train_idx is:  742
+Step 743/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.5383, LR: 0.000001
+global_step is: 743; target_steps is: 754
+train_idx is:  743
+Step 744/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.1253, LR: 0.000000
+global_step is: 744; target_steps is: 754
+train_idx is:  744
+Step 745/754, Epoch 1/1 (LogEpoch: 0), Loss: 71.9901, LR: 0.000000
+global_step is: 745; target_steps is: 754
+train_idx is:  745
+Step 746/754, Epoch 1/1 (LogEpoch: 0), Loss: 38.5974, LR: 0.000000
+global_step is: 746; target_steps is: 754
+train_idx is:  746
+Step 747/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.3199, LR: 0.000000
+global_step is: 747; target_steps is: 754
+train_idx is:  747
+Step 748/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.3426, LR: 0.000000
+global_step is: 748; target_steps is: 754
+train_idx is:  748
+Step 749/754, Epoch 1/1 (LogEpoch: 0), Loss: 39.2334, LR: 0.000000
+global_step is: 749; target_steps is: 754
+train_idx is:  749
+Step 750/754, Epoch 1/1 (LogEpoch: 0), Loss: 36.9131, LR: 0.000000
+global_step is: 750; target_steps is: 754
+train_idx is:  750
+Step 751/754, Epoch 1/1 (LogEpoch: 0), Loss: 40.3313, LR: 0.000000
+global_step is: 751; target_steps is: 754
+train_idx is:  751
+Step 752/754, Epoch 1/1 (LogEpoch: 0), Loss: 35.9454, LR: 0.000000
+global_step is: 752; target_steps is: 754
+train_idx is:  752
+Step 753/754, Epoch 1/1 (LogEpoch: 0), Loss: 37.3785, LR: 0.000000
+global_step is: 753; target_steps is: 754
+train_idx is:  753
+Step 754/754, Epoch 1/1 (LogEpoch: 1), Loss: 39.5312, LR: 0.000000
+Checkpoint saved: checkpoints/step-000754-epoch-01-loss=39.5312.pt
+global_step is: 754; target_steps is: 754
+06/12 [14:35:57] [34mINFO    [39m | >> [1m[[22m*[1m][22m DEBUG: End of epoch_idx [1m0[22m. Current global_step = [1m754[22m,         ]8;id=604988;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_batch.py\train_coconut_batch.py]8;;\:]8;id=782041;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_batch.py#444\444]8;;\
+                          target_steps = [1m754
+                 [34mINFO    [39m | >> [1m[[22m*[1m][22m Target steps reached after epoch [1m1[22m. Stopping training based   ]8;id=761100;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_batch.py\train_coconut_batch.py]8;;\:]8;id=345458;file:///data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/training/strategies/train_coconut_batch.py#448\448]8;;\
+                          on global_step [1m(754)[22m >= target_steps [1m(754)[22m.
+Training DiffusiveCoT:   0%|                                                                                    | 0/754 [00:00<?, ?it/s]2025-06-12 08:11:51.710220: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-06-12 08:11:51.710281: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-06-12 08:11:51.711440: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-06-12 08:11:51.718004: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-06-12 08:11:52.506144: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2025-06-12 08:11:53.255133: W tensorflow/core/common_runtime/gpu/gpu_device.cc:2256] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2025-06-12 08:12:11.175037: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-06-12 08:12:11.175092: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-06-12 08:12:11.176311: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-06-12 08:12:11.183009: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-06-12 08:12:11.953490: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2025-06-12 08:12:12.760248: W tensorflow/core/common_runtime/gpu/gpu_device.cc:2256] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2025-06-12 08:12:30.794685: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-06-12 08:12:30.794731: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-06-12 08:12:30.795576: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-06-12 08:12:30.801081: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-06-12 08:12:31.530785: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2025-06-12 08:12:32.309400: W tensorflow/core/common_runtime/gpu/gpu_device.cc:2256] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2025-06-12 08:12:49.439217: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-06-12 08:12:49.439280: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-06-12 08:12:49.440449: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-06-12 08:12:49.446877: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-06-12 08:12:50.162291: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2025-06-12 08:12:50.990137: W tensorflow/core/common_runtime/gpu/gpu_device.cc:2256] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+Training DiffusiveCoT: 100%|███████████████████████████████████████████████████████████████████████▉| 753/754 [6:23:34<00:32, 32.02s/it][rank0]:[W612 14:35:47.769189938 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
+[rank0]:[W612 14:35:47.769183188 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
+[rank0]:[W612 14:35:47.844864261 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
+[rank0]:[W612 14:35:47.303995673 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
