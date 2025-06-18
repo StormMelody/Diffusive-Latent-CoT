@@ -19,10 +19,13 @@ from datetime import datetime
 from typing import Optional
 import torch.nn.utils.rnn as rnn_utils
 from transformers.models.gpt2 import GPT2LMHeadModel
+import pickle # Added for saving/loading precomputed embeddings
+import hashlib # Added for creating unique filenames for embeddings
+import time # Added for profiling
 
 class GSM8KDataset(Dataset):
 
-    def __init__(self, data, tokenizer=None, max_length=512, embedding_model=None, debug=False, debug_samples=32):
+    def __init__(self, data, tokenizer=None, max_length=512, embedding_model=None, debug=False, debug_samples=32, embedding_store_dir="./embedding_cache", embedding_batch_size=32):
         """
         初始化数据集
         :param data: 可以是包含样本的列表，或JSON文件的路径
@@ -31,6 +34,7 @@ class GSM8KDataset(Dataset):
         :param embedding_model: 用于生成嵌入的模型
         :param debug: 是否使用调试模式（只使用少量样本）
         :param debug_samples: 调试模式下使用的样本数量
+        :param embedding_batch_size: 构建嵌入缓存时批处理大小
         """
         if isinstance(data, str):
             # 如果输入是文件路径，则加载JSON文件
@@ -43,14 +47,23 @@ class GSM8KDataset(Dataset):
             self.data = self.data[:debug_samples]
         self.tokenizer = tokenizer
         self.max_length = max_length
-        self.embedding_model = embedding_model
+        self.embedding_model = embedding_model # Still needed for initial cache generation
         self.device = next(embedding_model.parameters()).device if embedding_model is not None else 'cpu'
-        
+        self.embedding_store_dir = Path(embedding_store_dir)
+        self.embedding_store_dir.mkdir(parents=True, exist_ok=True)
+        self.embedding_batch_size = embedding_batch_size
+
         # 预处理和过滤数据，移除空steps的样本
-        self._preprocess_data()
-        
-        # 缓存，用于存储已计算的嵌入
-        self.embedding_cache = {}
+        self._preprocess_data() # Ensure self.data is populated before generating/loading embeddings
+
+        # Generate a unique filename based on the data content to avoid stale caches
+        data_hash = hashlib.md5(json.dumps(self.data, sort_keys=True).encode('utf-8')).hexdigest()
+        self.embedding_store_path = self.embedding_store_dir / f"embeddings_{data_hash}.pkl"
+
+        if not self.embedding_store_path.exists() and (self.embedding_model is None or self.tokenizer is None):
+            raise ValueError("Embedding model and tokenizer are required to build embedding store, but not provided, and no precomputed store found.")
+
+        self._load_or_build_embedding_store()
 
     def _preprocess_data(self):
         """
@@ -72,35 +85,120 @@ class GSM8KDataset(Dataset):
         """返回数据集中的样本数量"""
         return len(self.data)
 
-    def _get_embedding(self, text, is_step=False):
-        """
-        获取文本的嵌入向量，使用缓存避免重复计算
-        """
-        cache_key = f"{text}_{is_step}"
-        if cache_key in self.embedding_cache:
-            return self.embedding_cache[cache_key]
-        
-        try:
-            # 将数据移动到模型所在的设备
-            inputs = self.tokenizer(text, padding=True, truncation=True, return_tensors='pt').to(self.device)
-            with torch.no_grad():  # 不需要梯度计算
-                outputs = self.embedding_model(**inputs, output_hidden_states=True)
-                embedding = outputs.hidden_states[-1]  # 使用最后一层的hidden_states
-                
-                if is_step:
-                    # 对于step，我们需要squeeze并取平均
-                    embedding = embedding.squeeze(0).mean(dim=0)  # [768]
-                else:
-                    # 对于question，我们需要取平均
-                    embedding = embedding.mean(dim=1)  # [1, 768]
+    def _load_or_build_embedding_store(self):
+        """Loads embeddings from a precomputed file or builds them if the file doesn't exist."""
+        if self.embedding_store_path.exists():
+            print(f"Loading precomputed embeddings from {self.embedding_store_path}")
+            t_load_start = time.time()
+            with open(self.embedding_store_path, 'rb') as f:
+                self.embedding_store = pickle.load(f)
+            t_load_end = time.time()
+            print(f"Loaded {len(self.embedding_store)} embeddings in {t_load_end - t_load_start:.2f} seconds.")
+        else:
+            print(f"Precomputed embeddings not found at {self.embedding_store_path}. Building now...")
+            overall_build_start_time = time.time()
             
-            # 存入缓存
-            self.embedding_cache[cache_key] = embedding
-            return embedding
-        except Exception as e:
-            print(f"Error generating embedding for text: {e}")
-            print(f"Text content: '{text}'")
-            return None
+            self.embedding_store = {}
+
+            print(f"Using device: {self.device} for embedding generation.")
+
+            collect_texts_start_time = time.time()
+            unique_question_texts = set()
+            unique_step_texts = set()  # Includes <BOD>, <EOD>, and actual steps
+
+            for sample_item in self.data:
+                unique_question_texts.add(sample_item['question'])
+                for step_text_item in ['<BOD>'] + sample_item['steps'] + ['<EOD>']:
+                    if step_text_item:  # Ensure step is not empty
+                        unique_step_texts.add(step_text_item)
+            
+            texts_to_embed_as_questions = list(unique_question_texts)
+            texts_to_embed_as_steps = list(unique_step_texts - unique_question_texts)
+            collect_texts_end_time = time.time()
+            print(f"Time to collect {len(texts_to_embed_as_questions)} unique question texts and {len(texts_to_embed_as_steps)} unique step texts: {collect_texts_end_time - collect_texts_start_time:.2f} seconds.")
+
+            def _generate_embeddings_batch_inner(texts_list, is_step_for_pooling, pbar_desc, batch_size_override=None):
+                if not texts_list:
+                    return {}
+                
+                text_to_embedding_map = {}
+                actual_batch_size = batch_size_override if batch_size_override is not None else self.embedding_batch_size
+                num_batches = (len(texts_list) + actual_batch_size - 1) // actual_batch_size
+                
+                for i in tqdm(range(num_batches), desc=pbar_desc):
+                    batch_texts = texts_list[i*actual_batch_size : (i+1)*actual_batch_size]
+                    if not batch_texts: continue
+
+                    inputs = self.tokenizer(batch_texts, padding=True, truncation=True, return_tensors='pt').to(self.device)
+                    with torch.no_grad():
+                        outputs = self.embedding_model(**inputs, output_hidden_states=True)
+                        last_hidden_states = outputs.hidden_states[-1]
+
+                    attention_mask = inputs.attention_mask
+                    input_mask_expanded = attention_mask.unsqueeze(-1).expand_as(last_hidden_states).float()
+                    sum_embeddings = torch.sum(last_hidden_states * input_mask_expanded, dim=1)
+                    num_non_padded_tokens = attention_mask.sum(dim=1, keepdim=True)
+                    num_non_padded_tokens = torch.clamp(num_non_padded_tokens, min=1e-9)
+                    pooled_batch_gpu = sum_embeddings / num_non_padded_tokens
+                    pooled_batch_cpu = pooled_batch_gpu.cpu()
+
+                    for k_idx, text_content in enumerate(batch_texts):
+                        embedding_cpu = pooled_batch_cpu[k_idx]
+                        if is_step_for_pooling:
+                            final_embedding = embedding_cpu.half()
+                        else:
+                            final_embedding = embedding_cpu.unsqueeze(0).half()
+                        text_to_embedding_map[text_content] = final_embedding
+                return text_to_embedding_map
+
+            question_gen_start_time = time.time()
+            # Calculate question_batch_size based on user's logic
+            question_batch_size_for_call = self.embedding_batch_size
+            if self.embedding_batch_size > 16: # Assuming this logic is desired
+                question_batch_size_for_call = max(16, self.embedding_batch_size // 2)
+            print(f"Using batch size {question_batch_size_for_call} for question embeddings (original: {self.embedding_batch_size}).") # Adapted print
+            
+            question_embeddings = _generate_embeddings_batch_inner(
+                texts_to_embed_as_questions, 
+                is_step_for_pooling=False, 
+                pbar_desc="Building Question Embeddings",
+                batch_size_override=question_batch_size_for_call # Pass the new parameter
+            )
+            self.embedding_store.update(question_embeddings)
+            question_gen_end_time = time.time()
+            print(f"Time to build question embeddings: {question_gen_end_time - question_gen_start_time:.2f} seconds.")
+
+            step_gen_start_time = time.time()
+            print(f"Using batch size {self.embedding_batch_size} for step embeddings.") # Adapted print
+            
+            step_embeddings = _generate_embeddings_batch_inner(
+                texts_to_embed_as_steps, 
+                is_step_for_pooling=True, 
+                pbar_desc="Building Step Embeddings"
+                # No batch_size_override is passed, so it will use the default (None)
+                # and the function will use self.embedding_batch_size
+            )
+            self.embedding_store.update(step_embeddings)
+            step_gen_end_time = time.time()
+            print(f"Time to build step embeddings: {step_gen_end_time - step_gen_start_time:.2f} seconds.")
+            
+            save_start_time = time.time()
+            with open(self.embedding_store_path, 'wb') as f:
+                pickle.dump(self.embedding_store, f)
+            save_end_time = time.time()
+            print(f"Time to save embeddings to {self.embedding_store_path}: {save_end_time - save_start_time:.2f} seconds.")
+            
+            overall_build_end_time = time.time()
+            print(f"Total time to build and save embeddings: {overall_build_end_time - overall_build_start_time:.2f} seconds.")
+            print(f"Built and saved {len(self.embedding_store)} embeddings.")
+
+        # Optionally, if embedding_model is large and only for precomputation and not needed later by this instance:
+        if hasattr(self, 'embedding_model') and self.embedding_model is not None:
+            del self.embedding_model
+            self.embedding_model = None # Ensure it's None
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+                print("Released embedding model and cleared CUDA cache.")
 
     def __getitem__(self, idx):
         """
@@ -117,33 +215,45 @@ class GSM8KDataset(Dataset):
         answer = sample['answer']
         # 处理steps
         original_steps = ['<BOD>'] + sample['steps'] + ['<EOD>']
-        # 获取question的嵌入
-        question_embedding = self._get_embedding(question)
+        # 获取question的嵌入 from store
+        question_embedding = self.embedding_store.get(question)
         if question_embedding is None:
-            # 如果获取嵌入失败，尝试下一个样本
-            return self.__getitem__((idx + 1) % len(self.data))
+            print(f"Warning: Embedding for question not found in store: {question}")
+            # Fallback or error handling: try to generate on the fly (if model retained) or skip
+            # For simplicity, we'll skip if not found after precomputation attempt.
+            return self.__getitem__((idx + 1) % len(self.data)) # Or raise error
         
         # 处理answer的token ids
         tokenizer_output = self.tokenizer(answer + self.tokenizer.eos_token, padding=True, truncation=True, return_tensors='pt')
         answer_token_ids = tokenizer_output.input_ids
         
-        # 处理steps的嵌入
+        # 处理steps的嵌入 from store
         steps_embeddings = []
-        for step in original_steps:
-            if not step:
+        for step_text in original_steps:
+            if not step_text:
                 continue
-                
-            step_embedding = self._get_embedding(step, is_step=True)
+            step_embedding = self.embedding_store.get(step_text)
             if step_embedding is not None:
                 steps_embeddings.append(step_embedding)
+            else:
+                print(f"Warning: Embedding for step not found in store: {step_text}")
+                # Optionally skip this step or the whole sample
+        
         # 确保至少有一个步骤
         if len(steps_embeddings) == 0:
-            print(f"Warning: No valid steps found for item {idx}")
+            print(f"Warning: No valid step embeddings found for item {idx} after checking store.")
             return self.__getitem__((idx + 1) % len(self.data))
         
         steps_tensor = torch.stack(steps_embeddings, dim=0)  # [num_steps, 768]
         
-        # 返回处理后的结果
+        # 返回处理后的结果 (ensure tensors are on the correct device if needed by collate_fn/model)
+        # Embeddings are stored on CPU as float16. Convert to float32 for model consumption.
+        # Collate_fn or training loop should move to GPU.
+        if question_embedding is not None:
+            question_embedding = question_embedding.float() # Convert to float32
+        if steps_tensor is not None:
+            steps_tensor = steps_tensor.float() # Convert to float32
+
         return question_embedding, answer_token_ids, steps_tensor
 
     def collate_fn(batch):
@@ -208,7 +318,7 @@ def main(
         sampler=sampler,
         collate_fn=GSM8KDataset.collate_fn,
         shuffle=False if sampler else True, # Shuffle is handled by DistributedSampler
-        num_workers=4, # Adjust as needed
+        num_workers=32, # Adjusted: Increase num_workers for parallel data loading
         pin_memory=True # Recommended for DDP
     )
     # collate_fn=GSM8KDataset.collate_fn

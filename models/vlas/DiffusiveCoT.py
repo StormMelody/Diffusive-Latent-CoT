@@ -47,6 +47,7 @@ class DiffusiveCoT(nn.Module):
         num_ddim_steps: int = 10,
         **kwargs: str
     ):
+        # import pdb; pdb.set_trace()
         sample_fn = self.base_causallm.forward
         cot_pred = []
         B, S, D = steps.shape
@@ -102,7 +103,7 @@ class DiffusiveCoT(nn.Module):
                 answer_label[:,i].view(-1)
                 )
             past_key_values = answer_pred['past_key_values']
-
+        import pdb; pdb.set_trace()
         return cot_loss + answer_loss
 
     def _repeat_tensor(
