@@ -188,7 +188,6 @@ def main(
     CoTModel: DiffusiveCoT,
     dataset: GSM8KDataset,
     save_interval: int = 2500,
-    save_full_model: bool = True,
     epochs: int = 1,
     grad_accumulation_steps: int = 1,
     learning_rate: float = 1e-4,
@@ -196,7 +195,8 @@ def main(
     max_steps: Optional[int] = None,
     enable_mixed_precision_training: bool = True,
     mixed_precision_dtype: torch.dtype = torch.bfloat16,
-    world_size: int = 1 # Added for DDP
+    world_size: int = 1, # Added for DDP
+    resume_from_checkpoint: Optional[str] = None # Added for resuming training
     ) -> None:
 
     if world_size > 1:
@@ -254,7 +254,34 @@ def main(
     # === Train ===
     status = "Training DiffusiveCoT"
     global_step = 0
+    start_epoch = 0 # Added for resuming training
     sequence_length = 1024
+
+    # Load checkpoint if resuming
+    if resume_from_checkpoint and os.path.exists(resume_from_checkpoint):
+        if overwatch.is_rank_zero():
+            overwatch.info(f"Resuming training from checkpoint: {resume_from_checkpoint}")
+        checkpoint = torch.load(resume_from_checkpoint, map_location=device)
+        # Handle DDP model loading carefully
+        model_to_load = CoTModel.module if world_size > 1 else CoTModel
+        
+        # Remove embedding.weight from checkpoint if it exists
+        if 'embedding.weight' in checkpoint['model']:
+            del checkpoint['model']['embedding.weight']
+            if overwatch.is_rank_zero():
+                overwatch.info("Removed 'embedding.weight' from checkpoint state_dict before loading.")
+
+        model_to_load.load_state_dict(checkpoint['model'])
+        optimizer.load_state_dict(checkpoint['optimizer'])
+        lr_scheduler.load_state_dict(checkpoint['scheduler'])
+        global_step = checkpoint['global_step']
+        start_epoch = checkpoint['epoch'] # Ensure 'epoch' in checkpoint is the completed epoch number
+        if overwatch.is_rank_zero():
+            overwatch.info(f"Resumed from global_step: {global_step}, start_epoch: {start_epoch + 1}")
+    elif resume_from_checkpoint:
+        if overwatch.is_rank_zero():
+            overwatch.warning(f"Checkpoint {resume_from_checkpoint} not found. Starting from scratch.")
+
     # Adjust num_training_steps and target_steps for DDP
     # Each process sees a fraction of the data, but grad_accumulation_steps applies per process
     # Total effective batch size = batch_size * world_size * grad_accumulation_steps
@@ -292,8 +319,8 @@ def main(
         disable=not overwatch.is_rank_zero(),
     ) as progress:
         CoTModel.train()
-        optimizer.zero_grad()
-        for epoch_idx in range(epochs):
+        optimizer.zero_grad() # Moved here to ensure it's called after potential optimizer.load_state_dict
+        for epoch_idx in range(start_epoch, epochs): # Start from start_epoch
             if overwatch.is_rank_zero():
                 overwatch.info(f"Starting Epoch {epoch_idx + 1}/{epochs}")
             
@@ -305,7 +332,7 @@ def main(
                 # Note that we'll unpack batch (and let AMP/FSDP do its thing) in the VLM.forward() call
                 #   => Basically, if we're using mixed precision (or not), autocast()/FSDP will move to device!
                 question, answer, steps, answer_label = batch     # shape: [4, 1, 768] [4, 1, 768] [4, 4, 768]
-                # import pdb; pdb.set_trace()
+                import pdb; pdb.set_trace()
                 # device = next(CoTModel.parameters()).device # Device is already set
                 question = question.to(device, non_blocking=True)
                 answer = answer.to(device, non_blocking=True)
@@ -372,17 +399,13 @@ def main(
                                 checkpoint_path = checkpoint_dir / f"step-{global_step:06d}-epoch-{epoch_for_logging:02d}-loss={train_loss:.4f}.pt"
                                 
                                 checkpoint_data = {
-                                    "model": CoTModel.state_dict(),
+                                    "model": CoTModel.module.state_dict() if world_size > 1 else CoTModel.state_dict(), # Save module for DDP
+                                    "optimizer": optimizer.state_dict(), # Always save optimizer and scheduler for resuming
+                                    "scheduler": lr_scheduler.state_dict(),
                                     "global_step": global_step,
-                                    "epoch": epoch_for_logging,
+                                    "epoch": epoch_idx, # Save current epoch_idx (0-indexed)
                                     "loss": train_loss,
                                 }
-                                
-                                if not save_full_model:
-                                    if 'optimizer' in globals():
-                                        checkpoint_data["optimizer"] = optimizer.state_dict()
-                                    if 'lr_scheduler' in globals():
-                                        checkpoint_data["scheduler"] = lr_scheduler.state_dict()
                                 
                                 torch.save(checkpoint_data, checkpoint_path)
                                 print(f"Checkpoint saved: {checkpoint_path}")
@@ -432,6 +455,7 @@ if __name__ == "__main__":
     parser.add_argument('--grad_accumulation_steps', type=int, default=1, help='Gradient accumulation steps')
     parser.add_argument('--debug', action='store_true', help='Enable debug mode with smaller dataset')
     parser.add_argument('--data_path', type=str, default="/data2/xxw_data/projects/LLM/coconut/data/gsm_train.json", help='Path to training data JSON file')
+    parser.add_argument('--resume_from_checkpoint', type=str, default=None, help='Path to checkpoint to resume training from')
 
     args = parser.parse_args()
 
@@ -479,6 +503,7 @@ if __name__ == "__main__":
         batch_size=args.batch_size,
         learning_rate=args.learning_rate,
         grad_accumulation_steps=args.grad_accumulation_steps,
-        world_size=world_size
+        world_size=world_size,
+        resume_from_checkpoint=args.resume_from_checkpoint # Pass resume_from_checkpoint
     )
 

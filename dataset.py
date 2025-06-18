@@ -228,7 +228,7 @@ def get_question_latent_dataset(
 
 
 def get_cot_latent_dataset(
-    scheduled_stage,    # 当前训练阶段，控制使用多少潜在思维标记
+    # scheduled_stage,    # 当前训练阶段，控制使用多少潜在思维标记
     base_dataset,       # 基础数据集，包含已分词的问题、步骤和答案
     configs,
     start_id,           # 开始潜在思维的特殊标记ID <|start-latent|>, 50257
@@ -242,16 +242,17 @@ def get_cot_latent_dataset(
 
     def process_dataset(sample):
         # 通常使用当前的 scheduled_stage ，但有一定概率随机选择一个阶段，增加训练的多样性。
-        if (
-            random.random() < configs.uniform_prob
-        ):  # with some prob, randomly sample stage
-            scheduled_stage_to_train = random.choice(
-                list(range(len(sample["steps_tokenized"]) + 1))
-            )
-        else:
-            scheduled_stage_to_train = scheduled_stage
-
-        if scheduled_stage_to_train > configs.max_latent_stage:
+        # scheduled_stage 表示当前训练阶段应该使用的推理步骤数量。在代码中，它决定了模型需要跳过多少步骤，以及需要生成多少潜在思维标记(latent tokens)。
+        # if (random.random() < configs.uniform_prob):  # with some prob, randomly sample stage
+        #     scheduled_stage_to_train = random.choice(
+        #         list(range(len(sample["steps_tokenized"]) + 1))
+        #     )
+        # else:
+        #     scheduled_stage_to_train = scheduled_stage
+        # 实际上是跳过所有步骤。configs.max_latent_stage可以理解为需要学习的最多的阶段，例如设置为3，代表课程学习3个阶段之后，就可以直接预测完全的latent了
+        max_latent_stage=3
+        scheduled_stage_to_train=1000
+        if scheduled_stage_to_train > max_latent_stage:
             n_skip_steps = 10000  # skip all
             if configs.pad_latent_to_max:
                 n_latent_tokens = configs.max_latent_stage
