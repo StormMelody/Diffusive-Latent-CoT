@@ -193,7 +193,7 @@ def main():
 
     if not configs.only_eval:
         base_dataset_train = get_dataset(
-            configs.train_path, tokenizer, max_size=5000 if configs.debug else 100000000
+            configs.train_path, tokenizer, max_size=32 if configs.debug else 100000000
         )
 
     if "gsm" in configs.val_path:
@@ -364,9 +364,9 @@ def main():
 
                 outputs = parallel_model(**batch)
                 # outputs = parallel_model(question=batch['question_tokenized'], steps=batch['steps_tokenized'], answer=batch['answer_ids_padded'], answer_labels=batch['answer_labels_padded'])
-                # loss = outputs.loss / configs.gradient_accumulation_steps
+                loss = outputs.loss / configs.gradient_accumulation_steps
                 # import pdb; pdb.set_trace
-                loss = outputs / configs.gradient_accumulation_steps
+                # loss = outputs / configs.gradient_accumulation_steps
                 loss.backward()
                 # 梯度累积和优化器步骤
                 if (step + 1) % configs.gradient_accumulation_steps == 0 or step == len(
@@ -459,36 +459,41 @@ def main():
                 # https://github.com/huggingface/transformers/issues/32492
                 # 获取参考答案
                 assert len(batch["input_ids"]) == 1
-                answer = answers_val[test_idx.cpu().item()]
-                answer_cot = cot_val[test_idx.cpu().item()]
-                question = question_val[test_idx.cpu().item()]
+                current_test_idx = test_idx.cpu().item() if torch.is_tensor(test_idx) else test_idx
+                answer = answers_val[current_test_idx]
+                answer_cot = cot_val[current_test_idx]
+                question = question_val[current_test_idx]
 
                 total += 1
 
                 # synced_gpus=True in FSDP mode, as we need to keep # forward pass the same on each device
-                # 生成回答
+                # 生成回答，现在分别是decoded_answers, generated_ids, generated_steps_representation
                 outputs = parallel_model.module.generate(
                     **batch,
+                    tokenizer=tokenizer, # Added tokenizer
                     max_new_tokens=max_new_tokens,
                     synced_gpus=not configs.only_eval,
                 )
+                # import pdb; pdb.set_trace()
                 # 解码和评估
-                text_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
-                answer_output = text_output.split("#")[-1].replace(",", "").strip()
-                cot_output = (
-                    ("\n".join(text_output.split("\n")[1:])).split("#")[0].strip()
-                )
+                # text_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
+                # answer_output = text_output.split("#")[-1].replace(",", "").strip()
+                # list转换为str
+                answer_output = outputs[0][0] if isinstance(outputs[0], list) and outputs[0] else outputs[0]
+                # cot_output = (
+                #     ("\n".join(text_output.split("\n")[1:])).split("#")[0].strip()
+                # )
 
-                if idx < 5 and rank == 0:
-                    # print some examples
-                    print(
-                        f"Question {test_idx}: Answer = '{answer}' CoT = '{answer_cot}'"
-                    )
-                    print(f"Full output: '{tokenizer.decode(outputs[0])}'")
-                    print(f"Extracted Output: '{answer_output}'")
+                # if idx < 5 and rank == 0:
+                #     # print some examples
+                #     print(
+                #         f"Question {current_test_idx}: Answer = '{answer}' CoT = '{answer_cot}'"
+                #     )
+                #     print(f"Full output: '{tokenizer.decode(outputs[0])}'")
+                #     print(f"Extracted Output: '{answer_output}'")
                 # 计算准确率
                 cor += answer_output == answer
-                cor_cot += cot_output == answer_cot
+                # cor_cot += cot_output == answer_cot
 
                 pbar.update(1)
                 pbar.set_description(
@@ -496,22 +501,24 @@ def main():
                 )
 
             pbar.close()
-            print(f"Device {rank}: Cor={cor}, CoT={cor_cot}, Total={total}")
+            # print(f"Device {rank}: Cor={cor}, CoT={cor_cot}, Total={total}")
+            print(f"Device {rank}: Cor={cor}, Total={total}")
         # 汇总多GPU上的评估结果，计算并记录最终的准确率指标。
-        dist.all_reduce(cor_cot, op=dist.ReduceOp.SUM)
+        # dist.all_reduce(cor_cot, op=dist.ReduceOp.SUM)
         dist.all_reduce(cor, op=dist.ReduceOp.SUM)
         dist.all_reduce(total, op=dist.ReduceOp.SUM)
 
-        cor_cot = cor_cot.item()
+        # cor_cot = cor_cot.item()
         cor = cor.item()
         total = total.item()
         if rank == 0:
             print(f"Accuracy on validation set: {cor} / {total} = {cor/total}")
-            print(f"CoT match on validation set: {cor_cot} / {total} = {cor_cot/total}")
+            # print(f"CoT match on validation set: {cor_cot} / {total} = {cor_cot/total}")
         sys.stdout.flush()
 
         if wandb_run:
-            wandb_run.log({"eval/acc": cor / total, "eval/cot_em": cor_cot / total})
+            # wandb_run.log({"eval/acc": cor / total, "eval/cot_em": cor_cot / total})
+            wandb_run.log({"eval/acc": cor / total})
 
         if configs.only_eval:
             break
