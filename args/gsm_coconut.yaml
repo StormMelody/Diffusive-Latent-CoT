@@ -27,9 +27,9 @@ bf16: False
 train_path: /data2/xxw_data/projects/LLM/coconut/data/gsm_train.json
 val_path: /data2/xxw_data/projects/LLM/coconut/data/gsm_valid.json
 reset_optimizer: True
-batch_size_training: 128
+batch_size_training: 768
 debug: True
 gradient_accumulation_steps: 1
 num_epochs: 30
-lr: !!float "0.0004"
+lr: !!float "0.0024"
 weight_decay: 0.01
