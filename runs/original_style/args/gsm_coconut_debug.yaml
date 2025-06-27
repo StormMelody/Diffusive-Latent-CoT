@@ -19,7 +19,7 @@ pad_latent_to_max: True
 
 save_only_improve: False
 uniform_prob: 0.0
-model_id: openai-community/gpt2
+model_id: /data2/xxw_data/data/huggingface/llama3.2_3b_instruct
 load_model_path: None
 seed: 0
 resume: 0
@@ -27,9 +27,9 @@ bf16: False
 train_path: /data2/xxw_data/projects/LLM/coconut/data/gsm_train.json
 val_path: /data2/xxw_data/projects/LLM/coconut/data/gsm_valid.json
 reset_optimizer: True
-batch_size_training: 64
+batch_size_training: 1
 debug: True
-gradient_accumulation_steps: 1
+gradient_accumulation_steps: 4
 num_epochs: 30
 lr: !!float "0.0001"
 weight_decay: 0.01
