@@ -34,7 +34,7 @@ import gc
 import argparse
 import functools
 from utils import Config, set_seed
-os.environ["WANDB_MODE"] = "disabled"
+os.environ["WANDB_MODE"] = "offline"
 
 def main():
 
@@ -43,7 +43,7 @@ def main():
     args = parser.parse_args()
 
     # init distributed environment
-    # dist.init_process_group("nccl") # torchrun handles this automatically
+    # dist.init_process_group("nccl")
     local_rank = int(os.environ["LOCAL_RANK"])
     rank = int(os.environ["RANK"])
     world_size = int(os.environ["WORLD_SIZE"])
@@ -104,12 +104,10 @@ def main():
     # tokenizer 作用：当输入文本时，tokenizer会：将文本分割成token；将token转换为对应的数字ID；识别并处理特殊token（如我们新添加的这些标记）
     tokenizer = AutoTokenizer.from_pretrained(configs.model_id)
     tokenizer.pad_token = tokenizer.eos_token   # 使用结束标记作为填充标记，当模型看到填充部分时，会将其视为序列结束的信号。在处理批量数据时，由于每个序列长度可能不同，需要将所有序列填充到相同长度。- 序列1: "今天天气真好" (5个token)序列2: "我喜欢" (3个token)- 为了批处理，需要将序列2填充到5个token：["我","喜欢", PAD, PAD, PAD]
-    tokenizer.add_tokens("<|start-latent|>")
-    tokenizer.add_tokens("<|end-latent|>")
-    tokenizer.add_tokens("<|latent|>")
-    latent_id = tokenizer.convert_tokens_to_ids("<|latent|>")   # 将这个标识转化为id，这个id后续会添加到embedding查找表中。id可以通过索引寻找对应的embedding。
-    start_id = tokenizer.convert_tokens_to_ids("<|start-latent|>")
-    end_id = tokenizer.convert_tokens_to_ids("<|end-latent|>")
+    tokenizer.add_tokens("<BOD>")
+    tokenizer.add_tokens("<EOD>")  
+    start_id = tokenizer.convert_tokens_to_ids("<BOD>") # 将这个标识转化为id，这个id后续会添加到embedding查找表中。id可以通过索引寻找对应的embedding。
+    end_id = tokenizer.convert_tokens_to_ids("<EOD>")
 
     loaded = False
 
@@ -118,30 +116,6 @@ def main():
             configs.load_model_path, map_location=torch.device(rank)
         )
 
-        if configs.coconut and not any(
-            [k.startswith("base_causallm") for k in saved_weights.keys()]
-        ):
-            # we are loading a base model into coconut model
-            # e.g., for GSM8k, we used a SFTed model to skip the stage 0
-            loaded = True
-            print(model.load_state_dict(saved_weights, strict=False))
-
-        elif not configs.coconut and any(
-            [k.startswith("base_causallm") for k in saved_weights.keys()]
-        ):
-            raise ValueError("Cannot load coconut model weights into a causallm model")
-
-        elif configs.coconut and any(
-            [k.startswith("base_causallm") for k in saved_weights.keys()]
-        ):
-            # loading from preempted run
-            # will handle later
-            pass
-
-        else:
-            # resume or evaluate sft model
-            loaded = True
-            print(model.load_state_dict(saved_weights, strict=False))
     # 修改embeddings层：当不使用CoT(Chain of Thought)模式、不禁用thoughts、不禁用CoT时才执行，即使用完整的Coconut模式
     if not (configs.cot or configs.no_thoughts or configs.no_cot):
         # if we need new tokens, initialize their embeddings and lm heads
@@ -150,24 +124,17 @@ def main():
         target_id = tokenizer.convert_tokens_to_ids("<<") # 选择 "<<" 这个已有的 token 的 embedding 来初始化新添加的特殊 token 的 embedding。提供一个“中性”的起点： 选择 "<<" 这样一个标点符号或者特殊字符作为模板，可能是因为它相对来说没有特别强的语义含义。如果选择一个像“猫”或“很高兴”这样的词汇来初始化，新添加的特殊 token 就会继承这些词汇的语义信息，这可能会影响模型学习这些特殊 token 应该代表的真正功能（比如 <|latent|> 可能代表的是一种潜在空间的信息，而不是某个具体的词义）。
         # initialize the new token embeddings with a known token
         # it helps stablize the training
-        for token_id in [latent_id, start_id, end_id]:
+        for token_id in [start_id, end_id]:
             target_embedding = embeddings.weight.data[token_id]
             embeddings.weight.data[token_id] = target_embedding # 简单地赋值，后续训练中会更新
             # The input embeddings and lm heads are tied in GPT2. So the code below is not necessary
             lm_head = model.lm_head
             lm_head.weight.data[token_id] = lm_head.weight.data[target_id]  # 尝试更新语言模型头部（lm_head）中对应的权重
 
-    if configs.no_thoughts:
-        configs.c_thought = 0
-        configs.coconut = False
 
     if configs.coconut:
-        model = DiffusiveCoT(model, latent_id, start_id, end_id, tokenizer.eos_token_id, use_diff=True)
+        model = DiffusiveCoT(model, tokenizer=tokenizer, use_diff=True)
 
-    if configs.load_model_path != "None" and not loaded:
-        print(model.load_state_dict(saved_weights, strict=False))
-
-    print(f"Running FSDP on rank = {rank}, world size = {world_size}")
     model = model.to(rank)
 
     llama_auto_wrap_policy = functools.partial(
@@ -203,14 +170,13 @@ def main():
     cot_val = ["\n".join(d["steps"]) for d in json.load(open(configs.val_path))]
 
     base_dataset_valid = get_dataset(
-        configs.val_path, tokenizer, max_size=32 if configs.debug else 100000000
+        configs.val_path, tokenizer, start_id, end_id, max_size=32 if configs.debug else 100000000
     )
 
     if not configs.only_eval:
         base_dataset_train = get_dataset(
-            configs.train_path, tokenizer, max_size=5000 if configs.debug else 100000000
+            configs.train_path, tokenizer, start_id, end_id, max_size=64 if configs.debug else 100000000
         )
-
     if "gsm" in configs.val_path:
         max_new_tokens = 64
     else:
@@ -238,77 +204,126 @@ def main():
 
     best_acc = 0
 
-    collator = MyCollator(tokenizer, latent_id=latent_id, label_pad_token_id=-100)
+    # Retrieve start_id and end_id which should be defined earlier in the script
+    # based on the logic for adding special tokens to the tokenizer.
+    # Assuming start_id and end_id are available in this scope.
+    # If they are not, their definition/retrieval needs to be ensured.
+    # For example, they might be defined similar to how latent_id is handled:
+    # start_id = tokenizer.convert_tokens_to_ids("<|start-latent|>")
+    # end_id = tokenizer.convert_tokens_to_ids("<|end-latent|>")
+
+    # collator = MyCollator(
+    #     tokenizer, 
+    #     # latent_id=latent_id, 
+    #     start_id=start_id,  # Pass start_id
+    #     end_id=end_id,      # Pass end_id
+    #     label_pad_token_id=-100
+    # )
+
+    from functools import partial
+
+    def custom_collate_fn(batch, tokenizer):
+        input_ids_list = []
+        labels_list = []
+
+        for sample in batch:
+            q_tok = sample['question_tokenized']
+            s_tok_nested = sample['steps_tokenized']
+            s_tok_flat = [token for step in s_tok_nested for token in step]
+            a_tok = sample['answer_tokenized']
+
+            input_ids = q_tok + s_tok_flat + a_tok
+            labels = ([-100] * len(q_tok)) + s_tok_flat + a_tok
+
+            input_ids_list.append(torch.tensor(input_ids))
+            labels_list.append(torch.tensor(labels))
+
+        padded_input_ids = torch.nn.utils.rnn.pad_sequence(
+            input_ids_list, batch_first=True, padding_value=tokenizer.pad_token_id
+        )
+        padded_labels = torch.nn.utils.rnn.pad_sequence(
+            labels_list, batch_first=True, padding_value=-100
+        )
+
+        attention_mask = (padded_input_ids != tokenizer.pad_token_id).long()
+
+        return {
+            "input_ids": padded_input_ids,
+            "labels": padded_labels,
+            "attention_mask": attention_mask,
+        }
+
+    collate_fn = partial(custom_collate_fn, tokenizer=tokenizer)
 
     for epoch in range(configs.resume, configs.num_epochs):
-        epoch=30
+
         scheduled_stage = (
             0 if (configs.cot or configs.no_cot) else epoch // configs.epochs_per_stage
         )   # 确定当前的训练阶段。Coconut使用课程学习策略，随着训练的进行，逐渐增加潜在思维标记的数量。
-        dataset_gen_val = get_question_latent_dataset(
-            scheduled_stage,
-            base_dataset_valid,
-            configs,
-            start_id,
-            latent_id,
-            end_id,
-            no_special_marker=configs.cot or configs.no_cot or configs.no_thoughts,
-        )
+        # dataset_gen_val = get_question_latent_dataset(
+        #     scheduled_stage,
+        #     base_dataset_valid,
+        #     configs,
+        #     start_id,
+        #     # latent_id,
+        #     end_id,
+        #     no_special_marker=configs.cot or configs.no_cot or configs.no_thoughts,
+        # )
 
-        valid_gen_dataloader = torch.utils.data.DataLoader(
-            dataset_gen_val,
-            num_workers=0,
-            pin_memory=True,
-            batch_size=1,
-            collate_fn=collator,
-            sampler=DistributedSampler(dataset_gen_val, shuffle=False),
-        )   # 准备用于生成评估的验证数据集，这个数据集只包含问题和潜在思维标记，用于测试模型的生成能力。
+        # valid_gen_dataloader = torch.utils.data.DataLoader(
+        #     dataset_gen_val,
+        #     num_workers=1,
+        #     pin_memory=True,
+        #     batch_size=1,
+        #     collate_fn=collator,
+        #     sampler=DistributedSampler(dataset_gen_val, shuffle=False),
+        # )   # 准备用于生成评估的验证数据集，这个数据集只包含问题和潜在思维标记，用于测试模型的生成能力。
 
         if not configs.only_eval:
             # 准备训练数据集和用于计算验证损失的数据集。训练数据集包含问题、潜在思维标记、思维步骤和答案。
-            dataset_train = get_cot_latent_dataset(
-                scheduled_stage,
-                base_dataset_train,
-                configs,
-                start_id,
-                latent_id,
-                end_id,
-                no_special_marker=configs.cot or configs.no_cot or configs.no_thoughts,
-                shuffle=True,
-            )
+            # dataset_train = get_cot_latent_dataset(
+            #     scheduled_stage,
+            #     base_dataset_train,
+            #     configs,
+            #     start_id,
+            #     # latent_id,
+            #     end_id,
+            #     no_special_marker=configs.cot or configs.no_cot or configs.no_thoughts,
+            #     shuffle=True,
+            # )
 
             train_dataloader = torch.utils.data.DataLoader(
-                dataset_train,
-                num_workers=0,
+                base_dataset_train,
+                num_workers=1,
                 shuffle=False,
                 pin_memory=True,
                 batch_size=configs.batch_size_training,
-                collate_fn=collator,
-                sampler=DistributedSampler(dataset_train, shuffle=True),
+                sampler=DistributedSampler(base_dataset_train, shuffle=True),
+                collate_fn=collate_fn,
             )
-
+            # import pdb; pdb.set_trace()
             # the sampler is deterministic even if shuffle is set to True
             # so we have shuffled the dataset when it's constructed (at every epoch).
 
-            dataset_loss_val = get_cot_latent_dataset(
-                scheduled_stage,
-                base_dataset_valid,
-                configs,
-                start_id,
-                latent_id,
-                end_id,
-                no_special_marker=configs.cot or configs.no_cot or configs.no_thoughts,
-            )
+            # dataset_loss_val = get_cot_latent_dataset(
+            #     scheduled_stage,
+            #     base_dataset_valid,
+            #     configs,
+            #     start_id,
+            #     latent_id,
+            #     end_id,
+            #     no_special_marker=configs.cot or configs.no_cot or configs.no_thoughts,
+            # )
 
-            valid_loss_dataloader = torch.utils.data.DataLoader(
-                dataset_loss_val,
-                num_workers=0,
-                shuffle=False,
-                pin_memory=True,
-                batch_size=configs.batch_size_training,
-                collate_fn=collator,
-                sampler=DistributedSampler(dataset_loss_val, shuffle=False),
-            )
+            # valid_loss_dataloader = torch.utils.data.DataLoader(
+            #     dataset_loss_val,
+            #     num_workers=1,
+            #     shuffle=False,
+            #     pin_memory=True,
+            #     batch_size=configs.batch_size_training,
+            #     collate_fn=collator,
+            #     sampler=DistributedSampler(dataset_loss_val, shuffle=False),
+            # )
 
             if configs.reset_optimizer:
                 del optimizer
@@ -331,7 +346,7 @@ def main():
 
             for step, batch in enumerate(train_dataloader):
                 # batch.keys()=dict_keys(['idx', 'input_ids', 'attention_mask', 'labels', 'position_ids'])
-                # import pdb; pdb.set_trace()
+                import pdb; pdb.set_trace()
                 if step == 0 and wandb_run and rank == 0:   # 记录训练数据（仅在第一步）
                     print("logging training data")
                     cur_bs = len(batch["input_ids"])
@@ -356,13 +371,18 @@ def main():
                     wandb_run.log({"data_table": copy(text_table)})
                 # 前向传播和损失计算
                 total_train_steps += 1
+                # batch.keys()
+                # dict_keys(['input_ids', 'attention_mask', 'question_tokenized', 'steps_tokenized', 'answer_tokenized', 'steps_ids_padded', 'answer_ids_padded', 'answer_labels_padded', 'labels', 'position_ids'])
                 batch = {
-                    key: batch[key].to(rank) for key in batch.keys() if key != "idx"
+                    key: batch[key].to(rank) if hasattr(batch[key], 'to') else batch[key] for key in batch.keys() if key != "idx"
                 }
+                # import pdb; pdb.set_trace()
 
                 outputs = parallel_model(**batch)
-
+                # outputs = parallel_model(question=batch['question_tokenized'], steps=batch['steps_tokenized'], answer=batch['answer_ids_padded'], answer_labels=batch['answer_labels_padded'])
                 loss = outputs.loss / configs.gradient_accumulation_steps
+                # import pdb; pdb.set_trace
+                # loss = outputs / configs.gradient_accumulation_steps
                 loss.backward()
                 # 梯度累积和优化器步骤
                 if (step + 1) % configs.gradient_accumulation_steps == 0 or step == len(
@@ -388,9 +408,9 @@ def main():
             pbar.close()
             dist.barrier()
             # 模型保存
+            # Always save at the end of each epoch if not in debug mode and not only_eval
             if (
-                not configs.save_only_improve
-                and not configs.debug
+                not configs.debug
                 and not configs.only_eval
             ):
                 states = parallel_model.state_dict()
@@ -398,14 +418,14 @@ def main():
                     torch.save(
                         states, os.path.join(save_dir, f"checkpoint_{epoch + 1}")
                     )
-                    print("saving model.")
+                    print(f"Saving model checkpoint at epoch {epoch + 1}.")
 
                 dist.barrier()
                 del states
                 gc.collect()
                 torch.cuda.empty_cache()
 
-            # val loss
+        #     # val loss
         #     total_loss = 0
 
         #     with torch.no_grad():
@@ -413,7 +433,7 @@ def main():
         #         for step, batch in enumerate(valid_loss_dataloader):
 
         #             batch = {
-        #                 key: batch[key].to(rank) for key in batch.keys() if key != "idx"
+        #                 key: batch[key].to(rank) if hasattr(batch[key], 'to') else batch[key] for key in batch.keys() if key != "idx"
         #             }
 
         #             outputs = parallel_model(**batch)
@@ -455,36 +475,43 @@ def main():
         #         # https://github.com/huggingface/transformers/issues/32492
         #         # 获取参考答案
         #         assert len(batch["input_ids"]) == 1
-        #         answer = answers_val[test_idx.cpu().item()]
-        #         answer_cot = cot_val[test_idx.cpu().item()]
-        #         question = question_val[test_idx.cpu().item()]
+        #         current_test_idx = test_idx.cpu().item() if torch.is_tensor(test_idx) else test_idx
+        #         answer = answers_val[current_test_idx]
+        #         answer_cot = cot_val[current_test_idx]
+        #         question = question_val[current_test_idx]
 
         #         total += 1
 
         #         # synced_gpus=True in FSDP mode, as we need to keep # forward pass the same on each device
-        #         # 生成回答
+        #         # 生成回答，现在分别是decoded_answers, generated_ids, generated_steps_representation
         #         outputs = parallel_model.module.generate(
         #             **batch,
+        #             tokenizer=tokenizer, # Added tokenizer
         #             max_new_tokens=max_new_tokens,
         #             synced_gpus=not configs.only_eval,
         #         )
+        #         import pdb; pdb.set_trace()
         #         # 解码和评估
-        #         text_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
-        #         answer_output = text_output.split("#")[-1].replace(",", "").strip()
-        #         cot_output = (
-        #             ("\n".join(text_output.split("\n")[1:])).split("#")[0].strip()
-        #         )
+        #         # text_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        #         # answer_output = text_output.split("#")[-1].replace(",", "").strip()
+        #         # list转换为str
+        #         print(question)
+        #         print(outputs[0])
+        #         answer_output = outputs[0][0] if isinstance(outputs[0], list) and outputs[0] else outputs[0]
+        #         # cot_output = (
+        #         #     ("\n".join(text_output.split("\n")[1:])).split("#")[0].strip()
+        #         # )
 
-        #         if idx < 5 and rank == 0:
-        #             # print some examples
-        #             print(
-        #                 f"Question {test_idx}: Answer = '{answer}' CoT = '{answer_cot}'"
-        #             )
-        #             print(f"Full output: '{tokenizer.decode(outputs[0])}'")
-        #             print(f"Extracted Output: '{answer_output}'")
+        #         # if idx < 5 and rank == 0:
+        #         #     # print some examples
+        #         #     print(
+        #         #         f"Question {current_test_idx}: Answer = '{answer}' CoT = '{answer_cot}'"
+        #         #     )
+        #         #     print(f"Full output: '{tokenizer.decode(outputs[0])}'")
+        #         #     print(f"Extracted Output: '{answer_output}'")
         #         # 计算准确率
         #         cor += answer_output == answer
-        #         cor_cot += cot_output == answer_cot
+        #         # cor_cot += cot_output == answer_cot
 
         #         pbar.update(1)
         #         pbar.set_description(
@@ -492,28 +519,30 @@ def main():
         #         )
 
         #     pbar.close()
-        #     print(f"Device {rank}: Cor={cor}, CoT={cor_cot}, Total={total}")
+        #     # print(f"Device {rank}: Cor={cor}, CoT={cor_cot}, Total={total}")
+        #     print(f"Device {rank}: Cor={cor}, Total={total}")
         # # 汇总多GPU上的评估结果，计算并记录最终的准确率指标。
-        # dist.all_reduce(cor_cot, op=dist.ReduceOp.SUM)
+        # # dist.all_reduce(cor_cot, op=dist.ReduceOp.SUM)
         # dist.all_reduce(cor, op=dist.ReduceOp.SUM)
         # dist.all_reduce(total, op=dist.ReduceOp.SUM)
 
-        # cor_cot = cor_cot.item()
+        # # cor_cot = cor_cot.item()
         # cor = cor.item()
         # total = total.item()
         # if rank == 0:
         #     print(f"Accuracy on validation set: {cor} / {total} = {cor/total}")
-        #     print(f"CoT match on validation set: {cor_cot} / {total} = {cor_cot/total}")
+        #     # print(f"CoT match on validation set: {cor_cot} / {total} = {cor_cot/total}")
         # sys.stdout.flush()
 
         # if wandb_run:
-        #     wandb_run.log({"eval/acc": cor / total, "eval/cot_em": cor_cot / total})
+        #     # wandb_run.log({"eval/acc": cor / total, "eval/cot_em": cor_cot / total})
+        #     wandb_run.log({"eval/acc": cor / total})
 
         # if configs.only_eval:
         #     break
 
-        dist.barrier()
-        # 如果配置为仅保存改进的模型，且当前准确率超过了最佳准确率，则保存模型。
+        # dist.barrier()
+        # # 如果配置为仅保存改进的模型，且当前准确率超过了最佳准确率，则保存模型。
         # if (
         #     cor / total > best_acc
         #     and configs.save_only_improve

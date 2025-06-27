@@ -1,0 +1,35 @@
+# need 4 gpus
+
+project: coconut
+save_path: YOUR_PATH_TO_SAVE_THE_MODEL
+name: gsm-coconut-test
+
+only_eval: False
+
+
+coconut: True
+cot: False
+no_thoughts: False
+no_cot: False
+
+c_thought: 2
+epochs_per_stage: 3
+max_latent_stage: 3
+pad_latent_to_max: True
+
+save_only_improve: False
+uniform_prob: 0.0
+model_id: /data2/xxw_data/data/huggingface/llama3.2_3b_instruct
+load_model_path: None
+seed: 0
+resume: 0
+bf16: True
+train_path: /data2/xxw_data/projects/LLM/coconut/data/gsm_test.json
+val_path: /data2/xxw_data/projects/LLM/coconut/data/gsm_valid.json
+reset_optimizer: True
+batch_size_training: 1
+debug: True
+gradient_accumulation_steps: 1
+num_epochs: 30
+lr: !!float "0.0016"
+weight_decay: 0.01

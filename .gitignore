@@ -14,3 +14,5 @@ wandb/
 training_logs/
 check_data.py
 check_pkl.py
+ckpt/
+diffusive_cot_gpt2base/

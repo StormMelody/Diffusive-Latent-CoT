@@ -1,3 +1,5 @@
+import sys
+sys.path.append("/data2/xxw_data/projects/LLM/Diffusive-Latent-CoT/models/vlas")
 import torch
 import torch.nn as nn
 import numpy as np
@@ -17,7 +19,7 @@ from transformers.models.gpt2 import GPT2LMHeadModel
 from collections import namedtuple
 Outputs = namedtuple("Outputs", ["loss", "inputs_embeds", "logits"])
 
-class DiffusiveCoT_test(nn.Module):
+class DiffusiveCoT(nn.Module):
     def __init__(
         self,
         llm: GPT2LMHeadModel,
@@ -32,13 +34,8 @@ class DiffusiveCoT_test(nn.Module):
         self.ddim_diffusion = None
         self.diffusion_steps = 100
         self.diffusion = create_diffusion(timestep_respacing="", noise_schedule = 'squaredcos_cap_v2', diffusion_steps=self.diffusion_steps, sigma_small=True, learn_sigma = False)
-        self.adaptor  = nn.Linear(2 * 2048, 2048, bias=True)
-        # tested with GPT2 and Llama3
-        if isinstance(self.base_causallm, GPT2LMHeadModel):
-            # embedding为词嵌入层，能够通过token_id获取对应的embedding
-            self.embedding = self.base_causallm.transformer.get_input_embeddings()
-        else:
-            self.embedding = self.base_causallm.get_input_embeddings()
+        self.adaptor  = nn.Linear(2 * 768, 768, bias=True)
+
         self.mse = nn.MSELoss()
         self.CEloss = CrossEntropyLoss()
 
@@ -59,7 +56,6 @@ class DiffusiveCoT_test(nn.Module):
         # Extract arguments from kwargs passed from run.py
         # These are expected to be present based on modifications in run.py
         # Create question_mask, steps_mask, and answer_mask from input_ids
-        import pdb; pdb.set_trace()
         question_mask = torch.zeros_like(input_ids, dtype=torch.bool, device=input_ids.device)
         steps_mask = torch.zeros_like(input_ids, dtype=torch.bool, device=input_ids.device) # Overall steps block
         answer_mask = torch.zeros_like(input_ids, dtype=torch.bool, device=input_ids.device)
@@ -158,7 +154,8 @@ class DiffusiveCoT_test(nn.Module):
 
         sample_fn = self.base_causallm.forward
         cot_pred = []
-
+        if isinstance(self.base_causallm, GPT2LMHeadModel):
+            self.embedding = self.base_causallm.transformer.get_input_embeddings()
         inputs_embeds = self.embedding(input_ids)
         
         # New: Calculate mean embeddings for each individual step
@@ -412,8 +409,8 @@ class DiffusiveCoT_test(nn.Module):
                 past_key_values=past_key_values,
                 output_hidden_states=True,
             )
+            # import pdb; pdb.set_trace()
             logits.append(answer_pred['logits'][:,0]) # Corrected indexing from [:,i] to [:,0]
-            import pdb; pdb.set_trace()
             #TODO:answer和cot的loss需要用logits而不是embedding计算。
             # answer_loss += self.CEloss(answer_pred['last_hidden_state'][:,i], answer[:,i])
             # answer_loss += self.CEloss(answer_pred['hidden_states'][-1][:,i], answer[:,i])
@@ -497,85 +494,55 @@ class DiffusiveCoT_test(nn.Module):
                 pad_token_for_empty_q = tokenizer.pad_token_id if tokenizer.pad_token_id is not None else 50256
                 current_question_ids = torch.tensor([pad_token_for_empty_q], device=device, dtype=torch.long)
             question_ids_list.append(current_question_ids)
-        
-        # Pad the question_ids_list to form a batch
-        # Note: This padding assumes all questions should have the same length for batch processing in embedding.
-        # If your self.embedding can handle varied lengths directly (e.g. if it's part of an RNN or transformer that pads internally),
-        # this explicit padding might not be strictly necessary, or could be done differently.
-        # However, for a simple self.embedding(question_ids_padded) call, they need to be uniform.
+
         question_ids_padded = pad_sequence(question_ids_list, batch_first=True, padding_value=tokenizer.pad_token_id if tokenizer.pad_token_id is not None else 50256)
 
         # 1. Get question embeddings
+        if isinstance(self.base_causallm, GPT2LMHeadModel):
+            self.embedding = self.base_causallm.transformer.get_input_embeddings()
         question_embeds = self.embedding(question_ids_padded) # (batch_size, padded_seq_len, embed_dim)
-
-        # 2. Calculate mean question embedding
-        # Adjust mean calculation for padding if necessary, or ensure masks are used if embeddings are from unpadded sequences.
-        # If using question_ids_padded, we need a mask for non-padded tokens to calculate mean correctly.
         actual_lengths = torch.tensor([len(q_ids) for q_ids in question_ids_list], device=device)
         padding_mask_for_mean = torch.arange(question_ids_padded.size(1), device=device)[None, :] < actual_lengths[:, None]
         
         # Expand padding_mask_for_mean to match question_embeds dimensions for masked_fill
         expanded_padding_mask = padding_mask_for_mean.unsqueeze(-1).expand_as(question_embeds)
-        
-        # Zero out embeddings for padding tokens before summing for mean calculation
+
         masked_question_embeds = question_embeds.masked_fill(~expanded_padding_mask, 0.0)
         sum_question_embed = torch.sum(masked_question_embeds, dim=1) # Sum non-padded embeddings
         mean_question_embed = sum_question_embed / actual_lengths.unsqueeze(1).clamp(min=1) # Divide by actual lengths
         # mean_question_embed = torch.mean(question_embeds, dim=1) # (batch_size, embed_dim) - Original, less accurate with padding
 
-        # 3. Generate CoT representation using diffusion model (if use_diff is True)
-        # The diffusion model should be conditioned on the mean_question_embed
-        # This part needs to align with how your diffusion model expects conditioning input
         if self.use_diff and self.diffusion is not None:
-            # Assuming diffusion model takes mean_question_embed as conditioning
-            # and outputs a steps_representation of shape (batch_size, num_steps, embed_dim)
-            # The exact call to self.diffusion.p_sample_loop will depend on its signature
-            # For example, it might need a shape argument for the output noise
-            # Placeholder for diffusion model call:
-            # This needs to be adapted to your specific diffusion model's interface.
-            # Let's assume it generates a fixed number of steps or a variable number up to a max.
-            # For this example, let's assume it generates a single tensor representing all steps.
-            # The shape of generated_steps_representation would be (batch_size, steps_seq_len, embed_dim)
-            # This is a simplified placeholder. You'll need to replace this with your actual diffusion call.
-            
-            # Example: if diffusion model generates a sequence of step embeddings
-            # The shape of the noise prior would be (batch_size, max_cot_length, self.embedding.embedding_dim)
-            # You might need to define max_cot_length or get it from config.
-            max_cot_length = 10 # Example max CoT length
-            noise_shape = (batch_size, max_cot_length, self.embedding.embedding_dim)
-            noise = torch.randn(noise_shape, device=device)
-            
-            # The conditioning input for the diffusion model needs to be prepared.
-            # If it's just the mean_question_embed, it might need to be expanded or processed.
-            # This is highly dependent on your diffusion model's architecture.
-            # For now, let's assume a simplified scenario where it can take mean_question_embed directly
-            # or a processed version of it.
-            # generated_steps_representation = self.diffusion.p_sample_loop(
-            #     noise, 
-            #     model_kwargs={'cond': mean_question_embed} # Example conditioning
-            # )
-            # For now, as a placeholder, let's assume it returns something like steps_tensor from forward
-            # This part is crucial and needs to be correctly implemented based on your diffusion model.
-            # If your diffusion model is trained to predict the `steps_tensor` (mean embeddings of steps),
-            # then the output shape would be (batch_size, max_steps, embedding_dim)
-            # Let's assume `self.diffusion.p_sample_loop` can take `mean_question_embed` and `noise`
-            # and returns a tensor of shape (batch_size, num_generated_steps, embedding_dim)
-            num_generated_steps = 5 # Example: diffusion generates 5 steps
-            generated_steps_representation = torch.randn(batch_size, num_generated_steps, self.embedding.embedding_dim, device=device)
-            # ^^^ THIS IS A CRITICAL PLACEHOLDER - REPLACE WITH ACTUAL DIFFUSION SAMPLING ^^^ 
+            max_cot_length = 16  # Define a reasonable default for CoT length
+
+            class Denoiser(nn.Module):
+                def __init__(self, model, diffusion, question_embed):
+                    super().__init__()
+                    self.model = model
+                    self.diffusion = diffusion
+                    self.question_embed = question_embed
+
+                def forward(self, x, t, **kwargs):
+                    inputs_embeds = kwargs.get('inputs_embeds', x)
+                    time_embed = self.diffusion.time_embedding(t, inputs_embeds.shape[-1])
+                    conditioned_input = inputs_embeds + time_embed.unsqueeze(1) + self.question_embed.unsqueeze(1)
+                    output = self.model(inputs_embeds=conditioned_input, return_dict=True)
+                    return output.last_hidden_state
+
+            denoiser = Denoiser(self.base_causallm, self.diffusion, mean_question_embed)
+            shape = (batch_size, max_cot_length, self.embedding.embedding_dim)
+
+            generated_steps_representation = self.diffusion.p_sample_loop(
+                denoiser,
+                shape,
+                clip_denoised=False,
+                progress=True,
+            )
 
         else:
-            # If not using diffusion, create a zero tensor for steps_representation
-            # Or handle this case as per your model's design (e.g., no CoT)
-            # Assuming a shape that can be processed by the adaptor later, e.g., (batch_size, 0, embed_dim) or (batch_size, 1, embed_dim) with zeros
-            # For consistency with the diffusion case, let's assume it should be (batch_size, num_steps, embed_dim)
-            # If no CoT, num_steps could be 0 or 1 (with a zero embedding).
-            # Let's use num_steps = 1 and a zero embedding for simplicity if no diffusion.
             generated_steps_representation = torch.zeros(batch_size, 1, self.embedding.embedding_dim, device=device)
 
-        # 4. Summarize CoT representation (e.g., mean pooling if it's a sequence of step embeddings)
-        # If generated_steps_representation is already a summary (e.g., single vector per sample), this might not be needed.
-        # Assuming generated_steps_representation is (batch_size, num_steps, embed_dim)
+
         if generated_steps_representation.dim() == 3 and generated_steps_representation.size(1) > 0:
             summarized_cot_embed = torch.mean(generated_steps_representation, dim=1) # (batch_size, embed_dim)
         elif generated_steps_representation.dim() == 2: # If it's already (batch_size, embed_dim)
@@ -587,68 +554,20 @@ class DiffusiveCoT_test(nn.Module):
         combined_embed = torch.cat([mean_question_embed, summarized_cot_embed], dim=1) # (batch_size, 2 * embed_dim)
         adaptor_output = self.adaptor(combined_embed) # (batch_size, embed_dim)
 
-        # 6. Add adaptor_output to the original question_embeds (or a part of it)
-        # This forms the final input embeddings for the autoregressive generation of the answer.
-        # One common strategy is to prepend this to the question or use it as a prefix.
-        # Here, let's assume we are replacing/prepending to the question embeddings.
-        # For simplicity, let's treat adaptor_output as a prefix to the input for generation.
-        # The `inputs_embeds` for `base_causallm.generate` should be (batch_size, seq_len, embed_dim)
-        
-        # Option A: Prepend adaptor_output as a new token's embedding
-        # final_input_embeds = torch.cat([adaptor_output.unsqueeze(1), question_embeds], dim=1)
-        
-        # Option B: Add to the first token embedding (like a prompt tuning vector)
-        # This might be more suitable if the LLM is fine-tuned this way.
-        # final_input_embeds = question_embeds.clone()
-        # final_input_embeds[:, 0, :] = final_input_embeds[:, 0, :] + adaptor_output
-
-        # Option C: Use only the adaptor_output as the initial input if the question is already encoded in it.
-        # This depends heavily on how the model was trained.
-        # Let's go with a common approach: use question_embeds and potentially modify them or add a prefix.
-        # For now, let's assume the adaptor_output is a summary that should guide generation starting from an empty slate, 
-        # or be used alongside the question. 
-        # If the task is to generate an answer given the question and CoT, 
-        # the input to `base_causallm.generate` should represent this combined context.
-
-        # Let's use the original question_embeds and pass the adaptor_output (summary of Q+CoT) 
-        # as `prompt_embeds` if the generate function supports it, or modify inputs_embeds. 
-        # Most `generate` functions take `input_ids` or `inputs_embeds`.
-        # We need to decide how `adaptor_output` influences the generation. 
-        # A simple way is to make it the *only* input if it's meant to be a complete summary, 
-        # or prepend it to the question if the question text is still needed. 
-
-        # Let's assume the adaptor_output is a condensed representation that should be 
-        # the starting point for the answer generation. So, its shape should be (batch_size, 1, embed_dim).
         final_input_embeds = adaptor_output.unsqueeze(1) # Shape: (batch_size, 1, embed_dim)
 
-        # 7. Generate answer autoregressively using self.base_causallm.generate
-        # The `generate` method of Hugging Face models can take `inputs_embeds`.
-        # We also need to provide attention_mask if `inputs_embeds` are used.
-        # Since `final_input_embeds` has seq_len=1, attention_mask is simple.
         attention_mask = torch.ones(final_input_embeds.size(0), final_input_embeds.size(1), device=device, dtype=torch.long)
 
-        # Define generation parameters
-        # Pad token ID for generation (use tokenizer's pad_token_id or eos_token_id if pad is not set)
+
         pad_token_id = tokenizer.pad_token_id if tokenizer.pad_token_id is not None else tokenizer.eos_token_id
         eos_token_id = tokenizer.eos_token_id
 
-        # Ensure eos_token_id is a list if multiple are possible, or a single int
-        # For GPT2, eos_token_id is usually a single ID.
 
-        # ... existing code ...
-        # 5. Combine mean_question_embed and summarized_cot_embed using the adaptor
-        # The adaptor's input dimension should match the concatenated dimension of mean_question_embed and summarized_cot_embed
         adaptor_input = torch.cat([mean_question_embed, summarized_cot_embed], dim=-1)
         combined_representation = self.adaptor(adaptor_input) # (batch_size, embed_dim)
 
-        # Use the combined_representation as the sole input for autoregressive generation
-        # This represents the state after the "implicit CoT" part
         inputs_embeds_for_generation = combined_representation.unsqueeze(1) # Shape: (batch_size, 1, embed_dim)
 
-        # Attention mask for this single token input
-        # Ensure batch_size and device are defined in the scope
-        # batch_size = question_ids.size(0) # Should be defined earlier
-        # device = question_ids.device # Should be defined earlier
         final_attention_mask = torch.ones(inputs_embeds_for_generation.size(0), 1, device=inputs_embeds_for_generation.device, dtype=torch.long)
 
         # 6. Generate answer autoregressively using the base causal LM
@@ -666,14 +585,6 @@ class DiffusiveCoT_test(nn.Module):
             # early_stopping=True # Optional: if you want to stop early for beams
         )
 
-        # `generated_ids` will include the input sequence if `inputs_embeds` was the start.
-        # Since our `final_input_embeds` was just the prefix, `generated_ids` starts with that prefix's effect.
-        # We might need to slice `generated_ids` if the prefix itself corresponds to some tokens we want to exclude.
-        # However, `inputs_embeds` doesn't map directly to input_ids for the prefix part.
-        # The output `generated_ids` are the token IDs of the generated sequence.
-
-        # Decode generated IDs to text
-        # Skip special tokens during decoding to get cleaner text
         decoded_answers = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
 
         return decoded_answers, generated_ids, generated_steps_representation # Return decoded text, raw IDs, and CoT
