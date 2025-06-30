@@ -428,6 +428,7 @@ class GaussianDiffusion:
                  - 'sample': a random sample from the model.
                  - 'pred_xstart': a prediction of x_0.
         """
+        # 它会先让模型预测噪声 (\epsilon)，然后用这个预测的噪声计算出后验分布 (q(x_{t-1} | x_t, x_0)) 的均值 ( out["mean"] ) 和对数方差 ( out["log_variance"] )
         out, kv_cache = self.p_mean_variance(
             model,
             x,
@@ -526,16 +527,16 @@ class GaussianDiffusion:
 
         for i in indices:
             t = th.tensor([i] * shape[0], device=device)
-            # with th.no_grad():
-            out = self.p_sample(
-                model,
-                img,
-                t,
-                clip_denoised=clip_denoised,
-                denoised_fn=denoised_fn,
-                cond_fn=cond_fn,
-                model_kwargs=model_kwargs,
-            )
+            with th.no_grad():
+                out = self.p_sample(
+                    model,
+                    img,
+                    t,
+                    clip_denoised=clip_denoised,
+                    denoised_fn=denoised_fn,
+                    cond_fn=cond_fn,
+                    model_kwargs=model_kwargs,
+                )
             yield out
             img = out["sample"]
 

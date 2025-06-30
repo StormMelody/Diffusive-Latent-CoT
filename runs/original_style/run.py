@@ -241,7 +241,6 @@ def main():
     collator = MyCollator(tokenizer, latent_id=latent_id, label_pad_token_id=-100)
 
     for epoch in range(configs.resume, configs.num_epochs):
-        epoch=30
         scheduled_stage = (
             0 if (configs.cot or configs.no_cot) else epoch // configs.epochs_per_stage
         )   # 确定当前的训练阶段。Coconut使用课程学习策略，随着训练的进行，逐渐增加潜在思维标记的数量。
@@ -391,7 +390,7 @@ def main():
             # 模型保存
             if (
                 not configs.save_only_improve
-                and not configs.debug
+                and configs.debug
                 and not configs.only_eval
             ):
                 states = parallel_model.state_dict()

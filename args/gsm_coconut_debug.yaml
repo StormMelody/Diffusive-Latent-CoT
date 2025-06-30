@@ -19,7 +19,7 @@ pad_latent_to_max: True
 
 save_only_improve: False
 uniform_prob: 0.0
-model_id: /data2/xxw_data/data/huggingface/llama3.2_3b_instruct
+model_id: openai-community/gpt2
 load_model_path: None
 seed: 0
 resume: 0

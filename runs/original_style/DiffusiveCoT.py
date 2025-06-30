@@ -78,18 +78,39 @@ class DiffusiveCoT(nn.Module):
             classified_embeds_list.append(classified_embeds)
             classified_ids_list.append(classified_ids)
         
-        # 计算question embedding的平均值
-        question_embeds = []
+        # 提取 question embedding
+        question_embeds_list = []
         for classified_embeds in classified_embeds_list:
             # 确保key=1存在，并且对应的embedding不为空
             if 1 in classified_embeds and classified_embeds[1].numel() > 0:
-                question_embeds.append(classified_embeds[1].mean(dim=0))
-            else:
-                # 如果没有question embedding，则添加一个零向量作为占位符
-                # 您可以根据需要调整这里的默认行为
-                question_embeds.append(torch.zeros(inputs_embeds.shape[-1], device=inputs_embeds.device))
-        
-        question_embeds = torch.stack(question_embeds, dim=0).unsqueeze(1)      # 将列表转换为张量，并增加一个维度以匹配三维格式
+                question_embeds_list.append(classified_embeds[1])
+        # 往 question embedding 最前面填充 self.pad_token_id
+        if question_embeds_list:
+            # 使用 pad_sequence 和 flip 实现左填充
+            # 1. 为了实现左填充，我们先反转序列
+            reversed_question_embeds_list = [torch.flip(embed, dims=[0]) for embed in question_embeds_list]
+            # 2. 使用 pad_sequence 进行右填充 (用 0)
+            padded_reversed_embeds = torch.nn.utils.rnn.pad_sequence(reversed_question_embeds_list, batch_first=True, padding_value=0)
+            # 3. 再反转回来，实现左填充
+            question_embeds = torch.flip(padded_reversed_embeds, dims=[1])
+            
+            # 4. 获取 pad_token_id 对应的 embedding
+            pad_token_id = self.pad_token_id
+            pad_embed = self.base_causallm.get_input_embeddings()(torch.tensor(pad_token_id, device=inputs_embeds.device))
+
+            # 5. 创建一个 mask 来标识填充位置，并将 0 替换为 pad_embed
+            # 首先，创建每个序列的 mask (1 for real tokens, 0 for padding)
+            masks = [torch.ones(embed.shape[0], device=inputs_embeds.device) for embed in question_embeds_list]
+            # 同样的方式进行 padding
+            reversed_masks = [torch.flip(mask, dims=[0]) for mask in masks]
+            padded_reversed_masks = torch.nn.utils.rnn.pad_sequence(reversed_masks, batch_first=True, padding_value=0)
+            attention_mask = torch.flip(padded_reversed_masks, dims=[1])
+
+            # 使用 mask 将填充位置的 embedding 替换为 pad_embed
+            question_embeds = question_embeds * attention_mask.unsqueeze(-1) + (1 - attention_mask.unsqueeze(-1)) * pad_embed.view(1, 1, -1)
+        else:
+            # 如果列表为空，则创建一个空的张量
+            question_embeds = torch.empty(0, 0, inputs_embeds.shape[-1], device=inputs_embeds.device)
 
         # 获取answer embedding和id，并填充为三维张量
         answer_embeds_list = []
@@ -204,6 +225,7 @@ class DiffusiveCoT(nn.Module):
                 answer_label[:,i].view(-1)
                 )
             past_key_values = answer_pred['past_key_values']
+        # import pdb; pdb.set_trace()
         return cot_loss + answer_loss
 
     def _repeat_tensor(
@@ -242,12 +264,16 @@ def parse_input_ids(input_ids: torch.Tensor) -> torch.Tensor:
         - 5: END_OF_TEXT_TOKEN
         - 6, 7, 8, ...: steps
     """
-    BOD_TOKEN = 50257
-    EOD_TOKEN = 50258
-    STEP_START_TOKEN = 16791
-    STEP_END_TOKEN = 198
-    END_OF_TEXT_TOKEN = 50256
-
+    # BOD_TOKEN = 50257
+    # EOD_TOKEN = 50258
+    # STEP_START_TOKEN = 16791
+    # STEP_END_TOKEN = 198
+    # END_OF_TEXT_TOKEN = 50256
+    BOD_TOKEN = 128256
+    EOD_TOKEN = 128257
+    STEP_START_TOKEN = 2501
+    STEP_END_TOKEN = 40171
+    END_OF_TEXT_TOKEN = 128009
     is_1d = input_ids.dim() == 1
     if is_1d:
         input_ids_2d = input_ids.unsqueeze(0)
